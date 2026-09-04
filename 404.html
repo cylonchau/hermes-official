@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh" class="lang-zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Dynamic Base Path for 404 Pages: Ensures assets and links resolve correctly at any URL depth -->
+  <script>
+    (function() {
+      try {
+        var pathname = window.location.pathname;
+        var segments = pathname.split('/').filter(Boolean);
+        var isGithubSubpath = window.location.hostname.indexOf('github.io') !== -1 && segments.length > 0;
+        var basePath = isGithubSubpath ? '/' + segments[0] + '/' : '/';
+        var baseTag = document.createElement('base');
+        baseTag.href = window.location.origin + basePath;
+        document.head.appendChild(baseTag);
+      } catch(e) {}
+    })();
+  </script>
+
+  <!-- Early Client Adaptive System: Zero-Flicker Theme & Language Initialization -->
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('hermes_theme');
+        var theme = savedTheme;
+        if (!theme) {
+          theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+
+        var currentDocLang = document.documentElement.getAttribute('data-lang');
+        var path = (window.location && window.location.pathname) ? window.location.pathname.toLowerCase() : '';
+        var pathLang = null;
+        var supported = ['zh-tw', 'zh-hk', 'zh', 'en', 'ja', 'ko', 'vi', 'ru', 'es'];
+        for (var i = 0; i < supported.length; i++) {
+          var sl = supported[i];
+          if (path.indexOf('/' + sl + '/') !== -1 || path.indexOf('/' + sl + '.') !== -1 || (path.length >= sl.length && path.slice(-sl.length) === sl)) {
+            pathLang = sl;
+            break;
+          }
+        }
+        var lang = pathLang || currentDocLang || localStorage.getItem('hermes_lang');
+        if (!lang) lang = 'zh';
+        document.documentElement.lang = lang;
+        document.documentElement.setAttribute('data-lang', lang);
+        if (lang.indexOf('zh') === 0) {
+          document.documentElement.classList.add('lang-zh');
+          document.documentElement.classList.remove('lang-non-zh');
+        } else {
+          document.documentElement.classList.remove('lang-zh');
+          document.documentElement.classList.add('lang-non-zh');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <title>404 - 页面未找到 · Page Not Found | Hermes DNS</title>
+  <meta name="description" content="404 - 请求的页面未找到或已迁移。Hermes 全能企业级私有权威DNS资产调度平台。">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <style>
+    .error-main-wrap {
+      min-height: calc(100vh - 76px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 24px 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-ambient-glow {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 650px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(6, 182, 212, 0.12) 45%, rgba(0, 0, 0, 0) 70%);
+      filter: blur(75px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .error-ambient-glow {
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(255, 255, 255, 0) 75%);
+    }
+
+    .error-card-box {
+      max-width: 860px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .error-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      background: var(--bg-glass-card);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg), 0 0 40px rgba(99, 102, 241, 0.12);
+    }
+
+    .error-terminal-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 22px;
+      background: rgba(10, 13, 20, 0.85);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    [data-theme="light"] .error-terminal-topbar {
+      background: #f1f5f9;
+      border-bottom-color: rgba(15, 23, 42, 0.1);
+    }
+
+    .error-window-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .error-window-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .error-dot-red { background: #ef4444; }
+    .error-dot-yellow { background: #f59e0b; }
+    .error-dot-green { background: #10b981; }
+
+    .error-topbar-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.5px;
+    }
+
+    .error-badge-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #f87171;
+      font-weight: 600;
+    }
+
+    [data-theme="light"] .error-badge-status {
+      background: #fee2e2;
+      border-color: #fca5a5;
+      color: #dc2626;
+    }
+
+    .error-content-body {
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .error-big-number {
+      font-family: 'JetBrains Mono', 'Plus Jakarta Sans', sans-serif;
+      font-size: 6.8rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 40%, #06b6d4 80%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 6px 20px rgba(99, 102, 241, 0.35));
+    }
+
+    .error-sub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: var(--primary-light);
+      margin-bottom: 18px;
+    }
+
+    [data-theme="light"] .error-sub-badge {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+      color: #4f46e5;
+    }
+
+    .error-heading {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      color: var(--text-white);
+      letter-spacing: -0.5px;
+    }
+
+    .error-lead-text {
+      font-size: 1.02rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 auto 28px auto;
+      line-height: 1.7;
+    }
+
+    .error-console-box {
+      background: rgba(10, 13, 20, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      text-align: left;
+      color: #94a3b8;
+      max-width: 660px;
+      margin: 0 auto 36px auto;
+      line-height: 1.8;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="light"] .error-console-box {
+      background: #f8fafc;
+      border-color: rgba(15, 23, 42, 0.12);
+      color: #334155;
+      box-shadow: inset 0 2px 6px rgba(15, 23, 42, 0.04);
+    }
+
+    .error-console-line {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .error-console-prompt {
+      color: var(--accent-cyan-light);
+      font-weight: 700;
+    }
+
+    [data-theme="light"] .error-console-prompt {
+      color: #0284c7;
+    }
+
+    .error-console-highlight {
+      color: #f87171;
+      font-weight: 600;
+    }
+
+    [data-theme="light"] .error-console-highlight {
+      color: #dc2626;
+    }
+
+    .error-action-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .error-quick-nav {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 32px;
+    }
+
+    .error-quick-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    .error-quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .error-quick-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+
+    [data-theme="light"] .error-quick-card {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.08);
+      color: #0f172a;
+    }
+
+    .error-quick-card:hover {
+      border-color: var(--primary-light);
+      background: rgba(99, 102, 241, 0.08);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    [data-theme="light"] .error-quick-card:hover {
+      border-color: #6366f1;
+      background: #f1f5f9;
+    }
+
+    .error-quick-icon {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .error-content-body {
+        padding: 32px 20px;
+      }
+      .error-big-number {
+        font-size: 5rem;
+      }
+      .error-heading {
+        font-size: 1.45rem;
+      }
+      .error-action-btns {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .error-quick-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= 1. HEADER / NAVBAR ================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="index.html#hero" class="brand-logo">
+        <img src="assets/images/logo.png" alt="Hermes DNS Platform" class="brand-logo-img">
+        <div class="brand-text-box">
+          <span class="brand-name">HERMES DNS</span>
+          <span class="brand-sub" data-i18n="brand_sub">全景DNS域名平台</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html#authoritative-core" class="nav-link" data-i18n="nav_arch">权威底座</a>
+        <a href="index.html#cloud-native" class="nav-link" data-i18n="nav_cloud">云原生基座</a>
+        <a href="index.html#domain-matrix" class="nav-link" data-i18n="nav_domain_matrix">域名与网关</a>
+        <a href="index.html#rust-sdk" class="nav-link" data-i18n="nav_rust">Rust SDK</a>
+        <a href="index.html#ssl-pipeline" class="nav-link" data-i18n="nav_ssl">SSL 证书</a>
+        <a href="index.html#ai-ecosystem" class="nav-link" data-i18n="nav_chatops">AI & ChatOps</a>
+        <a href="index.html#comparison" class="nav-link" data-i18n="nav_comparison">竞品对比</a>
+        <a href="index.html#pricing" class="nav-link" data-i18n="nav_pricing">商业方案</a>
+        <a href="index.html#faq" class="nav-link" data-i18n="nav_faq">常见问题</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme" title="切换深色/浅色模式">🌙</button>
+
+        <div class="lang-selector-box">
+          <select class="lang-select" id="lang-select" aria-label="Language Selector">
+            <option value="zh" selected>🇨🇳 简体中文</option>
+            <option value="zh-tw">🇹🇼 繁體中文</option>
+            <option value="zh-hk">🇭🇰 粵語</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="es">🇪🇸 Español</option>
+          </select>
+        </div>
+
+        <a href="index.html#pricing" class="btn btn-primary btn-sm">
+          <span data-i18n="nav_inquiry_btn">商业咨询</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= 2. 404 CYBER TERMINAL MAIN ================= -->
+  <main class="error-main-wrap">
+    <div class="error-ambient-glow"></div>
+
+    <div class="error-card-box">
+      <div class="error-card">
+        <div class="error-terminal-topbar">
+          <div class="error-window-controls">
+            <span class="error-window-dot error-dot-red"></span>
+            <span class="error-window-dot error-dot-yellow"></span>
+            <span class="error-window-dot error-dot-green"></span>
+          </div>
+          <div class="error-topbar-title">hermes-gateway :: error_404.log (NXDOMAIN)</div>
+          <div class="error-badge-status">● RCODE: NXDOMAIN (404)</div>
+        </div>
+
+        <div class="error-content-body">
+          <div class="error-big-number">404</div>
+
+          <div class="error-sub-badge">
+            <span>🛡️</span>
+            <span>DNS RESOLUTION FAILED · ROUTE UNKNOWN</span>
+          </div>
+
+          <h1 class="error-heading">请求的资源路径未就绪或已被移动</h1>
+          <p class="error-lead-text">
+            Hermes 全球权威调度网关未能在当前集群路由表中检索到您请求的目标地址。可能是链接地址输入有误、文档已平滑迁移，或该自定义策略已被注销。
+          </p>
+
+          <div class="error-console-box">
+            <div class="error-console-line">
+              <span class="error-console-prompt">&gt;</span>
+              <span>QUERY: GET <script>document.write(window.location.pathname || '/unknown');</script></span>
+            </div>
+            <div class="error-console-line">
+              <span class="error-console-prompt">&gt;</span>
+              <span>STATUS: <span class="error-console-highlight">404 Not Found · NXDOMAIN</span> | Latency: 0.28ms</span>
+            </div>
+            <div class="error-console-line">
+              <span class="error-console-prompt">&gt;</span>
+              <span>ROUTER: CoreDNS v1.11.3 + BIND 9 Dual-Core Authority Mesh</span>
+            </div>
+            <div class="error-console-line">
+              <span class="error-console-prompt">&gt;</span>
+              <span>FALLBACK: Active failover recommended. Return to primary zone below.</span>
+            </div>
+          </div>
+
+          <div class="error-action-btns">
+            <a href="index.html" class="btn btn-primary btn-lg">
+              <span>🏠 返回官网首页 · Return Home</span>
+            </a>
+            <a href="index.html#pricing" class="btn btn-secondary btn-lg">
+              <span>💎 商业购买方案 · Pricing</span>
+            </a>
+            <a href="https://t.me/hermes_dns_official" target="_blank" rel="noopener" class="btn btn-secondary btn-lg" style="border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">
+              <span>✈️ Telegram 专线支持</span>
+            </a>
+          </div>
+
+          <div class="error-quick-nav">
+            <div class="error-quick-title">快速前往核心功能架构模块</div>
+            <div class="error-quick-grid">
+              <a href="index.html#authoritative-core" class="error-quick-card">
+                <span class="error-quick-icon">🏛️</span>
+                <span>权威底座架构</span>
+              </a>
+              <a href="index.html#domain-matrix" class="error-quick-card">
+                <span class="error-quick-icon">🌐</span>
+                <span>域名与流量网关</span>
+              </a>
+              <a href="index.html#rust-sdk" class="error-quick-card">
+                <span class="error-quick-icon">🦀</span>
+                <span>Rust SDK 检测矩阵</span>
+              </a>
+              <a href="index.html#comparison" class="error-quick-card">
+                <span class="error-quick-icon">⚖️</span>
+                <span>全景竞品对比</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= 3. FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <img src="assets/images/logo.png" alt="Hermes DNS Platform" style="height: 34px; border-radius: 6px;">
+            <span class="footer-brand-name">HERMES</span>
+          </div>
+          <p data-i18n="footer_desc">Hermes 致力于为全球企业提供最高等级的私有权威 DNS 解析、301/302 重定向、短链代理网关、商业/免费 SSL 闭环、Rust SDK 防阻断逃生与 AI Agent 智能运维能力。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_tech">核心技术底座</h4>
+          <ul>
+            <li><a href="index.html#authoritative-core" data-i18n="footer_link_core">CoreDNS / BIND 9 双内核权威</a></li>
+            <li><a href="index.html#cloud-native" data-i18n="footer_link_cloud">Kubernetes 原生与云原生架构</a></li>
+            <li><a href="index.html#domain-matrix" data-i18n="footer_link_matrix">301/302 重定向 & 代理网关</a></li>
+            <li><a href="index.html#ai-ecosystem" data-i18n="footer_link_ai">AI MCP 协议 & ChatOps 机器人</a></li>
+            <li><a href="index.html#rust-sdk" data-i18n="footer_link_rust">Rust SDK 检测矩阵</a></li>
+            <li><a href="index.html#ssl-pipeline" data-i18n="footer_link_ssl">商业 / 免费 SSL 自动化闭环</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_comm">商业购买 (USDT/USDC)</h4>
+          <ul>
+            <li><a href="index.html#pricing" data-i18n="footer_link_buy_source">全套源码商业买断 (特惠 10,000 U)</a></li>
+            <li><a href="index.html#pricing" data-i18n="footer_link_buy_deploy">程序商业授权部署 (699 U起)</a></li>
+            <li><a href="index.html#pricing" data-i18n="footer_link_buy_support">企业 7x12 专家维保 (UTC+2)</a></li>
+            <li><a href="index.html#pricing" data-i18n="footer_link_calc">方案成本动态计算器</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_contact">商务与技术支持</h4>
+          <ul>
+            <li><span class="footer-tg-label" data-i18n="footer_tg_label">Telegram 官方专线：</span> <a href="https://t.me/hermes_dns_official" target="_blank" rel="noopener" class="footer-tg-link">@hermes_dns_official</a></li>
+            <li class="footer-settlement-note" data-i18n="footer_settlement_note">结算政策：支持主流虚拟币 (USDT / USDC) 支付，不支持 TRON 网络。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 Hermes DNS Management Platform. 保留所有权利。</div>
+        <div style="display: flex; gap: 20px;">
+          <span data-i18n="footer_motto">自主掌控 · 永不宕机 · AI 赋能</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

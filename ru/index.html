@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru" class="lang-non-zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Early Client Adaptive System: Zero-Flicker Theme & Language Initialization -->
+  <script>
+    (function () {
+      try {
+        // 1. Theme adaptation
+        var savedTheme = localStorage.getItem('hermes_theme');
+        var theme = savedTheme;
+        if (!theme) {
+          theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // 2. Language adaptation
+        var currentDocLang = document.documentElement.getAttribute('data-lang');
+        var path = (window.location && window.location.pathname) ? window.location.pathname.toLowerCase() : '';
+        var pathLang = null;
+        var supported = ['zh-tw', 'zh-hk', 'zh', 'en', 'ja', 'ko', 'vi', 'ru', 'es'];
+        for (var i = 0; i < supported.length; i++) {
+          var sl = supported[i];
+          if (path.indexOf('/' + sl + '/') !== -1 || path.indexOf('/' + sl + '.') !== -1 || (path.length >= sl.length && path.slice(-sl.length) === sl)) {
+            pathLang = sl;
+            break;
+          }
+        }
+        var lang = pathLang || currentDocLang || localStorage.getItem('hermes_lang');
+        if (!lang) {
+          var navLangs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+          for (var i = 0; i < navLangs.length; i++) {
+            var raw = navLangs[i];
+            if (!raw) continue;
+            var l = raw.toLowerCase().trim();
+            if (l === 'zh-tw' || l.indexOf('zh-hant-tw') === 0) { lang = 'zh-tw'; break; }
+            if (l === 'zh-hk' || l === 'zh-mo' || l.indexOf('hant') !== -1) { lang = 'zh-hk'; break; }
+            if (l === 'zh' || l === 'zh-cn' || l === 'zh-sg' || l.indexOf('zh-hans') === 0 || l.indexOf('zh') === 0) { lang = 'zh'; break; }
+            if (l.indexOf('ja') === 0) { lang = 'ja'; break; }
+            if (l.indexOf('ko') === 0) { lang = 'ko'; break; }
+            if (l.indexOf('vi') === 0) { lang = 'vi'; break; }
+            if (l.indexOf('ru') === 0 || l.indexOf('uk') === 0 || l.indexOf('be') === 0 || l.indexOf('kk') === 0) { lang = 'ru'; break; }
+            if (l.indexOf('es') === 0) { lang = 'es'; break; }
+            if (l.indexOf('en') === 0) { lang = 'en'; break; }
+          }
+          if (!lang) lang = 'zh';
+        }
+        document.documentElement.lang = lang;
+        document.documentElement.setAttribute('data-lang', lang);
+        if (lang.indexOf('zh') === 0) {
+          document.documentElement.classList.add('lang-zh');
+          document.documentElement.classList.remove('lang-non-zh');
+        } else {
+          document.documentElement.classList.remove('lang-zh');
+          document.documentElement.classList.add('lang-non-zh');
+        }
+      } catch (e) { }
+    })();
+  </script>
+  <title data-i18n="site_title">Hermes - Корпоративный частный Authoritative DNS и мультиоблачная маршрутизация</title>
+
+  <!-- SEO Comprehensive Meta Tags -->
+  <meta name="description"
+    content="Hermes — корпоративная авторитетная DNS-платформа с двухъядерной архитектурой CoreDNS/BIND 9, мультиоблачным переключением, автоматизацией SSL, Rust SDK защитой и AI Agent оркестрацией.">
+  <meta name="keywords"
+    content="权威DNS, 智能DNS, CoreDNS, BIND9, HTTPDNS, DoH, DoT, 多云DNS切换, 多供应商线路, 千线BGP, 域名托管, SSL自动续费, 商业证书签发, 免费泛域名SSL, Rust SDK, 浏览器红框检测, 防红检测, 被墙逃生, AI Agent, MCP, RAG, EVM USDT">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://hermes.161616.top/ru/">
+
+  <!-- Alternate Language SEO Tags -->
+  <link rel="alternate" hreflang="zh-CN" href="https://hermes.161616.top/zh/">
+  <link rel="alternate" hreflang="zh-TW" href="https://hermes.161616.top/zh-tw/">
+  <link rel="alternate" hreflang="zh-HK" href="https://hermes.161616.top/zh-hk/">
+  <link rel="alternate" hreflang="en" href="https://hermes.161616.top/en/">
+  <link rel="alternate" hreflang="ja" href="https://hermes.161616.top/ja/">
+  <link rel="alternate" hreflang="ko" href="https://hermes.161616.top/ko/">
+  <link rel="alternate" hreflang="vi" href="https://hermes.161616.top/vi/">
+  <link rel="alternate" hreflang="ru" href="https://hermes.161616.top/ru/">
+  <link rel="alternate" hreflang="es" href="https://hermes.161616.top/es/">
+  <link rel="alternate" hreflang="x-default" href="https://hermes.161616.top/">
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:type" content="software">
+  <meta property="og:title" content="Hermes - Корпоративный частный Authoritative DNS и мультиоблачная маршрутизация">
+  <meta property="og:description"
+    content="Hermes — корпоративная авторитетная DNS-платформа с двухъядерной архитектурой CoreDNS/BIND 9, мультиоблачным переключением, автоматизацией SSL, Rust SDK защитой и AI Agent оркестрацией.">
+  <meta property="og:url" content="https://hermes.161616.top/ru/">
+  <meta property="og:site_name" content="Hermes Platform">
+  <meta property="og:image" content="https://hermes.161616.top/assets/images/logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hermes - Корпоративный частный Authoritative DNS и мультиоблачная маршрутизация">
+  <meta name="twitter:description"
+    content="Hermes — корпоративная авторитетная DNS-платформа с двухъядерной архитектурой CoreDNS/BIND 9, мультиоблачным переключением, автоматизацией SSL, Rust SDK защитой и AI Agent оркестрацией.">
+  <meta name="twitter:image" content="https://hermes.161616.top/assets/images/logo.png">
+
+  <!-- Structured Data JSON-LD (Schema.org) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Hermes DNS Platform",
+        "applicationCategory": "DevOpsApplication",
+        "operatingSystem": "Linux, Windows, macOS, Docker, Kubernetes",
+        "offers": {
+          "@type": "Offer",
+          "price": "999",
+          "priceCurrency": "USD"
+        },
+        "description": "Enterprise Private Authoritative DNS, Multi-Cloud Switcher, Commercial SSL Automation, Rust Anti-Red SDK and AI MCP Engine."
+      },
+      {
+        "@type": "Organization",
+        "name": "Hermes DNS Management Platform",
+        "url": "https://hermes.161616.top",
+        "logo": "https://hermes.161616.top/assets/images/logo.png",
+        "sameAs": [
+          "https://t.me/hermes_dns_official"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+</head>
+
+<body>
+
+  <!-- ================= 1. HEADER / NAVBAR WITH I18N ================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="#hero" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="Hermes DNS Platform" class="brand-logo-img">
+        <div class="brand-text-box">
+          <span class="brand-name">HERMES DNS</span>
+          <span class="brand-sub" data-i18n="brand_sub">Панорамная платформа DNS и доменов</span>
+        </div>
+      </a>
+
+      <!-- Streamlined Navigation to prevent overlap in any language -->
+      <nav class="nav-links">
+        <a href="#authoritative-core" class="nav-link" data-i18n="nav_arch">DNS Ядро</a>
+        <a href="#cloud-native" class="nav-link" data-i18n="nav_cloud">Cloud-Native</a>
+        <a href="#domain-matrix" class="nav-link" data-i18n="nav_domain_matrix">Домены и Прокси</a>
+        <a href="#rust-sdk" class="nav-link" data-i18n="nav_rust">Rust SDK</a>
+        <a href="#ssl-pipeline" class="nav-link" data-i18n="nav_ssl">SSL-сертификаты</a>
+        <a href="#ai-ecosystem" class="nav-link" data-i18n="nav_chatops">AI & ChatOps</a>
+        <a href="#comparison" class="nav-link" data-i18n="nav_comparison">Сравнение</a>
+        <a href="#pricing" class="nav-link" data-i18n="nav_pricing">Тарифы</a>
+        <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Light / Dark Theme Switcher Button -->
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme" title="切换深色/浅色模式">🌙</button>
+
+        <!-- Compact Language Switcher (9 Languages) -->
+        <div class="lang-selector-box">
+          <select class="lang-select" id="lang-select" aria-label="Language Selector">
+            <option value="zh">🇨🇳 简体中文</option>
+            <option value="zh-tw">🇹🇼 繁體中文</option>
+            <option value="zh-hk">🇭🇰 粵語</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="ru" selected>🇷🇺 Русский</option>
+            <option value="es">🇪🇸 Español</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary btn-sm btn-trigger-inquiry" data-plan="官网导航咨询">
+          <span data-i18n="nav_inquiry_btn">Консультация</span>
+        </button>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= 2. HERO SECTION ================= -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="status-dot"></span>
+          <span data-i18n="hero_tag">Облачный DNS Mesh · 301/302 редиректы · Короткие ссылки · Прокси</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">Контроль миллисекунд авторитетного DNS</span><br class="hero-title-br">
+          <span class="text-gradient" data-i18n="hero_title_2">Защита от блокировок и зависимости от облаков</span>
+        </h1>
+
+        <p class="hero-desc" data-i18n="hero_desc">Hermes объединяет двухъядерный DNS (CoreDNS / BIND 9) с
+          гиперконвергентной облачной архитектурой. Интегрирует 301/302 редиректы, короткие ссылки, анонимизирующие
+          прокси, HTTPDNS, авто-выпуск EV/OV SSL, Rust SDK телеметрию и AI Agent оркестрацию.</p>
+
+        <div class="hero-highlights">
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_coredns">Ядро CoreDNS / BIND 9</span>
+          </div>
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_matrix">301/302 · Короткие ссылки · Прокси</span>
+          </div>
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_rust">Ваш продукт — это ваша матрица обнаружения</span>
+          </div>
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_ai">AI Agent (MCP / CLI / Skill / RAG)</span>
+          </div>
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_chatops">Telegram ChatOps Бот</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg btn-trigger-inquiry" data-plan="首屏商业购买意向">
+            <span data-i18n="hero_btn_buy">Купить исходный код / Развертывание (USDT)</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <a href="#domain-matrix" class="btn btn-secondary btn-lg">
+            <span data-i18n="nav_domain_matrix">Домены и Прокси</span>
+          </a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="metric-num"><span class="text-gradient-cyan">&lt; 0.6</span> ms</div>
+            <div class="metric-label" data-i18n="metric_latency">CoreDNS + eBPF отклик <0.15 мс</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="text-gradient">100%</span> <span
+                  data-i18n="metric_seamless">Бесшовно</span></div>
+              <div class="metric-label" data-i18n="metric_switch">Мгновенное переключение между облаками без потерь
+              </div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="text-gradient-gold">0</span> <span
+                  data-i18n="metric_limits">Ограничений</span></div>
+              <div class="metric-label" data-i18n="metric_zero">Без лимитов на домены и выпуск бесплатных SSL</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Dashboard (Header Overlap & i18n fixed) -->
+        <div class="hero-visual">
+          <div class="dashboard-mock float-anim">
+            <div class="window-header">
+              <div class="window-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="window-title" data-i18n="console_win_title">Консоль Hermes · Multi-Cloud Mesh</div>
+              <span class="status-pill"><span class="status-dot"></span> <span data-i18n="console_win_status">● Активен
+                  (<1мс)< /span></span>
+            </div>
+
+            <div class="window-body">
+              <!-- Console Topbar with Zone breadcrumb and filter -->
+              <div class="console-topbar">
+                <div class="console-breadcrumb">
+                  <span style="font-size: 0.95rem;">🌐</span>
+                  <span data-i18n="console_zone_name">enterprise-mesh.io (Частная зона)</span>
+                  <span class="zone-badge">Native Mesh</span>
+                </div>
+                <div class="console-search-box">
+                  <span>🔍</span>
+                  <span data-i18n="console_search_hint">Поиск записей, политик, узлов...</span>
+                </div>
+              </div>
+
+              <!-- Console Metrics Cards (4 compact cards) -->
+              <div class="console-metrics-row">
+                <div class="console-metric-item">
+                  <div class="metric-lbl" data-i18n="console_stat_qps">QPS: 1.28M/c</div>
+                  <div class="metric-val" style="color: #38bdf8;">1,280,450 <span
+                      style="font-size: 0.65rem; color: #34d399; font-weight: normal;">L1: 99.8%</span></div>
+                </div>
+                <div class="console-metric-item">
+                  <div class="metric-lbl" data-i18n="console_stat_sync">Облака: 4/4</div>
+                  <div class="metric-val" style="color: #818cf8;">4 / 4 <span
+                      style="font-size: 0.65rem; color: #34d399; font-weight: normal;">0-Delay</span></div>
+                </div>
+                <div class="console-metric-item">
+                  <div class="metric-lbl" data-i18n="console_stat_defense">Защита: Активна</div>
+                  <div class="metric-val" style="color: #34d399;">Active <span
+                      style="font-size: 0.65rem; color: #38bdf8; font-weight: normal;">0-Drop</span></div>
+                </div>
+                <div class="console-metric-item">
+                  <div class="metric-lbl" data-i18n="console_stat_ssl">SSL: Авто-выпуск</div>
+                  <div class="metric-val" style="color: #fbbf24;">Valid <span
+                      style="font-size: 0.65rem; color: #a78bfa; font-weight: normal;">Auto-Renew</span></div>
+                </div>
+              </div>
+
+              <!-- Authentic Live DNS Records Data Table (真实的 DNS 生产级解析记录管理表) -->
+              <div class="console-records-table-wrapper">
+                <table class="console-records-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 16%;" data-i18n="console_th_host">ХОСТ</th>
+                      <th style="width: 12%;" data-i18n="console_th_type">ТИП</th>
+                      <th style="width: 34%;" data-i18n="console_th_line">МАРШРУТ & IP</th>
+                      <th style="width: 20%;" data-i18n="console_th_sync">СИНХР.</th>
+                      <th style="width: 18%;" data-i18n="console_th_status">СТАТУС</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong style="color: #ffffff;">api</strong></td>
+                      <td><span class="rec-type-badge rec-a">A</span></td>
+                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
+                          data-i18n="console_r1_line">BGP Мульти-провайдер · 104.21.72.18</span></td>
+                      <td>
+                        <span class="sync-tag sync-cf">CF</span>
+                        <span class="sync-tag sync-ali">Ali</span>
+                        <span class="sync-tag sync-mesh">CoreDNS</span>
+                      </td>
+                      <td><span class="rec-status-ok" data-i18n="console_r1_status">● В норме</span></td>
+                    </tr>
+
+                    <tr>
+                      <td><strong style="color: #ffffff;">gateway</strong></td>
+                      <td><span class="rec-type-badge rec-cname">CNAME</span></td>
+                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
+                          data-i18n="console_r2_line">Глобальное ускорение · edge.hermes.net</span></td>
+                      <td>
+                        <span class="sync-tag sync-aws">AWS</span>
+                        <span class="sync-tag sync-mesh">BIND 9</span>
+                      </td>
+                      <td><span class="rec-status-ok" data-i18n="console_r2_status">● Авто-защита</span></td>
+                    </tr>
+
+                    <tr>
+                      <td><strong style="color: #ffffff;">auth.sec</strong></td>
+                      <td><span class="rec-type-badge rec-a">A</span></td>
+                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
+                          data-i18n="console_r3_line">Пул очистки трафика · 119.29.29.29</span></td>
+                      <td>
+                        <span class="sync-tag sync-pod">DNSPod</span>
+                        <span class="sync-tag sync-mesh">Shield</span>
+                      </td>
+                      <td><span class="rec-status-shield" data-i18n="console_r3_status">🛡️ Защита</span></td>
+                    </tr>
+
+                    <tr>
+                      <td><strong style="color: #ffffff;">_k8s.tls</strong></td>
+                      <td><span class="rec-type-badge rec-txt">TXT</span></td>
+                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
+                          data-i18n="console_r4_line">Автоматическая связка K8s Ingress Secret</span></td>
+                      <td>
+                        <span class="sync-tag sync-k8s">K8s</span>
+                        <span class="sync-tag sync-mesh">ACME</span>
+                      </td>
+                      <td><span class="rec-status-ssl" data-i18n="console_r4_status">🔐 SSL OK</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Real-time Cluster Telemetry Status Bar -->
+              <div class="console-footer-bar">
+                <div class="console-footer-line1">
+                  <span class="status-dot-sm" style="background:#38bdf8; box-shadow:0 0 6px #38bdf8;"></span>
+                  <span data-i18n="console_footer_sync">⚡ Мульти-актив: Пекин / Шанхай / Гонконг / Кремниевая
+                    долина</span>
+                </div>
+                <div class="console-footer-line2">
+                  <span class="status-dot-sm" style="background:#10b981; box-shadow:0 0 6px #10b981;"></span>
+                  <span data-i18n="console_footer_engine">✓ Двойное ядро CoreDNS + BIND 9 готово | L1 кэш 0.4 мс</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </section>
+
+  <!-- ================= 3. GLOBAL PROVIDER SHOWCASE ================= -->
+  <section class="section-alt" style="padding: 44px 0; border-bottom: 1px solid var(--border-subtle);">
+    <div class="container" style="text-align: center;">
+      <div
+        style="font-size: 0.86rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;"
+        data-i18n="provider_title">Глубокая нативная интеграция с глобальными облачными и авторитетными DNS-платформами
+      </div>
+      <p style="font-size: 0.94rem; color: var(--text-secondary); max-width: 820px; margin: 0 auto 24px auto;"
+        data-i18n="provider_desc">Без переписывания логики: единая архитектура для управления десятками авторитетных
+        DNS-платформ с миллисекундной синхронизацией.</p>
+
+      <div class="provider-wall">
+        <span class="provider-chip"
+          style="border-color: #ef4444; background: rgba(239, 68, 68, 0.1); color: #f87171; font-weight: 700;"><span
+            class="chip-dot" style="background:#ef4444;"></span>Huawei Cloud (<span data-i18n="prov_huawei">Huawei Cloud
+            DNS</span>)</span>
+        <span class="provider-chip"
+          style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); color: #60a5fa; font-weight: 700;"><span
+            class="chip-dot" style="background:#3b82f6;"></span>Volcengine (<span data-i18n="prov_volc">Volcengine
+            DNS</span>)</span>
+        <span class="provider-chip"
+          style="border-color: #38bdf8; background: rgba(56, 189, 248, 0.1); color: #38bdf8; font-weight: 700;"><span
+            class="chip-dot" style="background:#38bdf8;"></span>Aliyun DNS (<span data-i18n="prov_aliyun">Alibaba
+            Cloud</span>)</span>
+        <span class="provider-chip"
+          style="border-color: #06b6d4; background: rgba(6, 182, 212, 0.1); color: #22d3ee; font-weight: 700;"><span
+            class="chip-dot" style="background:#06b6d4;"></span>DNSPod (<span data-i18n="prov_tencent">Tencent Cloud
+            DNS</span>)</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Cloudflare</span>
+        <span class="provider-chip"><span class="chip-dot"></span>AWS Route53</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Google Cloud DNS</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Microsoft Azure DNS</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Namecheap</span>
+        <span class="provider-chip"><span class="chip-dot"></span>DigitalOcean</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Hetzner</span>
+        <span class="provider-chip"><span class="chip-dot"></span>OVH Cloud</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Linode / Akamai</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Vultr</span>
+        <span class="provider-chip"><span class="chip-dot"></span>NS1</span>
+        <span class="provider-chip"><span class="chip-dot"></span>DNSimple</span>
+        <span class="provider-chip"><span class="chip-dot"></span>DNS Made Easy</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Gandi</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Hurricane Electric</span>
+        <span class="provider-chip"><span class="chip-dot"></span>PowerDNS</span>
+        <span class="provider-chip"><span class="chip-dot"></span>BIND 9</span>
+        <span class="provider-chip"><span class="chip-dot"></span>ClouDNS</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Packetframe</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Porkbun</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Loopia</span>
+        <span class="provider-chip"><span class="chip-dot"></span>TransIP</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Scaleway</span>
+        <span class="provider-chip"><span class="chip-dot"></span>INWX</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Netcup</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3.5 CLOUD-NATIVE INFRASTRUCTURE (独立云原生架构模块) ================= -->
+  <section class="section section-alt" id="cloud-native"
+    style="padding: 68px 0; border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag cyan" data-i18n="cloud_tag">Облачная инфраструктура</div>
+        <h2 class="section-title" data-i18n="cloud_title">Автономная Cloud-Native архитектура: управление Kubernetes и
+          оркестрация контейнеров</h2>
+        <p class="section-desc" data-i18n="cloud_desc">Выход за рамки монолитных DNS. Нативная интеграция с Kubernetes,
+          Ingress, Helm-чарты производственного уровня и масштабирование без состояния.</p>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="glass-card shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">K8s
+            Native</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c1_t">Нативная интеграция с Kubernetes
+            (K8s)</h3>
+          <p class="card-desc" data-i18n="cloud_c1_d">Глубокая интеграция с кластерами K8s и Ingress-контроллерами,
+            отслеживание Pod за секунды и автообновление записей.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_k8s_native">Нативная интеграция с K8s</span>
+            <span class="tag-pill" data-i18n="tag_ingress_link">Связка с Ingress</span>
+            <span class="tag-pill" data-i18n="tag_pod_aware">Автообнаружение Pod</span>
+          </div>
+        </div>
+
+        <div class="glass-card shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
+            Orchestration</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c2_t">Оркестрация Docker и Helm</h3>
+          <p class="card-desc" data-i18n="cloud_c2_d">Готовые к продакшену Helm-чарты и Docker Compose. Развертывание
+            отказоустойчивого кластера одной командой.</p>
+          <div class="card-tags">
+            <span class="tag-pill">Helm 3 Charts</span>
+            <span class="tag-pill">Docker Compose</span>
+            <span class="tag-pill" data-i18n="tag_5m_launch">Развертывание за 5 минут</span>
+          </div>
+        </div>
+
+        <div class="glass-card shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">
+            Elastic Scale</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c3_t">Автомасштабирование микросервисов
+          </h3>
+          <p class="card-desc" data-i18n="cloud_c3_d">Разделение вычислений и хранения. Узлы DNS масштабируются
+            горизонтально за секунды с помощью HPA при пиковых нагрузках QPS.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_stateless_engine">Stateless DNS-движок</span>
+            <span class="tag-pill" data-i18n="tag_k8s_hpa">K8s HPA автоскейлинг</span>
+            <span class="tag-pill" data-i18n="tag_million_burst">Устойчивость к всплескам 10M+</span>
+          </div>
+        </div>
+
+        <div class="glass-card cyan shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">
+            Service Mesh</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c4_t">Интеграция с Service Mesh и шлюзами
+          </h3>
+          <p class="card-desc" data-i18n="cloud_c4_d">Бесшовная интеграция с Envoy, Istio и API-шлюзами: динамический
+            канареечный роллаут, маршрутизация между кластерами и мониторинг.</p>
+          <div class="card-tags">
+            <span class="tag-pill">Envoy / Istio</span>
+            <span class="tag-pill" data-i18n="tag_canary_rollout">Канареечный релиз</span>
+            <span class="tag-pill" data-i18n="tag_full_observable">Сквозная наблюдаемость</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. AUTHORITATIVE CORE ARCHITECTURE ================= -->
+  <section class="section" id="authoritative-core">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag cyan">Cloud-Native Architecture</div>
+        <h2 class="section-title" data-i18n="auth_title">CoreDNS и BIND 9: Двойное ядро и встроенная защита DNS</h2>
+        <p class="section-desc" data-i18n="auth_desc">Собственный плагин CoreDNS и синхронизация зон BIND 9. Десятки
+          миллионов QPS, поддержка нескольких СУБД и защита DNS.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="glass-card">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="auth_c1_t">Авторитетный стек CoreDNS / BIND 9</h3>
+          <p class="card-desc" data-i18n="auth_c1_d">Собственный плагин CoreDNS и протокол синхронизации BIND 9.
+            Поддержка десятков миллионов QPS с распределенными базами MySQL, PostgreSQL и SQLite.</p>
+          <div class="card-tags">
+            <span class="tag-pill">CoreDNS Plugin</span>
+            <span class="tag-pill">BIND 9 Zone Sync</span>
+            <span class="tag-pill" data-i18n="tag_million_qps">Пропускная способность 10M+ QPS</span>
+          </div>
+        </div>
+
+        <div class="glass-card cyan">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="auth_c2_t">Встроенная защита DNS и Rate Limiting</h3>
+          <p class="card-desc" data-i18n="auth_c2_d">Безопасность DNS на уровне ПО: ограничение QPS, фильтрация
+            DNS-амплификации, защита от рекурсивного флуда, ACL и MaxMind GeoIP.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_qps_rate_limit">Ограничение частоты QPS</span>
+            <span class="tag-pill" data-i18n="tag_dns_amplification">Фильтрация амплификации DNS</span>
+            <span class="tag-pill" data-i18n="tag_anti_poisoning">Защита от отравления и перехвата DNS</span>
+            <span class="tag-pill">MaxMind GeoIP</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="auth_c3_t">Cloud-Native eBPF ускорение и мультирегиональный Active-Active
+          </h3>
+          <p class="card-desc" data-i18n="auth_c3_d">eBPF обходит стандартный стек Linux, обеспечивая отклик кэша L1
+            <0.15 мс. Синхронизация Multi-Master и Anycast гарантируют SLA 99.999%.</p>
+              <div class="card-tags">
+                <span class="tag-pill" data-i18n="tag_k8s_docker">Оркестрация K8s / Docker</span>
+                <span class="tag-pill" data-i18n="tag_sub_half_ms">Задержка < 0.5 мс</span>
+                    <span class="tag-pill" data-i18n="tag_multi_master">Multi-Master Multi-Active</span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. AI ECOSYSTEM: MCP / CLI / SKILL / RAG ================= -->
+  <section class="section" id="ai-ecosystem">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"
+          style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">AI &amp;
+          ChatOps Ecosystem</div>
+        <h2 class="section-title" data-i18n="ai_title">AI и ChatOps: Telegram, MS Teams, Slack и омниканальные процессы
+        </h2>
+        <p class="section-desc" data-i18n="ai_desc">Создано для современного DevOps: интерактивные команды и мобильные
+          согласования через Telegram, MS Teams, Slack и протокол MCP.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Card 0: ChatOps Bot (Prominent) -->
+        <div class="glass-card shine-effect chatops-highlight-card">
+          <div class="ai-badge"
+            style="background: rgba(56, 189, 248, 0.2); border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">ChatOps
+            Bot</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c0_t">ChatOps-бот (Telegram / Teams / Slack)
+          </h3>
+          <p class="card-desc" data-i18n="ai_c0_d">Интеграция с Telegram, MS Teams и Slack. Интерактивные команды
+            (/status, /switch, /ssl) и мобильное двухфакторное подтверждение.</p>
+          <div class="card-tags">
+            <span class="tag-pill">Telegram Bot</span>
+            <span class="tag-pill">Microsoft Teams</span>
+            <span class="tag-pill">Slack</span>
+            <span class="tag-pill" data-i18n="tag_dual_approval">Двухфакторное согласование</span>
+          </div>
+        </div>
+        <div class="glass-card shine-effect">
+          <div class="ai-badge">Protocol</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c1_t">Протокол MCP Server</h3>
+          <p class="card-desc" data-i18n="ai_c1_d">Полное соответствие Model Context Protocol (MCP). AI-ассистенты могут
+            выполнять запросы к DNS, вносить правки и переключать трафик через стандартные вызовы.</p>
+          <div class="card-tags">
+            <span class="tag-pill">Model Context Protocol</span>
+            <span class="tag-pill" data-i18n="tag_llm_direct">Прямое подключение LLM</span>
+          </div>
+        </div>
+
+        <div class="glass-card cyan shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.35); color: #38bdf8;">DevOps
+            CLI</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c2_t">Инструментарий Hermes CLI</h3>
+          <p class="card-desc" data-i18n="ai_c2_d">Кроссплатформенный набор утилит для Linux/macOS/Windows. Вывод в
+            JSON, генерация коротких ссылок и интеграция в конвейеры CI/CD.</p>
+          <div class="card-tags">
+            <span class="tag-pill">hermes-cli</span>
+            <span class="tag-pill" data-i18n="tag_cicd_orchestration">Автоматизация CI/CD</span>
+          </div>
+        </div>
+
+        <div class="glass-card shine-effect">
+          <div class="ai-badge">Agent Ready</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c3_t">Пакет навыков Agent SKILL</h3>
+          <p class="card-desc" data-i18n="ai_c3_d">Готовые стандартизированные сценарии. При обнаружении внешней
+            блокировки или истечения сертификата агент автономно переключает маршруты.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_skill_spec">Спецификация SKILL</span>
+            <span class="tag-pill" data-i18n="tag_autonomous_loop">Автономное решение инцидентов</span>
+          </div>
+        </div>
+
+        <div class="glass-card cyan shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
+            Knowledge Base</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c4_t">Интеллектуальный RAG-движок
+            диагностики</h3>
+          <p class="card-desc" data-i18n="ai_c4_d">Встроенная база знаний RAG по устранению неполадок доменных сетей и
+            обходу фильтраций для мгновенного определения первопричин инцидентов.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_rag_graph">База знаний RAG</span>
+            <span class="tag-pill" data-i18n="tag_root_cause_sec">Мгновенный анализ причин</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. TRAFFIC & ASSET MATRIX (301/302, Short URL, Proxy Domain, Registrar, HTTPDNS) ================= -->
+  <section class="section" id="domain-matrix">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag cyan" data-i18n="matrix_tag">Traffic & Asset Gateway</div>
+        <h2 class="section-title" data-i18n="matrix_title">Комплексное управление трафиком: Редиректы 301/302 · Короткие
+          домены · Прокси-шлюзы · Регистраторы</h2>
+        <p class="section-desc" data-i18n="matrix_desc">Больше чем просто DNS. Hermes предоставляет полный стек от
+          регистрации доменов и маскировки исходных IP до прецизионного разделения трафика.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- 1. 301/302 Redirection -->
+        <div class="glass-card shine-effect">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c1_t">Умные пограничные редиректы 301 / 302</h3>
+          <p class="card-desc" data-i18n="matrix_c1_d">Движок редиректов со скоростью отклика в доли миллисекунды,
+            сохранением всех параметров URL, принудительным HTTPS и массовой переадресацией wildcard.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_301_perm">301 постоянный редирект</span>
+            <span class="tag-pill" data-i18n="tag_302_temp">302 динамический редирект</span>
+            <span class="tag-pill" data-i18n="tag_lossless_param">Передача параметров без потерь</span>
+          </div>
+        </div>
+
+        <!-- 2. Short Domain Engine -->
+        <div class="glass-card cyan shine-effect">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c2_t">Высокопроизводительные приватные короткие домены</h3>
+          <p class="card-desc" data-i18n="matrix_c2_d">Собственный защищенный кластер коротких ссылок, выдерживающий
+            миллионы запросов, защита от блокировок, аналитика кликов и автоудаление по таймеру.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_self_shortlink">Антиблокировочные короткие ссылки</span>
+            <span class="tag-pill" data-i18n="tag_anti_red_relay">Антиблокировочный шлюз</span>
+            <span class="tag-pill" data-i18n="tag_click_tracking">Отслеживание кликов</span>
+          </div>
+        </div>
+
+        <!-- 3. Proxy Domain & Cloaking Gateway -->
+        <div class="glass-card shine-effect">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c3_t">Прокси-домены и шлюз маскировки источника</h3>
+          <p class="card-desc" data-i18n="matrix_c3_d">Пакетное подключение прокси-доменов, автоматический reverse proxy
+            и камуфляж трафика, полностью исключающие раскрытие реального IP серверов.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_origin_ip_hidden">Скрытие реального IP сервера</span>
+            <span class="tag-pill" data-i18n="tag_dynamic_reverse_proxy">Динамический обратный прокси</span>
+            <span class="tag-pill" data-i18n="tag_traffic_cloaking">Интеллектуальная маскировка трафика</span>
+          </div>
+        </div>
+
+        <!-- 4. Domain Registrar Gateway -->
+        <div class="glass-card shine-effect">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c4_t">Шлюз регистраторов доменов (Registrar Gateway)</h3>
+          <p class="card-desc" data-i18n="matrix_c4_d">Прямой доступ к ведущим мировым регистраторам, массовая
+            регистрация, автопродление, перехват освобождающихся доменов и сокрытие данных WHOIS.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_top_registrar">Прямое подключение к регистраторам</span>
+            <span class="tag-pill" data-i18n="tag_bulk_reg_renew">Массовая регистрация и продление</span>
+            <span class="tag-pill" data-i18n="tag_whois_shield">Защита конфиденциальности WHOIS</span>
+          </div>
+        </div>
+
+        <!-- 5. HTTPDNS & DoH/DoT Tunnel -->
+        <div class="glass-card cyan shine-effect" style="grid-column: span 2;">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c5_t">HTTPDNS и защищенные каналы DoH / DoT</h3>
+          <p class="card-desc" data-i18n="matrix_c5_d">Выделенный зашифрованный канал через HTTPS для мобильных и
+            настольных клиентов, исключающий подмену LocalDNS и перехват трафика провайдерами.</p>
+          <div class="card-tags">
+            <span class="tag-pill">HTTPDNS JSON API</span>
+            <span class="tag-pill">RFC 8484 DNS-over-HTTPS</span>
+            <span class="tag-pill">RFC 7858 DNS-over-TLS</span>
+            <span class="tag-pill" data-i18n="tag_zero_hijack">Без перехватов и подмен</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. RUST SDK RADAR & ANTI-RED ================= -->
+  <section class="section" id="rust-sdk">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag emerald" data-i18n="rust_tag">Crowdsourced Telemetry Shield</div>
+        <h2 class="section-title" data-i18n="rust_title">Rust SDK: Ваш продукт — это ваша матрица обнаружения</h2>
+        <p class="section-desc" data-i18n="rust_desc">Забудьте о дорогих синтетических зондах! Встроенный легковесный
+          Rust SDK превращает каждое активное клиентское устройство в сенсор радарной сети по всему миру.</p>
+      </div>
+
+      <div class="grid grid-2" style="align-items: center;">
+        <div>
+          <div class="radar-box" id="radar-container">
+            <div class="radar-crosshair-x"></div>
+            <div class="radar-crosshair-y"></div>
+            <div class="radar-ring" style="width: 30%; aspect-ratio: 1;"></div>
+            <div class="radar-ring" style="width: 60%; aspect-ratio: 1;"></div>
+            <div class="radar-ring" style="width: 90%; aspect-ratio: 1;"></div>
+            <div class="radar-sweep"></div>
+          </div>
+
+          <div
+            style="margin-top: 14px; font-size: 0.84rem; color: var(--text-muted); display: flex; justify-content: space-between;"
+            id="probe-quick-info">
+            <span data-i18n="rust_click_hint">Нажмите на узел зонда для просмотра актуальной телеметрии реальных
+              клиентов.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div id="probe-status-banner">
+            <div
+              style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; border-radius: 8px; padding: 12px 16px; color: #a7f3d0; font-size: 0.92rem;"
+              data-i18n="rust_banner_normal">✓ [Клиентская матрица в норме] Миллионы устройств по всему миру передают
+              данные с минимальной задержкой. Блокировок и предупреждений браузеров не зафиксировано.</div>
+          </div>
+
+          <div class="glass-card" style="padding: 22px;">
+            <h4 style="font-size: 1.08rem; margin-bottom: 12px; color: var(--text-white);" data-i18n="rust_box_title">
+              Ключевые преимущества концепции 'Продукт как Матрица'</h4>
+            <ul
+              style="display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: var(--text-secondary);">
+              <li style="display: flex; gap: 8px;">
+                <span style="color: #38bdf8;">01.</span>
+                <span data-i18n="rust_mech1">Нулевые затраты на зонды, 100% реальная сеть: Использование активного
+                  трафика пользователей для распределенного мониторинга.</span>
+              </li>
+              <li style="display: flex; gap: 8px;">
+                <span style="color: #38bdf8;">02.</span>
+                <span data-i18n="rust_mech2">Мгновенное оповещение о блокировках: Агрегированное обнаружение аномалий за
+                  миллисекунды запускает автоматический обход.</span>
+              </li>
+              <li style="display: flex; gap: 8px;">
+                <span style="color: #38bdf8;">03.</span>
+                <span data-i18n="rust_mech3">Бесшовное самовосстановление на клиенте: Незаметный переход на резервные
+                  HTTPDNS / 302 без ошибок у пользователей.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Real-Time Telemetry Stats (No mock simulator buttons) -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div class="telemetry-stat-card">
+              <div style="font-size: 1.25rem; font-weight: 800; color: #38bdf8;">1,200,000+</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
+                data-i18n="rust_metric_active_nodes">Активные радарные узлы</div>
+            </div>
+            <div class="telemetry-stat-card">
+              <div style="font-size: 1.25rem; font-weight: 800; color: #34d399;">&lt; 400ms</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
+                data-i18n="rust_metric_detection_time">Агрегация обнаружения блокировок</div>
+            </div>
+            <div class="telemetry-stat-card">
+              <div style="font-size: 1.25rem; font-weight: 800; color: #c084fc;" data-i18n="rust_metric_probe_cost_val">
+                0 USDT</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
+                data-i18n="rust_metric_probe_cost">Затраты на серверы-зонды</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. COMMERCIAL & FREE SSL PIPELINE (100% i18n) ================= -->
+  <section class="section section-alt" id="ssl-pipeline">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Zero-Touch SSL Matrix</div>
+        <h2 class="section-title" data-i18n="ssl_title">Автоматизация SSL: коммерческие EV/OV/DV и бесплатные Wildcard
+          сертификаты</h2>
+        <p class="section-desc" data-i18n="ssl_desc">Полный жизненный цикл коммерческих сертификатов и бесплатных ACME с
+          поддержкой публичных IP-адресов и бесшумным автопродлением.</p>
+      </div>
+
+      <div class="ssl-flow-container">
+        <div class="ssl-step-card">
+          <div class="ssl-step-num">STEP 01</div>
+          <h4 style="margin-bottom: 8px;" data-i18n="ssl_s1_t">Коммерческие CA и ACME выпуск</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s1_d">
+            Автоматический выпуск Let's Encrypt / ZeroSSL / GTS и бесшовная валидация DNS для DigiCert / Sectigo /
+            GlobalSign.</p>
+        </div>
+
+        <div class="ssl-step-card">
+          <div class="ssl-step-num">STEP 02</div>
+          <h4 style="margin-bottom: 8px;" data-i18n="ssl_s2_t">Сертификаты для публичных IP и Wildcard</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s2_d">Помимо
+            *.example.com: нативный выпуск SSL напрямую для публичных IP серверов без лимита на количество.</p>
+        </div>
+
+        <div class="ssl-step-card">
+          <div class="ssl-step-num">STEP 03</div>
+          <h4 style="margin-bottom: 8px;" data-i18n="ssl_s3_t">Регулярный аудит и автопродление</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s3_d">Фоновый
+            движок проверяет цепочки сертификатов ежедневно и запускает продление за 30 дней до окончания срока.</p>
+        </div>
+
+        <div class="ssl-step-card">
+          <div class="ssl-step-num">STEP 04</div>
+          <h4 style="margin-bottom: 8px;" data-i18n="ssl_s4_t">Доставка на узлы и перезагрузка 0-Downtime</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s4_d">SSL Agent
+            безопасно перезагружает Nginx / HAProxy; K8s Controller синхронизирует секреты Ingress; API пушит в CDN и
+            ALB.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8.5 COMPETITOR COMPARISON MATRIX ================= -->
+  <section class="section section-alt" id="comparison">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"
+          style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.35); color: #818cf8;"
+          data-i18n="comp_tag">Competitive Matrix</div>
+        <h2 class="section-title" data-i18n="comp_title">Глубокое сравнение: Почему выбирают Hermes?</h2>
+        <p class="section-desc" data-i18n="comp_desc">Откажитесь от простых скриптов мониторинга и зависимости от
+          зарубежных публичных облаков. Hermes создан для максимальной отказоустойчивости и суверенитета.</p>
+      </div>
+
+      <!-- Comparison Matrix Table Card -->
+      <div class="comparison-table-wrapper glass-card">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="col-dim" data-i18n="comp_th_dim">Ключевой критерий</th>
+              <th class="col-hermes highlight-col">
+                <div class="col-badge">RECOMMENDED</div>
+                <div class="th-title" data-i18n="comp_th_hermes">Платформа Hermes DNS (Гиперконвергентная)</div>
+              </th>
+              <th class="col-comp" data-i18n="comp_th_domain_admin">Domain Admin (Мониторинг SSL)</th>
+              <th class="col-comp" data-i18n="comp_th_caihong">Caihong DNS (PHP-панель для API)</th>
+              <th class="col-comp" data-i18n="comp_th_cloud">Публичные облака (Cloudflare/AWS)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r1_dim">Авторитетное ядро DNS</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r1_hermes">Собственное ядро CoreDNS (Go) + BIND 9, L1-кэш <0.5мс, 10M+ QPS в
+                      приватном контуре</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r1_da">❌ Нет сервера DNS; только напоминание об окончании
+                  срока SSL</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r1_ch">❌ Нет собственного ядра; просто PHP-прокси к чужим
+                  API</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r1_cloud">⚠️ Закрытый код, отсутствие приватного
+                  развертывания, риск блокировки</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r2_dim">Защита DNS и Rate Limiting</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r2_hermes">Встроенный лимит QPS, фильтрация атак усиления DNS, блокировка флуда
+                    и IP ACL</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r2_da">❌ Полное отсутствие сетевой защиты и очистки
+                  трафика</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r2_ch">❌ Защита отсутствует; падает при малейших всплесках
+                  трафика</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r2_cloud">⚠️ Бесплатный тариф ограничен; эффективная
+                  очистка стоит дорого</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r3_dim">Шлюзы управления трафиком</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r3_hermes">Редиректы 301/302 за суб-миллисекунды, короткие ссылки, маскирующие
+                    прокси и регистраторы</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_da">❌ Нет управления трафиком и шлюзов
+                  перенаправления</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_ch">❌ Только базовые операции с записями DNS</span>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_cloud">⚠️ Требуется разрозненная настройка CDN, WAF и
+                  Workers</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r4_dim">Краудсорсинг через Rust SDK</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r4_hermes">Уникальный Rust SDK («Ваш продукт — ваша матрица») для обнаружения и
+                    обхода блокировок</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r4_da">❌ Только периодический опрос с одного
+                  сервера</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r4_ch">❌ Простые периодические запросы с сервера</span>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r4_cloud">❌ Зонды только в ЦОД; не отражают реальные
+                  блокировки у абонентов</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r5_dim">AI Agent и ChatOps-аппрувы</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r5_hermes">Стандартный протокол MCP + согласование операций двумя людьми через
+                    Telegram / Teams / Slack</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r5_da">❌ Только базовые уведомления по
+                  email/webhook</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r5_ch">❌ Нет AI-протоколов и согласования в
+                  мессенджерах</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r5_cloud">⚠️ Сложная веб-панель и запутанная система прав
+                  IAM</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r6_dim">Cloud-Native и связь с K8s</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r6_hermes">Синхронизация K8s Ingress и TLS Secret, Helm-чарты, автоскейлинг
+                    HPA</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r6_da">❌ Одиночный скрипт Python / Docker</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r6_ch">❌ Устаревшая монолитная архитектура LAMP /
+                  LNMP</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r6_cloud">⚠️ Требует сложной настройки и поддержки
+                  плагинов External-DNS</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r7_dim">Лицензия и владение кодом</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r7_hermes">Выкуп всех исходников за 10,000 U или текущая версия 699 U (пакет с 1
+                    годом ТП и обновлений 1,999 U), 100% суверенитет</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r7_da">Любительский open-source проект без корпоративного
+                  SLA</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r7_ch">Низкобюджетные разрозненные скрипты без поддержки
+                  экспертов</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r7_cloud">❌ Постоянные ежемесячные счета и риск
+                  односторонней блокировки аккаунта</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 9. COMMERCIAL PRICING (CRYPTO USDT/USDC) ================= -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"
+          style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;"
+          data-i18n="pricing_tag">Нативные расчеты в криптовалюте · USDT / USDC</div>
+        <h2 class="section-title" data-i18n="pricing_title">Коммерческие условия: Выкуп исходного кода и частное
+          развертывание</h2>
+        <p class="section-desc" data-i18n="pricing_desc">Отказ от постоянных облачных платежей. Полный выкуп исходного
+          кода или развертывание бинарной версии с техническими экспертами.</p>
+
+        <!-- Prominent Payment Policy Banner (USDT/USDC, NO TRON) -->
+        <div class="payment-notice-box" data-i18n="pricing_payment_warning">⚡ Политика оплаты: Поддерживаются расчеты в
+          криптовалютах (USDT / USDC). Сеть TRON НЕ поддерживается.</div>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Tier 1: Source License (Regular 29,999 USDT -> Promo 10,000 USDT) -->
+        <div class="pricing-card shine-effect">
+          <div class="card-badge-strip" data-i18n="plan_source_badge">Спецпредложение · Скидка 19,999 U</div>
+
+          <div class="pricing-header">
+            <h3 class="plan-name" data-i18n="plan_source_name">Полный выкуп исходного кода</h3>
+            <p class="plan-desc" data-i18n="plan_source_desc">Идеально для компаний с собственной разработкой,
+              стремящихся к 100% технологическому суверенитету и коммерческой дистрибуции White-label.</p>
+            <div class="plan-price-box">
+              <div class="price-original" data-i18n="plan_source_orig">Обычная цена 29,999 USDT</div>
+              <div class="price-row-main">
+                <span class="price-currency">USDT</span>
+                <span class="price-amount" data-i18n="plan_source_price">10,000</span>
+                <span class="promo-tag" data-i18n="plan_source_tag">Скидка 19,999 U</span>
+              </div>
+              <span class="price-unit" data-i18n="plan_source_unit">USDT / Бессрочная лицензия</span>
+            </div>
+          </div>
+
+          <div class="plan-features-list">
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f1">Полный бэкенд на Go (Оператор K8s, eBPF-модуль, 301/302, короткие ссылки,
+                прокси, регистратор, плагин CoreDNS)</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f2">Полный фронтенд консоли управления на Vue3 (TypeScript и гранулярный
+                RBAC)</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f3">Исходный код Rust SDK ('Ваш продукт как матрица обнаружения')</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f4">Исходный код Telegram Mini App (TMA) и протокольный пакет AI MCP
+                Server</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f5">Без ограничений по доменам и QPS, бессрочное право автономной
+                эксплуатации</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f6">Разрешен полный ребрендинг White-label и коммерческая перепродажа</span>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary btn-lg btn-trigger-inquiry" data-plan="全套源码商业买断 (特惠 10000 USDT)">
+            <span data-i18n="plan_source_btn">Запросить и купить код (USDT)</span>
+          </button>
+        </div>
+
+        <!-- Tier 2: Private Cloud Turnkey & Program License Suite -->
+        <div class="pricing-card featured shine-effect">
+          <div class="card-badge-strip" data-i18n="plan_deploy_badge">Коммерческий пакет · Без исходного кода</div>
+
+          <div class="pricing-header">
+            <h3 class="plan-name" data-i18n="plan_deploy_name">Частное развертывание · Коммерческая лицензия</h3>
+            <p class="plan-desc" data-i18n="plan_deploy_desc">Для компаний без кастомной разработки. Лицензия на текущую
+              версию 699 U (без ТП и обновлений) или спец-пакет 1,999 U (включает 1 год расходов на техподдержку и
+              обновления, без исходников).</p>
+            <div class="plan-price-box">
+              <div class="price-original" data-i18n="plan_deploy_orig">Обычно 1,699 USDT</div>
+              <div class="price-row-main">
+                <span class="price-currency">USDT</span>
+                <span class="price-amount" data-i18n="plan_deploy_price">699</span>
+                <span class="promo-tag" data-i18n="plan_deploy_tag">Текущая версия 699 U · Пакет с поддержкой 1,999
+                  U</span>
+              </div>
+              <span class="price-unit" data-i18n="plan_deploy_unit">USDT (Только текущая версия, без ТП и обновлений;
+                или 1,999 U с 1 годом расходов на техподдержку и обновления)</span>
+            </div>
+          </div>
+
+          <div class="plan-features-list">
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f1">Коммерческая лицензия: Текущая версия 699 U (только этот релиз, без ТП и
+                обновлений) или Спец-пакет 1,999 U (включает 1 год расходов на техподдержку и обновления
+                функций/безопасности, без исходников)</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f2">Топология Edge-прокси и авторитетных DNS-узлов (Безлимитные узлы, без
+                доплаты за лицензии на узлы)</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f3">Услуги развертывания: Базовый одиночный узел 99 U / Отказоустойчивый
+                HA-кластер 150 U</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f4">Развертывание авто-пайплайна SSL (Коммерческие CA + бесплатные
+                Wildcard/IP с автовыпуском и горячей перезагрузкой)</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f5">Бесшовная миграция доменов (Cloudflare, AWS, DNSPod) и настройка 301/302
+                шлюзов коротких ссылок</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f6">Полная интеграция AI MCP Server и ботов Telegram / MS Teams /
+                Slack</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f7">Включает 30 дней онлайн-сопровождения эксперта (далее техподдержка по
+                спеццене 150 U/мес)</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-trigger-inquiry" data-plan="私有交付程序授权套装 (当前版本699 U / 1999 U含维护)">
+            <span data-i18n="plan_deploy_btn">Консультация по пакету (Telegram)</span>
+          </button>
+        </div>
+
+        <!-- Tier 3: Enterprise SLA (Promo 1,199 USDT/yr) -->
+        <div class="pricing-card shine-effect">
+          <div class="card-badge-strip"
+            style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);"
+            data-i18n="plan_support_badge">Спецпредложение</div>
+          <div class="pricing-header">
+            <h3 class="plan-name" data-i18n="plan_support_name">Экспертная поддержка 7x12</h3>
+            <p class="plan-desc" data-i18n="plan_support_desc">Техническая поддержка экспертов 7×12 (часовой пояс UTC+2)
+              для продакшена: обновление версий, правил защиты DNS и инциденты.</p>
+            <div class="plan-price-box">
+              <div class="price-original" data-i18n="plan_support_orig">Обычная цена 2,000 USDT</div>
+              <div class="price-row-main">
+                <span class="price-currency">USDT</span>
+                <span class="price-amount" data-i18n="plan_support_price">1,199</span>
+                <span class="promo-tag" data-i18n="plan_support_tag">Экономия 801 U</span>
+              </div>
+              <span class="price-unit" data-i18n="plan_support_unit">USDT / Год</span>
+            </div>
+          </div>
+
+          <div class="plan-features-list">
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f1">Онлайн-поддержка технических экспертов 7×12 (часовой пояс UTC+2) и
+                обновления LTS</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f2">Помощь в аварийном перенаправлении трафика за 10 минут при
+                блокировках</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f3">Долгосрочные обновления версий LTS и оперативный выпуск хотфиксов
+                безопасности</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f4">Постоянное добавление новых DNS-адаптеров облачных провайдеров и навыков
+                AI Agent</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f5">Удаленная помощь эксперта 1v1 и оперативная локализация проблем</span>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary btn-lg btn-trigger-inquiry" data-plan="企业级运维维保 (特惠 1199 USDT/年)">
+            <span data-i18n="plan_support_btn">Оформить годовую поддержку (1,199 U/год)</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Interactive Calculator Card (USDT) -->
+      <div class="calc-card">
+        <div class="calc-grid">
+          <div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;" data-i18n="calc_title">Конфигуратор решений и
+              калькулятор инвестиций (USDT / USDC)</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 22px;" data-i18n="calc_desc">
+              Рассчитайте необходимый бюджет на основе количества управляемых доменов и активных узлов:</p>
+
+            <div class="calc-slider-group">
+              <div class="slider-label-row">
+                <span data-i18n="calc_domain_label">Объем доменных активов:</span>
+                <span id="calc-domain-value" style="color: var(--accent-cyan); font-family: monospace;">200</span>
+              </div>
+              <input type="range" min="20" max="5000" step="20" value="200" class="slider-input"
+                id="calc-domain-slider">
+            </div>
+
+            <div class="calc-slider-group">
+              <div class="slider-label-row">
+                <span data-i18n="calc_edge_label">Планируемые Edge и авторитетные узлы (Поддержка безлимитных
+                  узлов):</span>
+                <span id="calc-edge-value" style="color: var(--accent-cyan); font-family: monospace;">4</span>
+              </div>
+              <input type="range" min="2" max="30" step="1" value="4" class="slider-input" id="calc-edge-slider">
+            </div>
+
+            <div style="display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px;">
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" id="calc-include-source" checked>
+                <span data-i18n="calc_check_source">Апгрейд до полного выкупа исходного кода (10,000 U, с исходным
+                  кодом)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" id="calc-include-deploy" checked>
+                <span data-i18n="calc_check_deploy">Лицензия: Текущая версия 699 U (или пакет с ТП 1,999 U) +
+                  Развертывание 99 U (кластер 150 U, с SSL-пайплайном)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" id="calc-include-support">
+                <span data-i18n="calc_check_support">Добавить поддержку эксперта (150 U/мес)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="calc-budget-box">
+            <div style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 6px;"
+              data-i18n="calc_budget_label">Ориентировочный общий бюджет (USDT / USDC)</div>
+            <div style="display: flex; align-items: baseline; justify-content: center; gap: 6px; margin-bottom: 14px;">
+              <span style="font-size: 1.3rem; font-weight: 700;">USDT</span>
+              <span style="font-size: 3rem; font-weight: 800; color: var(--text-white); line-height: 1;"
+                id="calc-total-price">10,999</span>
+            </div>
+            <div style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;"
+              id="calc-plan-summary"></div>
+            <button class="btn btn-primary btn-lg" id="btn-apply-calculator" style="width: 100%;">
+              <span data-i18n="calc_submit_btn">Отправить запрос с этой конфигурацией</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 10. FAQ SECTION ================= -->
+  <section class="section" id="faq">
+    <div class="container" style="max-width: 880px;">
+      <div class="section-header">
+        <div class="section-tag">FAQ</div>
+        <h2 class="section-title" data-i18n="faq_title">Часто задаваемые вопросы (FAQ)</h2>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="glass-card faq-item active" style="padding: 24px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q1">1. Какие способы оплаты
+              поддерживаются?</h4>
+            <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
+          </div>
+          <div class="faq-answer"
+            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
+            data-i18n="faq_a1">Мы поддерживаем расчеты в популярных криптовалютах (USDT / USDC). Сеть TRON НЕ
+            поддерживается.</div>
+        </div>
+
+        <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q2">2. Как Hermes обеспечивает
+              совместимость с десятками мировых провайдеров?</h4>
+            <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
+          </div>
+          <div class="faq-answer"
+            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
+            data-i18n="faq_a2">Hermes содержит промышленный уровень адаптеров, приводящий API различных облаков к единой
+            модели данных. Вы задаете правила маршрутизации один раз, и система синхронизирует их с Cloudflare, AWS
+            Route53 и другими платформами без привязки к вендору.</div>
+        </div>
+
+        <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q3">3. Что значит «Ваш продукт —
+              это ваша матрица обнаружения»?</h4>
+            <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
+          </div>
+          <div class="faq-answer"
+            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
+            data-i18n="faq_a3">Традиционные синтетические зонды в дата-центрах стоят дорого и не отражают качество связи
+            реальных домашних и мобильных пользователей. Rust SDK встраивается в клиентские приложения и с минимальными
+            накладными расходами собирает телеметрию, позволяя мгновенно обходить блокировки.</div>
+        </div>
+
+        <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q4">4. Можно ли развертывать код
+              внутри компании без ограничений после покупки?</h4>
+            <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
+          </div>
+          <div class="faq-answer"
+            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
+            data-i18n="faq_a4">Да. При покупке лицензии за 10,000 USDT (обычная цена 29,999 USDT) вы получаете полный
+            доступ к исходному коду всех компонентов с бессрочными правами, без ограничений по доменам и трафику,
+            включая возможность работы под собственным брендом (White-label).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 11. FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <img src="../assets/images/logo.png" alt="Hermes DNS Platform" style="height: 34px; border-radius: 6px;">
+            <span class="footer-brand-name">HERMES</span>
+          </div>
+          <p data-i18n="footer_desc">Hermes предоставляет корпоративным клиентам передовые решения для приватного
+            авторитетного DNS, редиректов 301/302, проксирования, автоматизации SSL, радарной защиты Rust SDK и
+            автономного управления через AI Agent.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_tech">Технологический стек</h4>
+          <ul>
+            <li><a href="#authoritative-core" data-i18n="footer_link_core">CoreDNS и BIND 9 Двойное ядро</a></li>
+            <li><a href="#cloud-native" data-i18n="footer_link_cloud">Kubernetes и Cloud-Native архитектура</a></li>
+            <li><a href="#domain-matrix" data-i18n="footer_link_matrix">301/302 Редирект и Прокси-шлюз</a></li>
+            <li><a href="#ai-ecosystem" data-i18n="footer_link_ai">Протокол AI MCP и ChatOps-бот</a></li>
+            <li><a href="#rust-sdk" data-i18n="footer_link_rust">Rust SDK Матрица телеметрии</a></li>
+            <li><a href="#ssl-pipeline" data-i18n="footer_link_ssl">Коммерческий и бесплатный SSL</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_comm">Коммерческие условия (USDT/USDC)</h4>
+          <ul>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="源码授权购买咨询 (特惠 10000 USDT)"
+                data-i18n="footer_link_buy_source">Полный выкуп исходного кода (10,000 U)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="私有交付程序授权套装 (699 U起)"
+                data-i18n="footer_link_buy_deploy">Лицензия ПО и развертывание (от 699 U)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="企业 7x12 维保支持 (1199 USDT/年)"
+                data-i18n="footer_link_buy_support">Экспертная поддержка 7x12 (UTC+2)</a></li>
+            <li><a href="#pricing" data-i18n="footer_link_calc">Интерактивный калькулятор стоимости</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_contact">Коммерческие и технические вопросы</h4>
+          <ul>
+            <li><span class="footer-tg-label" data-i18n="footer_tg_label">Официальный Telegram: </span> <a
+                href="https://t.me/hermes_dns_official" target="_blank" rel="noopener"
+                class="footer-tg-link">@hermes_dns_official</a></li>
+            <li class="footer-settlement-note" data-i18n="footer_settlement_note">Политика оплаты: Принимаются
+              криптовалюты (USDT / USDC). Сеть TRON не поддерживается.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 Hermes DNS Management Platform. Все права защищены.</div>
+        <div style="display: flex; gap: 20px;">
+          <span data-i18n="footer_motto">Полный контроль · Без простоев · На базе AI</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Commercial inquiry directly routed to Telegram @hermes_dns_official -->
+
+  <!-- Scripts -->
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/pricing.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

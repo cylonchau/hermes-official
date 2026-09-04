@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="ja" data-lang="ja" class="lang-non-zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Early Client Adaptive System: Zero-Flicker Theme & Language Initialization -->
+  <script>
+    (function () {
+      try {
+        // 1. Theme adaptation
+        var savedTheme = localStorage.getItem('hermes_theme');
+        var theme = savedTheme;
+        if (!theme) {
+          theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+
+        // 2. Language adaptation
+        var currentDocLang = document.documentElement.getAttribute('data-lang');
+        var path = (window.location && window.location.pathname) ? window.location.pathname.toLowerCase() : '';
+        var pathLang = null;
+        var supported = ['zh-tw', 'zh-hk', 'zh', 'en', 'ja', 'ko', 'vi', 'ru', 'es'];
+        for (var i = 0; i < supported.length; i++) {
+          var sl = supported[i];
+          if (path.indexOf('/' + sl + '/') !== -1 || path.indexOf('/' + sl + '.') !== -1 || (path.length >= sl.length && path.slice(-sl.length) === sl)) {
+            pathLang = sl;
+            break;
+          }
+        }
+        var lang = pathLang || currentDocLang || localStorage.getItem('hermes_lang');
+        if (!lang) {
+          var navLangs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+          for (var i = 0; i < navLangs.length; i++) {
+            var raw = navLangs[i];
+            if (!raw) continue;
+            var l = raw.toLowerCase().trim();
+            if (l === 'zh-tw' || l.indexOf('zh-hant-tw') === 0) { lang = 'zh-tw'; break; }
+            if (l === 'zh-hk' || l === 'zh-mo' || l.indexOf('hant') !== -1) { lang = 'zh-hk'; break; }
+            if (l === 'zh' || l === 'zh-cn' || l === 'zh-sg' || l.indexOf('zh-hans') === 0 || l.indexOf('zh') === 0) { lang = 'zh'; break; }
+            if (l.indexOf('ja') === 0) { lang = 'ja'; break; }
+            if (l.indexOf('ko') === 0) { lang = 'ko'; break; }
+            if (l.indexOf('vi') === 0) { lang = 'vi'; break; }
+            if (l.indexOf('ru') === 0 || l.indexOf('uk') === 0 || l.indexOf('be') === 0 || l.indexOf('kk') === 0) { lang = 'ru'; break; }
+            if (l.indexOf('es') === 0) { lang = 'es'; break; }
+            if (l.indexOf('en') === 0) { lang = 'en'; break; }
+          }
+          if (!lang) lang = 'zh';
+        }
+        document.documentElement.lang = lang;
+        document.documentElement.setAttribute('data-lang', lang);
+        if (lang.indexOf('zh') === 0) {
+          document.documentElement.classList.add('lang-zh');
+          document.documentElement.classList.remove('lang-non-zh');
+        } else {
+          document.documentElement.classList.remove('lang-zh');
+          document.documentElement.classList.add('lang-non-zh');
+        }
+      } catch (e) { }
+    })();
+  </script>
+  <title data-i18n="site_title">Hermes - エンタープライズ プライベート権威DNS＆マルチクラウド トラフィック基盤</title>
+
+  <!-- SEO Comprehensive Meta Tags -->
+  <meta name="description"
+    content="Hermes はデュアル CoreDNS / BIND 9 権威DNSエンジン、マルチクラウド自動切替、商用・無料SSL自動化、Rust SDK防紅自律復旧、AI Agent連携を備えたエンタープライズDNS基盤です。">
+  <meta name="keywords"
+    content="权威DNS, 智能DNS, CoreDNS, BIND9, HTTPDNS, DoH, DoT, 多云DNS切换, 多供应商线路, 千线BGP, 域名托管, SSL自动续费, 商业证书签发, 免费泛域名SSL, Rust SDK, 浏览器红框检测, 防红检测, 被墙逃生, AI Agent, MCP, RAG, EVM USDT">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://hermes.161616.top/ja/">
+
+  <!-- Alternate Language SEO Tags -->
+  <link rel="alternate" hreflang="zh-CN" href="https://hermes.161616.top/zh/">
+  <link rel="alternate" hreflang="zh-TW" href="https://hermes.161616.top/zh-tw/">
+  <link rel="alternate" hreflang="zh-HK" href="https://hermes.161616.top/zh-hk/">
+  <link rel="alternate" hreflang="en" href="https://hermes.161616.top/en/">
+  <link rel="alternate" hreflang="ja" href="https://hermes.161616.top/ja/">
+  <link rel="alternate" hreflang="ko" href="https://hermes.161616.top/ko/">
+  <link rel="alternate" hreflang="vi" href="https://hermes.161616.top/vi/">
+  <link rel="alternate" hreflang="ru" href="https://hermes.161616.top/ru/">
+  <link rel="alternate" hreflang="es" href="https://hermes.161616.top/es/">
+  <link rel="alternate" hreflang="x-default" href="https://hermes.161616.top/">
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:type" content="software">
+  <meta property="og:title" content="Hermes - エンタープライズ プライベート権威DNS＆マルチクラウド トラフィック基盤">
+  <meta property="og:description"
+    content="Hermes はデュアル CoreDNS / BIND 9 権威DNSエンジン、マルチクラウド自動切替、商用・無料SSL自動化、Rust SDK防紅自律復旧、AI Agent連携を備えたエンタープライズDNS基盤です。">
+  <meta property="og:url" content="https://hermes.161616.top/ja/">
+  <meta property="og:site_name" content="Hermes Platform">
+  <meta property="og:image" content="https://hermes.161616.top/assets/images/logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hermes - エンタープライズ プライベート権威DNS＆マルチクラウド トラフィック基盤">
+  <meta name="twitter:description"
+    content="Hermes はデュアル CoreDNS / BIND 9 権威DNSエンジン、マルチクラウド自動切替、商用・無料SSL自動化、Rust SDK防紅自律復旧、AI Agent連携を備えたエンタープライズDNS基盤です。">
+  <meta name="twitter:image" content="https://hermes.161616.top/assets/images/logo.png">
+
+  <!-- Structured Data JSON-LD (Schema.org) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Hermes DNS Platform",
+        "applicationCategory": "DevOpsApplication",
+        "operatingSystem": "Linux, Windows, macOS, Docker, Kubernetes",
+        "offers": {
+          "@type": "Offer",
+          "price": "999",
+          "priceCurrency": "USD"
+        },
+        "description": "Enterprise Private Authoritative DNS, Multi-Cloud Switcher, Commercial SSL Automation, Rust Anti-Red SDK and AI MCP Engine."
+      },
+      {
+        "@type": "Organization",
+        "name": "Hermes DNS Management Platform",
+        "url": "https://hermes.161616.top",
+        "logo": "https://hermes.161616.top/assets/images/logo.png",
+        "sameAs": [
+          "https://t.me/hermes_dns_official"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+</head>
+
+<body>
+
+  <!-- ================= 1. HEADER / NAVBAR WITH I18N ================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar-container">
+      <a href="#hero" class="brand-logo">
+        <img src="../assets/images/logo.png" alt="Hermes DNS Platform" class="brand-logo-img">
+        <div class="brand-text-box">
+          <span class="brand-name">HERMES DNS</span>
+          <span class="brand-sub" data-i18n="brand_sub">パノラマDNS＆ドメインプラットフォーム</span>
+        </div>
+      </a>
+
+      <!-- Streamlined Navigation to prevent overlap in any language -->
+      <nav class="nav-links">
+        <a href="#authoritative-core" class="nav-link" data-i18n="nav_arch">権威基盤</a>
+        <a href="#cloud-native" class="nav-link" data-i18n="nav_cloud">クラウド基盤</a>
+        <a href="#domain-matrix" class="nav-link" data-i18n="nav_domain_matrix">ドメイン & プロキシ</a>
+        <a href="#rust-sdk" class="nav-link" data-i18n="nav_rust">Rust SDK</a>
+        <a href="#ssl-pipeline" class="nav-link" data-i18n="nav_ssl">SSL 証明書</a>
+        <a href="#ai-ecosystem" class="nav-link" data-i18n="nav_chatops">AI & ChatOps</a>
+        <a href="#comparison" class="nav-link" data-i18n="nav_comparison">競合比較</a>
+        <a href="#pricing" class="nav-link" data-i18n="nav_pricing">料金プラン</a>
+        <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Light / Dark Theme Switcher Button -->
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme" title="切换深色/浅色模式">🌙</button>
+
+        <!-- Compact Language Switcher (9 Languages) -->
+        <div class="lang-selector-box">
+          <select class="lang-select" id="lang-select" aria-label="Language Selector">
+            <option value="zh">🇨🇳 简体中文</option>
+            <option value="zh-tw">🇹🇼 繁體中文</option>
+            <option value="zh-hk">🇭🇰 粵語</option>
+            <option value="en">🇺🇸 English</option>
+            <option value="ja" selected>🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="vi">🇻🇳 Tiếng Việt</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="es">🇪🇸 Español</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary btn-sm btn-trigger-inquiry" data-plan="官网导航咨询">
+          <span data-i18n="nav_inquiry_btn">導入相談</span>
+        </button>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= 2. HERO SECTION ================= -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="status-dot"></span>
+          <span data-i18n="hero_tag">次世代 Cloud-Native DNS · 301/302 · 短縮URL・プロキシ</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">すべての権威DNS解析をミリ秒単位で掌握</span><br class="hero-title-br">
+          <span class="text-gradient" data-i18n="hero_title_2">ドメイン遮断とクラウドベンダーロックインを終結</span>
+        </h1>
+
+        <p class="hero-desc" data-i18n="hero_desc">Hermes は CoreDNS / BIND 9 デュアルカーネルと超統合クラウドネイティブ (K8s / eBPF)
+          アーキテクチャを融合。301/302 エッジリダイレクト、高速短縮ドメイン、プロキシ隠蔽ゲートウェイ、レジストラ統合、HTTPDNS、商用 EV/OV ＋ 無料 SSL 自動更新、端末側 Rust SDK
+          による自己治癒、AI Agent 自動運用を包括的に提供します。</p>
+
+        <div class="hero-highlights">
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_coredns">CoreDNS / BIND 9 デュアルコア権威 & 独自DNS防御</span>
+          </div>
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_matrix">301/302 · 短縮URL · プロキシ · レジストラ</span>
+          </div>
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_rust">あなたの製品がそのまま検知マトリクスに</span>
+          </div>
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_ai">AI Agent (MCP / CLI / Skill / RAG)</span>
+          </div>
+          <div class="highlight-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span data-i18n="badge_chatops">Telegram ChatOps 運用Bot</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg btn-trigger-inquiry" data-plan="首屏商业购买意向">
+            <span data-i18n="hero_btn_buy">ソース購入 / 導入支援 (USDT)</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <a href="#domain-matrix" class="btn btn-secondary btn-lg">
+            <span data-i18n="nav_domain_matrix">ドメイン & プロキシ</span>
+          </a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="metric-num"><span class="text-gradient-cyan">&lt; 0.6</span> ms</div>
+            <div class="metric-label" data-i18n="metric_latency">CoreDNS + eBPF <0.15ms 超高速応答</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="text-gradient">100%</span> <span
+                  data-i18n="metric_seamless">シームレス</span></div>
+              <div class="metric-label" data-i18n="metric_switch">複数プロバイダー間のゼロダウンタイム切替</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="text-gradient-gold">0</span> <span
+                  data-i18n="metric_limits">無制限</span></div>
+              <div class="metric-label" data-i18n="metric_zero">ドメイン管理数および無料SSL発行数 無制限</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Dashboard (Header Overlap & i18n fixed) -->
+        <div class="hero-visual">
+          <div class="dashboard-mock float-anim">
+            <div class="window-header">
+              <div class="window-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="window-title" data-i18n="console_win_title">Hermes 権威コンソール · Multi-Cloud Mesh</div>
+              <span class="status-pill"><span class="status-dot"></span> <span data-i18n="console_win_status">● クラスタ稼働中
+                  (<1ms)< /span></span>
+            </div>
+
+            <div class="window-body">
+              <!-- Console Topbar with Zone breadcrumb and filter -->
+              <div class="console-topbar">
+                <div class="console-breadcrumb">
+                  <span style="font-size: 0.95rem;">🌐</span>
+                  <span data-i18n="console_zone_name">enterprise-mesh.io (自建権威)</span>
+                  <span class="zone-badge">Native Mesh</span>
+                </div>
+                <div class="console-search-box">
+                  <span>🔍</span>
+                  <span data-i18n="console_search_hint">レコード、ポリシー、ノード検索...</span>
+                </div>
+              </div>
+
+              <!-- Console Metrics Cards (4 compact cards) -->
+              <div class="console-metrics-row">
+                <div class="console-metric-item">
+                  <div class="metric-lbl" data-i18n="console_stat_qps">権威 QPS: 1.28M/s</div>
+                  <div class="metric-val" style="color: #38bdf8;">1,280,450 <span
+                      style="font-size: 0.65rem; color: #34d399; font-weight: normal;">L1: 99.8%</span></div>
+                </div>
+                <div class="console-metric-item">
+                  <div class="metric-lbl" data-i18n="console_stat_sync">マルチクラウド: 4/4</div>
+                  <div class="metric-val" style="color: #818cf8;">4 / 4 <span
+                      style="font-size: 0.65rem; color: #34d399; font-weight: normal;">0-Delay</span></div>
+                </div>
+                <div class="console-metric-item">
+                  <div class="metric-lbl" data-i18n="console_stat_defense">DNS 防御: 有効</div>
+                  <div class="metric-val" style="color: #34d399;">Active <span
+                      style="font-size: 0.65rem; color: #38bdf8; font-weight: normal;">0-Drop</span></div>
+                </div>
+                <div class="console-metric-item">
+                  <div class="metric-lbl" data-i18n="console_stat_ssl">SSL証明書: 自動更新</div>
+                  <div class="metric-val" style="color: #fbbf24;">Valid <span
+                      style="font-size: 0.65rem; color: #a78bfa; font-weight: normal;">Auto-Renew</span></div>
+                </div>
+              </div>
+
+              <!-- Authentic Live DNS Records Data Table (真实的 DNS 生产级解析记录管理表) -->
+              <div class="console-records-table-wrapper">
+                <table class="console-records-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 16%;" data-i18n="console_th_host">ホスト</th>
+                      <th style="width: 12%;" data-i18n="console_th_type">タイプ</th>
+                      <th style="width: 34%;" data-i18n="console_th_line">ルーティング & IP</th>
+                      <th style="width: 20%;" data-i18n="console_th_sync">同期</th>
+                      <th style="width: 18%;" data-i18n="console_th_status">状態</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong style="color: #ffffff;">api</strong></td>
+                      <td><span class="rec-type-badge rec-a">A</span></td>
+                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
+                          data-i18n="console_r1_line">BGPマルチキャリア · 104.21.72.18</span></td>
+                      <td>
+                        <span class="sync-tag sync-cf">CF</span>
+                        <span class="sync-tag sync-ali">Ali</span>
+                        <span class="sync-tag sync-mesh">CoreDNS</span>
+                      </td>
+                      <td><span class="rec-status-ok" data-i18n="console_r1_status">● 正常 (<0.5ms)< /span>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><strong style="color: #ffffff;">gateway</strong></td>
+                      <td><span class="rec-type-badge rec-cname">CNAME</span></td>
+                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
+                          data-i18n="console_r2_line">グローバルエッジ加速 · edge.hermes.net</span></td>
+                      <td>
+                        <span class="sync-tag sync-aws">AWS</span>
+                        <span class="sync-tag sync-mesh">BIND 9</span>
+                      </td>
+                      <td><span class="rec-status-ok" data-i18n="console_r2_status">● 自律復旧中</span></td>
+                    </tr>
+
+                    <tr>
+                      <td><strong style="color: #ffffff;">auth.sec</strong></td>
+                      <td><span class="rec-type-badge rec-a">A</span></td>
+                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
+                          data-i18n="console_r3_line">高防流量スクラビング · 119.29.29.29</span></td>
+                      <td>
+                        <span class="sync-tag sync-pod">DNSPod</span>
+                        <span class="sync-tag sync-mesh">Shield</span>
+                      </td>
+                      <td><span class="rec-status-shield" data-i18n="console_r3_status">🛡️ 防御中</span></td>
+                    </tr>
+
+                    <tr>
+                      <td><strong style="color: #ffffff;">_k8s.tls</strong></td>
+                      <td><span class="rec-type-badge rec-txt">TXT</span></td>
+                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
+                          data-i18n="console_r4_line">K8s Ingress Secret 自動連動</span></td>
+                      <td>
+                        <span class="sync-tag sync-k8s">K8s</span>
+                        <span class="sync-tag sync-mesh">ACME</span>
+                      </td>
+                      <td><span class="rec-status-ssl" data-i18n="console_r4_status">🔐 SSL有効</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Real-time Cluster Telemetry Status Bar -->
+              <div class="console-footer-bar">
+                <div class="console-footer-line1">
+                  <span class="status-dot-sm" style="background:#38bdf8; box-shadow:0 0 6px #38bdf8;"></span>
+                  <span data-i18n="console_footer_sync">⚡ 拠点間マルチアクティブ: 東京 / 香港 / シリコンバレー 強整合性</span>
+                </div>
+                <div class="console-footer-line2">
+                  <span class="status-dot-sm" style="background:#10b981; box-shadow:0 0 6px #10b981;"></span>
+                  <span data-i18n="console_footer_engine">✓ デュアルコア CoreDNS + BIND 9 稼働中 | L1 メモリ応答 0.4ms</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </section>
+
+  <!-- ================= 3. GLOBAL PROVIDER SHOWCASE ================= -->
+  <section class="section-alt" style="padding: 44px 0; border-bottom: 1px solid var(--border-subtle);">
+    <div class="container" style="text-align: center;">
+      <div
+        style="font-size: 0.86rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;"
+        data-i18n="provider_title">世界の主要クラウドおよび権威DNSプラットフォームにネイティブ対応</div>
+      <p style="font-size: 0.94rem; color: var(--text-secondary); max-width: 820px; margin: 0 auto 24px auto;"
+        data-i18n="provider_desc">解決ロジックの再構築は不要。単一アーキテクチャで世界数十社の権威DNSを一元制御し、ミリ秒単位でクロス同期。</p>
+
+      <div class="provider-wall">
+        <span class="provider-chip"
+          style="border-color: #ef4444; background: rgba(239, 68, 68, 0.1); color: #f87171; font-weight: 700;"><span
+            class="chip-dot" style="background:#ef4444;"></span>Huawei Cloud (<span data-i18n="prov_huawei">ファーウェイクラウド
+            DNS</span>)</span>
+        <span class="provider-chip"
+          style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); color: #60a5fa; font-weight: 700;"><span
+            class="chip-dot" style="background:#3b82f6;"></span>Volcengine (<span data-i18n="prov_volc">ボルケーノエンジン
+            DNS</span>)</span>
+        <span class="provider-chip"
+          style="border-color: #38bdf8; background: rgba(56, 189, 248, 0.1); color: #38bdf8; font-weight: 700;"><span
+            class="chip-dot" style="background:#38bdf8;"></span>Aliyun DNS (<span
+            data-i18n="prov_aliyun">アリババクラウド</span>)</span>
+        <span class="provider-chip"
+          style="border-color: #06b6d4; background: rgba(6, 182, 212, 0.1); color: #22d3ee; font-weight: 700;"><span
+            class="chip-dot" style="background:#06b6d4;"></span>DNSPod (<span data-i18n="prov_tencent">テンセントクラウド
+            DNS</span>)</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Cloudflare</span>
+        <span class="provider-chip"><span class="chip-dot"></span>AWS Route53</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Google Cloud DNS</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Microsoft Azure DNS</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Namecheap</span>
+        <span class="provider-chip"><span class="chip-dot"></span>DigitalOcean</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Hetzner</span>
+        <span class="provider-chip"><span class="chip-dot"></span>OVH Cloud</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Linode / Akamai</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Vultr</span>
+        <span class="provider-chip"><span class="chip-dot"></span>NS1</span>
+        <span class="provider-chip"><span class="chip-dot"></span>DNSimple</span>
+        <span class="provider-chip"><span class="chip-dot"></span>DNS Made Easy</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Gandi</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Hurricane Electric</span>
+        <span class="provider-chip"><span class="chip-dot"></span>PowerDNS</span>
+        <span class="provider-chip"><span class="chip-dot"></span>BIND 9</span>
+        <span class="provider-chip"><span class="chip-dot"></span>ClouDNS</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Packetframe</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Porkbun</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Loopia</span>
+        <span class="provider-chip"><span class="chip-dot"></span>TransIP</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Scaleway</span>
+        <span class="provider-chip"><span class="chip-dot"></span>INWX</span>
+        <span class="provider-chip"><span class="chip-dot"></span>Netcup</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3.5 CLOUD-NATIVE INFRASTRUCTURE (独立云原生架构模块) ================= -->
+  <section class="section section-alt" id="cloud-native"
+    style="padding: 68px 0; border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag cyan" data-i18n="cloud_tag">Cloud-Native Infrastructure</div>
+        <h2 class="section-title" data-i18n="cloud_title">独立したクラウドネイティブ基盤：Kubernetesネイティブ管理とコンテナオーケストレーション</h2>
+        <p class="section-desc" data-i18n="cloud_desc">
+          従来のモノリシックDNS運用の限界を突破。Kubernetesネイティブ統合、Ingress自動連携、Helmチャート、ステートレス水平自動スケールを提供。</p>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="glass-card shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">K8s
+            Native</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c1_t">Kubernetes (K8s) ネイティブ統合</h3>
+          <p class="card-desc" data-i18n="cloud_c1_d">K8sクラスタおよびIngressと深く統合。Podのライフサイクル変化を秒単位で検知しレコードを自動更新。</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_k8s_native">K8s ネイティブ統合</span>
+            <span class="tag-pill" data-i18n="tag_ingress_link">Ingress 連携</span>
+            <span class="tag-pill" data-i18n="tag_pod_aware">Pod 自動検出</span>
+          </div>
+        </div>
+
+        <div class="glass-card shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
+            Orchestration</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c2_t">Docker & Helm オーケストレーション</h3>
+          <p class="card-desc" data-i18n="cloud_c2_d">本番運用対応のHelm 3チャートとDocker Compose構成を提供。単一コマンドで高可用性クラスタを即座に起動可能。</p>
+          <div class="card-tags">
+            <span class="tag-pill">Helm 3 Charts</span>
+            <span class="tag-pill">Docker Compose</span>
+            <span class="tag-pill" data-i18n="tag_5m_launch">5分で迅速展開</span>
+          </div>
+        </div>
+
+        <div class="glass-card shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">
+            Elastic Scale</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c3_t">ステートレスマイクロサービス自動スケーリング</h3>
+          <p class="card-desc" data-i18n="cloud_c3_d">コンピュートとストレージの完全分離。ステートレスな解決ノードはKubernetes HPAにより負荷急増時も秒単位で水平自動拡張。
+          </p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_stateless_engine">ステートレスDNSエンジン</span>
+            <span class="tag-pill" data-i18n="tag_k8s_hpa">K8s HPA 弾力性</span>
+            <span class="tag-pill" data-i18n="tag_million_burst">千万級バースト耐性</span>
+          </div>
+        </div>
+
+        <div class="glass-card cyan shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">
+            Service Mesh</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c4_t">サービスメッシュ & ゲートウェイ連携</h3>
+          <p class="card-desc" data-i18n="cloud_c4_d">Envoy、Istio Service
+            Mesh、APIゲートウェイと連携。カナリアリリースの動的切替、複数クラスタの統一ルーティング、完全な可観測性を実現。</p>
+          <div class="card-tags">
+            <span class="tag-pill">Envoy / Istio</span>
+            <span class="tag-pill" data-i18n="tag_canary_rollout">カナリアリリース</span>
+            <span class="tag-pill" data-i18n="tag_full_observable">フルスタック可観測性</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. AUTHORITATIVE CORE ARCHITECTURE ================= -->
+  <section class="section" id="authoritative-core">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag cyan">Cloud-Native Architecture</div>
+        <h2 class="section-title" data-i18n="auth_title">CoreDNS / BIND 9 デュアルコア権威DNSと独自セキュリティ防御</h2>
+        <p class="section-desc" data-i18n="auth_desc">独自開発のCoreDNSプラグインとBIND 9ゾーン同期。数千万QPSの処理能力とマルチDB対応、強固なDNS防御を内蔵。</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="glass-card">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="auth_c1_t">CoreDNS / BIND 9 デュアル権威</h3>
+          <p class="card-desc" data-i18n="auth_c1_d">自社開発の CoreDNS プラグインと BIND 9 ゾーン同期。MySQL、PostgreSQL、SQLite
+            に対応し、数千万規模の QPS 解析スループットを処理。</p>
+          <div class="card-tags">
+            <span class="tag-pill">CoreDNS Plugin</span>
+            <span class="tag-pill">BIND 9 Zone Sync</span>
+            <span class="tag-pill" data-i18n="tag_million_qps">千万級 QPS スループット</span>
+          </div>
+        </div>
+
+        <div class="glass-card cyan">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="auth_c2_t">独自開発のDNS防御 & レートリミット</h3>
+          <p class="card-desc" data-i18n="auth_c2_d">
+            ソフトウェア層に完全なDNS防御を統合：QPSレート制限、DNS増幅攻撃フィルタリング、再帰フラッド遮断、ACL、GeoIPによる高精度解決。</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_qps_rate_limit">QPS レート制限</span>
+            <span class="tag-pill" data-i18n="tag_dns_amplification">DNS 増幅攻撃フィルタ</span>
+            <span class="tag-pill" data-i18n="tag_anti_poisoning">DNS汚染・ハイジャック防止</span>
+            <span class="tag-pill">MaxMind GeoIP</span>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="auth_c3_t">クラウドネイティブ eBPF 高速化とマルチアクティブ</h3>
+          <p class="card-desc" data-i18n="auth_c3_d">eBPF カーネルバイパスにより L1 メモリ応答 <0.15ms を達成。Multi-Master 構成と Anycast
+              世界網により 99.999% の SLA を保証。</p>
+              <div class="card-tags">
+                <span class="tag-pill" data-i18n="tag_k8s_docker">K8s / Docker オーケストレーション</span>
+                <span class="tag-pill" data-i18n="tag_sub_half_ms">
+                  < 0.5ms レイテンシ</span>
+                    <span class="tag-pill" data-i18n="tag_multi_master">Multi-Master マルチアクティブ</span>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. AI ECOSYSTEM: MCP / CLI / SKILL / RAG ================= -->
+  <section class="section" id="ai-ecosystem">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"
+          style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">AI &amp;
+          ChatOps Ecosystem</div>
+        <h2 class="section-title" data-i18n="ai_title">AIとChatOps：Telegram、MS Teams、Slackおよびマルチチャネル連携</h2>
+        <p class="section-desc" data-i18n="ai_desc">最新のDevOpsのために設計。Telegram Bot、Microsoft
+          Teams、Slackによる対話式コマンド運用やモバイル承認フロー、標準MCP連携に対応。</p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- Card 0: ChatOps Bot (Prominent) -->
+        <div class="glass-card shine-effect chatops-highlight-card">
+          <div class="ai-badge"
+            style="background: rgba(56, 189, 248, 0.2); border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">ChatOps
+            Bot</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c0_t">ChatOps 運用Bot (Telegram / Teams /
+            Slack)</h3>
+          <p class="card-desc" data-i18n="ai_c0_d">Telegram、Microsoft Teams、Slackとシームレスに連携。対話式コマンド（/status, /switch,
+            /ssl）とモバイル承認フローで重要操作を即時反映。</p>
+          <div class="card-tags">
+            <span class="tag-pill">Telegram Bot</span>
+            <span class="tag-pill">Microsoft Teams</span>
+            <span class="tag-pill">Slack</span>
+            <span class="tag-pill" data-i18n="tag_dual_approval">二人承認ワークフロー</span>
+          </div>
+        </div>
+        <div class="glass-card shine-effect">
+          <div class="ai-badge">Protocol</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c1_t">MCP Server プロトコル対応</h3>
+          <p class="card-desc" data-i18n="ai_c1_d">標準 Model Context Protocol (MCP) を完全実装。AI アシスタントが統一プロトコルを介して DNS
+            調査、設定変更、フェイルオーバーを直接実行。</p>
+          <div class="card-tags">
+            <span class="tag-pill">Model Context Protocol</span>
+            <span class="tag-pill" data-i18n="tag_llm_direct">LLM 直接接続</span>
+          </div>
+        </div>
+
+        <div class="glass-card cyan shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.35); color: #38bdf8;">DevOps
+            CLI</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c2_t">Hermes CLI ツールセット</h3>
+          <p class="card-desc" data-i18n="ai_c2_d">Linux/macOS/Windows に対応したモダンなコマンドラインツール。JSON パイプライン、短縮 URL 生成、CI/CD
+            への組み込みを支援。</p>
+          <div class="card-tags">
+            <span class="tag-pill">hermes-cli</span>
+            <span class="tag-pill" data-i18n="tag_cicd_orchestration">CI/CD 自動化</span>
+          </div>
+        </div>
+
+        <div class="glass-card shine-effect">
+          <div class="ai-badge">Agent Ready</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c3_t">Agent SKILL パッケージ</h3>
+          <p class="card-desc" data-i18n="ai_c3_d">即時利用可能な Agent 向けスキル標準仕様。外部ネットワークの遮断や証明書期限切れを検知した際、自律的に復旧プロセスを完結。</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_skill_spec">エージェント SKILL 規格</span>
+            <span class="tag-pill" data-i18n="tag_autonomous_loop">自律的インシデント解決</span>
+          </div>
+        </div>
+
+        <div class="glass-card cyan shine-effect">
+          <div class="ai-badge"
+            style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
+            Knowledge Base</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c4_t">インテリジェント運用 RAG エンジン</h3>
+          <p class="card-desc" data-i18n="ai_c4_d">ドメイン障害診断に特化した検索拡張生成 (RAG) ナレッジベースを内蔵。過去の検閲・ブロック回避ノウハウから根本原因を秒速特定。</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_rag_graph">RAG ナレッジベース</span>
+            <span class="tag-pill" data-i18n="tag_root_cause_sec">数秒での根本原因特定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. TRAFFIC & ASSET MATRIX (301/302, Short URL, Proxy Domain, Registrar, HTTPDNS) ================= -->
+  <section class="section" id="domain-matrix">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag cyan" data-i18n="matrix_tag">Traffic & Asset Gateway</div>
+        <h2 class="section-title" data-i18n="matrix_title">全方位トラフィック制御：301/302 転送 · 短縮ドメイン · プロキシ · レジストラ</h2>
+        <p class="section-desc" data-i18n="matrix_desc">単なる DNS にとどまりません。Hermes
+          はドメイン登録からリバースプロキシ隠蔽、高精度トラフィック分散まで一気通貫のインフラを提供します。</p>
+      </div>
+
+      <div class="grid grid-3">
+        <!-- 1. 301/302 Redirection -->
+        <div class="glass-card shine-effect">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c1_t">301 / 302 高速エッジリダイレクト</h3>
+          <p class="card-desc" data-i18n="matrix_c1_d">ミリ秒単位の 301 恒久転送および 302 一時リダイレクトエンジン。全 URL パラメーターの完全保持、HTTPS
+            強制、ワイルドカード一括転送に対応。</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_301_perm">301 恒久リダイレクト</span>
+            <span class="tag-pill" data-i18n="tag_302_temp">302 一時リダイレクト</span>
+            <span class="tag-pill" data-i18n="tag_lossless_param">パラメータ透過転送</span>
+          </div>
+        </div>
+
+        <!-- 2. Short Domain Engine -->
+        <div class="glass-card cyan shine-effect">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c2_t">自社専用 高性能短縮ドメイン基盤</h3>
+          <p class="card-desc" data-i18n="matrix_c2_d">企業専用の検閲対策短縮 URL クラスター。数百万規模の高トラフィック転送、アクセス解析、有効期限自動破棄を標準搭載。</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_self_shortlink">耐ブロッキング短縮URL</span>
+            <span class="tag-pill" data-i18n="tag_anti_red_relay">赤警告回避リレー</span>
+            <span class="tag-pill" data-i18n="tag_click_tracking">クリック追跡テレメトリ</span>
+          </div>
+        </div>
+
+        <!-- 3. Proxy Domain & Cloaking Gateway -->
+        <div class="glass-card shine-effect">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c3_t">プロキシドメイン＆オリジン隠蔽ゲートウェイ</h3>
+          <p class="card-desc" data-i18n="matrix_c3_d">プロキシドメインを一括配備し、リバースプロキシとトラフィック偽装を自動化。オリジン IP
+            の露出を完全に防ぎ、耐攻撃性を劇的に向上。</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_origin_ip_hidden">オリジンIP隠蔽</span>
+            <span class="tag-pill" data-i18n="tag_dynamic_reverse_proxy">動的反向プロキシ</span>
+            <span class="tag-pill" data-i18n="tag_traffic_cloaking">トラフィック高度偽装</span>
+          </div>
+        </div>
+
+        <!-- 4. Domain Registrar Gateway -->
+        <div class="glass-card shine-effect">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c4_t">ドメインレジストラ統合 (Registrar Gateway)</h3>
+          <p class="card-desc" data-i18n="matrix_c4_d">世界トップレジストラと直結し、大量ドメインの一括取得、自動更新、ドロップキャッチ監視、WHOIS プライバシー保護を一元管理。
+          </p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_top_registrar">トップレジストラ直接接続</span>
+            <span class="tag-pill" data-i18n="tag_bulk_reg_renew">一括登録・自動更新</span>
+            <span class="tag-pill" data-i18n="tag_whois_shield">WHOIS プライバシーシールド</span>
+          </div>
+        </div>
+
+        <!-- 5. HTTPDNS & DoH/DoT Tunnel -->
+        <div class="glass-card cyan shine-effect" style="grid-column: span 2;">
+          <div class="card-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="card-title" data-i18n="matrix_c5_t">HTTPDNS & DoH / DoT 暗号化トンネル</h3>
+          <p class="card-desc" data-i18n="matrix_c5_d">モバイルアプリ・クライアント専用の HTTPS 暗号化直接トンネル。LocalDNS
+            の改ざん、キャッシュ汚染、通信キャリア間の遅延を根絶。</p>
+          <div class="card-tags">
+            <span class="tag-pill">HTTPDNS JSON API</span>
+            <span class="tag-pill">RFC 8484 DNS-over-HTTPS</span>
+            <span class="tag-pill">RFC 7858 DNS-over-TLS</span>
+            <span class="tag-pill" data-i18n="tag_zero_hijack">ゼロハイジャック・ゼロ改ざん</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. RUST SDK RADAR & ANTI-RED ================= -->
+  <section class="section" id="rust-sdk">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag emerald" data-i18n="rust_tag">Crowdsourced Telemetry Shield</div>
+        <h2 class="section-title" data-i18n="rust_title">Rust SDK：あなたの製品がそのまま検知マトリクスに</h2>
+        <p class="section-desc" data-i18n="rust_desc">高額な外部監視サーバーはもう不要です！製品に組み込まれた超軽量 Rust SDK
+          により、世界中で稼働するすべての実端末がリアルタイム検知レーダーとなります。</p>
+      </div>
+
+      <div class="grid grid-2" style="align-items: center;">
+        <div>
+          <div class="radar-box" id="radar-container">
+            <div class="radar-crosshair-x"></div>
+            <div class="radar-crosshair-y"></div>
+            <div class="radar-ring" style="width: 30%; aspect-ratio: 1;"></div>
+            <div class="radar-ring" style="width: 60%; aspect-ratio: 1;"></div>
+            <div class="radar-ring" style="width: 90%; aspect-ratio: 1;"></div>
+            <div class="radar-sweep"></div>
+          </div>
+
+          <div
+            style="margin-top: 14px; font-size: 0.84rem; color: var(--text-muted); display: flex; justify-content: space-between;"
+            id="probe-quick-info">
+            <span data-i18n="rust_click_hint">各ノードをクリックして、世界中からのリアルタイム端末報告を確認。</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div id="probe-status-banner">
+            <div
+              style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; border-radius: 8px; padding: 12px 16px; color: #a7f3d0; font-size: 0.92rem;"
+              data-i18n="rust_banner_normal">✓ [実端末検知マトリクス正常] 世界百万人規模の端末から正常報告を受信中。検閲や警告画面は検知されていません。</div>
+          </div>
+
+          <div class="glass-card" style="padding: 22px;">
+            <h4 style="font-size: 1.08rem; margin-bottom: 12px; color: var(--text-white);" data-i18n="rust_box_title">
+              「製品即マトリクス」の核心的優位性</h4>
+            <ul
+              style="display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: var(--text-secondary);">
+              <li style="display: flex; gap: 8px;">
+                <span style="color: #38bdf8;">01.</span>
+                <span data-i18n="rust_mech1">プローブコスト0、100%リアル回線：アクティブな端末通信を活用した分散パッシブ検知。</span>
+              </li>
+              <li style="display: flex; gap: 8px;">
+                <span style="color: #38bdf8;">02.</span>
+                <span data-i18n="rust_mech2">アクセス制限の即時検知：局所的な異常をミリ秒で感知し、自動で回避経路に切り替え。</span>
+              </li>
+              <li style="display: flex; gap: 8px;">
+                <span style="color: #38bdf8;">03.</span>
+                <span data-i18n="rust_mech3">ミリ秒単位のクライアント自律修復：汚染時も暗号化HTTPDNS / 302予備ドメインへ無感切り替え。</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Real-Time Telemetry Stats (No mock simulator buttons) -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div class="telemetry-stat-card">
+              <div style="font-size: 1.25rem; font-weight: 800; color: #38bdf8;">1,200,000+</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
+                data-i18n="rust_metric_active_nodes">稼働端末レーダーノード</div>
+            </div>
+            <div class="telemetry-stat-card">
+              <div style="font-size: 1.25rem; font-weight: 800; color: #34d399;">&lt; 400ms</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
+                data-i18n="rust_metric_detection_time">遮断集約検知速度</div>
+            </div>
+            <div class="telemetry-stat-card">
+              <div style="font-size: 1.25rem; font-weight: 800; color: #c084fc;" data-i18n="rust_metric_probe_cost_val">
+                0 USDT</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
+                data-i18n="rust_metric_probe_cost">専用プローブ費用</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. COMMERCIAL & FREE SSL PIPELINE (100% i18n) ================= -->
+  <section class="section section-alt" id="ssl-pipeline">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Zero-Touch SSL Matrix</div>
+        <h2 class="section-title" data-i18n="ssl_title">商用 EV/OV/DV + 無料ワイルドカード SSL 自動化パイプライン</h2>
+        <p class="section-desc" data-i18n="ssl_desc">単一認証局への依存を排除。商用証明書と無料ワイルドカードACME証明書の即時発行、パブリックIP対応、自動更新および全体配布を網羅。
+        </p>
+      </div>
+
+      <div class="ssl-flow-container">
+        <div class="ssl-step-card">
+          <div class="ssl-step-num">STEP 01</div>
+          <h4 style="margin-bottom: 8px;" data-i18n="ssl_s1_t">商用 CA & ACME 発行</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s1_d">Let's
+            Encrypt / ZeroSSL / GTS 無料証明書の自動発行に加え、DigiCert / Sectigo / GlobalSign 商用証明書のDNS認証もシームレス対応。</p>
+        </div>
+
+        <div class="ssl-step-card">
+          <div class="ssl-step-num">STEP 02</div>
+          <h4 style="margin-bottom: 8px;" data-i18n="ssl_s2_t">パブリック IP & ワイルドカード証明書</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s2_d">
+            *.example.com ドメインに加え、サーバのグローバルIPアドレスに対する正規SSL証明書の発行を独自サポート。</p>
+        </div>
+
+        <div class="ssl-step-card">
+          <div class="ssl-step-num">STEP 03</div>
+          <h4 style="margin-bottom: 8px;" data-i18n="ssl_s3_t">自動監査 & サイレント更新</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s3_d">
+            バックグラウンドの監査エンジンが毎日有効期限を監視。失効30日前に自動でサイレント更新し、企業の証明書失効事故を防止。</p>
+        </div>
+
+        <div class="ssl-step-card">
+          <div class="ssl-step-num">STEP 04</div>
+          <h4 style="margin-bottom: 8px;" data-i18n="ssl_s4_t">ノード配布 & 無停止リロード</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s4_d">SSL
+            AgentがNginx / HAProxyを安全にReload。K8s Secret自動同期や主要クラウドCDNへの自動プッシュをサポート。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8.5 COMPETITOR COMPARISON MATRIX ================= -->
+  <section class="section section-alt" id="comparison">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"
+          style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.35); color: #818cf8;"
+          data-i18n="comp_tag">Competitive Matrix</div>
+        <h2 class="section-title" data-i18n="comp_title">競合製品との徹底比較：なぜ Hermes なのか？</h2>
+        <p class="section-desc" data-i18n="comp_desc">単一機能の監視スクリプトやベンダーロックインされたパブリッククラウドからの脱却。Hermes
+          は耐障害性と大規模ドメイン統制のために設計されています。</p>
+      </div>
+
+      <!-- Comparison Matrix Table Card -->
+      <div class="comparison-table-wrapper glass-card">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="col-dim" data-i18n="comp_th_dim">コア機能・次元</th>
+              <th class="col-hermes highlight-col">
+                <div class="col-badge">RECOMMENDED</div>
+                <div class="th-title" data-i18n="comp_th_hermes">Hermes DNS プラットフォーム</div>
+              </th>
+              <th class="col-comp" data-i18n="comp_th_domain_admin">Domain Admin (証明書監視ツール)</th>
+              <th class="col-comp" data-i18n="comp_th_caihong">彩虹聚合 DNS (PHP代行パネル)</th>
+              <th class="col-comp" data-i18n="comp_th_cloud">大手パブリッククラウド (Cloudflare等)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r1_dim">権威DNS解析エンジン</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r1_hermes">自社製 CoreDNS (Go) + BIND 9 デュアルコア、<0.5ms L1 キャッシュ、千万級 QPS</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r1_da">❌ 権威DNSエンジンなし（有効期限監視のみ）</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r1_ch">❌ 権威エンジンなし（PHPによるクラウドAPIプロキシ）</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r1_cloud">⚠️ クローズドソース、私有展開不可、ベンダー依存</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r2_dim">DNS 防御・レートリミット</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r2_hermes">QPSレート制限、DNS増幅攻撃洗浄、フラッド遮断、IP ACLを標準装備</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r2_da">❌ ネットワーク防御・トラフィック洗浄機能なし</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r2_ch">❌ 防御機能なし、突発アクセスで容易にダウン</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r2_cloud">⚠️ 無料版は限定的、本格的な洗浄は高額プランが必要</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r3_dim">トラフィック制御ゲートウェイ</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r3_hermes">ミリ秒単位の 301/302 転送、短縮ドメイン、オリジン隠蔽プロキシ、レジストラ連携</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_da">❌ トラフィック制御機能なし</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_ch">❌ 基本的なレコード操作のみ</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_cloud">⚠️ CDNやWorkers等と分散設定が必要で設定が煩雑</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r4_dim">Rust SDK クラウドセンシング</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r4_hermes">独自組込み Rust SDK「プロダクトが検知マトリクス」でミリ秒でブロックを感知・回避</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r4_da">❌ サーバ単体の定期ポーリングのみ</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r4_ch">❌ サーバからの単純な定期リクエストのみ</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r4_cloud">❌ データセンタ監視のみ、一般回線の遮断を反映できない</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r5_dim">AI Agent & ChatOps 承認連携</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r5_hermes">標準 MCP プロトコル + Telegram / MS Teams / Slack 二人承認ワークフロー</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r5_da">❌ 基本的なメール/Webhook通知のみ</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r5_ch">❌ AIプロトコルやチャットツール承認なし</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r5_cloud">⚠️ 複雑な管理画面と難解なIAM権限体系</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r6_dim">Cloud-Native & K8s 連動</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r6_hermes">K8s Ingress、TLS Secret 自動同期、Helm、ステートレス HPA 自動拡張</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r6_da">❌ 単一の Python / Docker スクリプト</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r6_ch">❌ 従来の LAMP / LNMP モノリス構成</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r6_cloud">⚠️ External-DNS プラグインの独自運用保守が必要</span></td>
+            </tr>
+
+            <tr>
+              <td class="dim-name">
+                <strong data-i18n="comp_r7_dim">商用ライセンスと主権</strong>
+              </td>
+              <td class="highlight-cell">
+                <div class="feat-status feat-status-win">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span data-i18n="comp_r7_hermes">ソースコード買切 10,000 U または 現行版バイナリ 699 U (保守・更新1年込み 1,999
+                    U)、資産を100%自主統制</span>
+                </div>
+              </td>
+              <td><span class="comp-text-val" data-i18n="comp_r7_da">個人OSS、エンタープライズSLAや導入支援なし</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r7_ch">低価格乱立スクリプト、専任エキスパート支援なし</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r7_cloud">❌ 従量課金が継続し、アカウント停止リスクを常時抱える</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 9. COMMERCIAL PRICING (CRYPTO USDT/USDC) ================= -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag"
+          style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;"
+          data-i18n="pricing_tag">暗号資産ネイティブ決済 · USDT / USDC 対応</div>
+        <h2 class="section-title" data-i18n="pricing_title">商用プラン：全ソースコード買取 ＆ プライベート納品</h2>
+        <p class="section-desc" data-i18n="pricing_desc">継続的なクラウド課金から脱却。ソースコードの完全買収、または専任エキスパートによるバイナリ導入を選択可能。</p>
+
+        <!-- Prominent Payment Policy Banner (USDT/USDC, NO TRON) -->
+        <div class="payment-notice-box" data-i18n="pricing_payment_warning">⚡ 決済方針：主要暗号資産 (USDT / USDC)
+          による決済に対応しています。TRON ネットワークは非対応です。</div>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Tier 1: Source License (Regular 29,999 USDT -> Promo 10,000 USDT) -->
+        <div class="pricing-card shine-effect">
+          <div class="card-badge-strip" data-i18n="plan_source_badge">期間限定割引 · 19,999 U 引</div>
+
+          <div class="pricing-header">
+            <h3 class="plan-name" data-i18n="plan_source_name">全ソースコード永久商用買取</h3>
+            <p class="plan-desc" data-i18n="plan_source_desc">自社開発チームを擁し、100% の技術自立性およびホワイトラベルでの再販・商用展開を求める企業様に最適です。</p>
+            <div class="plan-price-box">
+              <div class="price-original" data-i18n="plan_source_orig">定価 29,999 USDT</div>
+              <div class="price-row-main">
+                <span class="price-currency">USDT</span>
+                <span class="price-amount" data-i18n="plan_source_price">10,000</span>
+                <span class="promo-tag" data-i18n="plan_source_tag">特別割引 19,999 U OFF</span>
+              </div>
+              <span class="price-unit" data-i18n="plan_source_unit">USDT / 永久商用ライセンス</span>
+            </div>
+          </div>
+
+          <div class="plan-features-list">
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f1">Go バックエンド全コアソース（K8s Operator、eBPF モジュール、301/302、短縮URL、プロキシ、レジストラ、CoreDNS
+                プラグイン含む）</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f2">Vue3 エンタープライズ管理画面 全ソースコード（TypeScript ＆ 詳細な RBAC 権限制御）</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f3">高性能 Rust 組込 SDK ソースコード（「製品即検知マトリクス」分散テレメトリ基盤）</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f4">Telegram Mini App (TMA) ソース ＆ AI MCP Server プロトコルキット</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f5">管理ドメイン数・解析 QPS 上限なし、永久自社運用権を付与</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_source_f6">ホワイトラベル（自社ブランド化）での再販・商用販売を完全許諾</span>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary btn-lg btn-trigger-inquiry" data-plan="全套源码商业买断 (特惠 10000 USDT)">
+            <span data-i18n="plan_source_btn">ソース購入の相談・申込み (USDT)</span>
+          </button>
+        </div>
+
+        <!-- Tier 2: Private Cloud Turnkey & Program License Suite -->
+        <div class="pricing-card featured shine-effect">
+          <div class="card-badge-strip" data-i18n="plan_deploy_badge">商用バイナリ版 · ソースコード含まず</div>
+
+          <div class="pricing-header">
+            <h3 class="plan-name" data-i18n="plan_deploy_name">プライベート導入 · 商用ライセンス</h3>
+            <p class="plan-desc" data-i18n="plan_deploy_desc">自社開発が不要な企業向け。現行版商用ライセンス 699
+              U（保守・更新なし）、または1年間の保守費用と機能・セキュリティ更新を含む 1,999 U 特恵セットを提供（ソースコードなし）。</p>
+            <div class="plan-price-box">
+              <div class="price-original" data-i18n="plan_deploy_orig">通常 1,699 USDT</div>
+              <div class="price-row-main">
+                <span class="price-currency">USDT</span>
+                <span class="price-amount" data-i18n="plan_deploy_price">699</span>
+                <span class="promo-tag" data-i18n="plan_deploy_tag">現行版 699 U · 保守込みセット 1,999 U</span>
+              </div>
+              <span class="price-unit" data-i18n="plan_deploy_unit">USDT（現行版のみ・保守更新なし／1,999 U 保守費用・更新1年込み）</span>
+            </div>
+          </div>
+
+          <div class="plan-features-list">
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f1">商用プログラムライセンス：現行バージョン 699 U（現行版のみ・保守更新なし）または 特恵セット 1,999
+                U（1年間の保守費用および機能・セキュリティ更新込み、ソースなし）</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f2">Edgeプロキシおよび権威ノード設計（無制限のノード拡張に対応、追加ライセンス費用なし）</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f3">導入作業：基本単一ノード 99 U / 高可用性クラスタ 150 U</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f4">全自動SSL証明書パイプライン導入（商用CA＋無料ワイルドカード/パブリックIP自動発行＆即時反映）</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f5">既存ドメイン無停止移行（Cloudflare / AWS / DNSPod等）＆ 301/302・短縮URL最適化</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f6">AI MCP Server および Telegram / Teams / Slack 承認フロー連携</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_deploy_f7">導入後30日間の技術エキスパート伴走支援付き（以降の保守は特恵 150 U/月）</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg btn-trigger-inquiry" data-plan="私有交付程序授权套装 (当前版本699 U / 1999 U含维护)">
+            <span data-i18n="plan_deploy_btn">導入スイートを相談 (Telegram)</span>
+          </button>
+        </div>
+
+        <!-- Tier 3: Enterprise SLA (Promo 1,199 USDT/yr) -->
+        <div class="pricing-card shine-effect">
+          <div class="card-badge-strip"
+            style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);"
+            data-i18n="plan_support_badge">期間限定割引</div>
+          <div class="pricing-header">
+            <h3 class="plan-name" data-i18n="plan_support_name">エンタープライズ 7x12 エキスパート保守</h3>
+            <p class="plan-desc" data-i18n="plan_support_desc">
+              本番環境向けにエキスパートが7×12時間（UTC+2タイムゾーン）でオンライン支援、バージョン更新、DNS防御ルール改定を提供。</p>
+            <div class="plan-price-box">
+              <div class="price-original" data-i18n="plan_support_orig">定価 2,000 USDT</div>
+              <div class="price-row-main">
+                <span class="price-currency">USDT</span>
+                <span class="price-amount" data-i18n="plan_support_price">1,199</span>
+                <span class="promo-tag" data-i18n="plan_support_tag">801 U お得</span>
+              </div>
+              <span class="price-unit" data-i18n="plan_support_unit">USDT / 年</span>
+            </div>
+          </div>
+
+          <div class="plan-features-list">
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f1">7×12時間技術エキスパートオンライン支援 (UTC+2) とLTSアップデート保証</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f2">大規模ネットワーク遮断時の 10 分以内緊急フェイルオーバー技術支援</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f3">長期 LTS バージョンアップ対応および重大セキュリティ脆弱性のホットパッチ提供</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f4">新規クラウドプロバイダー向け DNS アダプターおよび AI Agent スキルの継続提供</span>
+            </div>
+            <div class="feature-point">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-i18n="plan_support_f5">技術エキスパートによる1v1遠隔トラブルシューティング支援</span>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary btn-lg btn-trigger-inquiry" data-plan="企业级运维维保 (特惠 1199 USDT/年)">
+            <span data-i18n="plan_support_btn">年間保守サポートを選択 (1,199 U/年)</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Interactive Calculator Card (USDT) -->
+      <div class="calc-card">
+        <div class="calc-grid">
+          <div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;" data-i18n="calc_title">投資シミュレーター ＆ 費用試算 (USDT / USDC)
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 22px;" data-i18n="calc_desc">
+              管理対象ドメイン数とノード規模に応じて、最適な投資予算をリアルタイムに計算します：</p>
+
+            <div class="calc-slider-group">
+              <div class="slider-label-row">
+                <span data-i18n="calc_domain_label">管理対象ドメイン規模：</span>
+                <span id="calc-domain-value" style="color: var(--accent-cyan); font-family: monospace;">200</span>
+              </div>
+              <input type="range" min="20" max="5000" step="20" value="200" class="slider-input"
+                id="calc-domain-slider">
+            </div>
+
+            <div class="calc-slider-group">
+              <div class="slider-label-row">
+                <span data-i18n="calc_edge_label">計画Edgeプロキシ＆権威ノード（無制限ノード対応）：</span>
+                <span id="calc-edge-value" style="color: var(--accent-cyan); font-family: monospace;">4</span>
+              </div>
+              <input type="range" min="2" max="30" step="1" value="4" class="slider-input" id="calc-edge-slider">
+            </div>
+
+            <div style="display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px;">
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" id="calc-include-source" checked>
+                <span data-i18n="calc_check_source">全ソースコード買取りにアップグレード (特価 10,000 U)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" id="calc-include-deploy" checked>
+                <span data-i18n="calc_check_deploy">商用ライセンス：現行版 699 U (または保守込み 1,999 U) + 導入 99 U (クラスタ 150 U,
+                  SSL自動化込み)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" id="calc-include-support">
+                <span data-i18n="calc_check_support">専任エキスパート保守追加 (特恵 150 U/月)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="calc-budget-box">
+            <div style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 6px;"
+              data-i18n="calc_budget_label">想定投資予算合計 (USDT / USDC)</div>
+            <div style="display: flex; align-items: baseline; justify-content: center; gap: 6px; margin-bottom: 14px;">
+              <span style="font-size: 1.3rem; font-weight: 700;">USDT</span>
+              <span style="font-size: 3rem; font-weight: 800; color: var(--text-white); line-height: 1;"
+                id="calc-total-price">10,999</span>
+            </div>
+            <div style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;"
+              id="calc-plan-summary"></div>
+            <button class="btn btn-primary btn-lg" id="btn-apply-calculator" style="width: 100%;">
+              <span data-i18n="calc_submit_btn">この構成で見積り・相談を送信</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 10. FAQ SECTION ================= -->
+  <section class="section" id="faq">
+    <div class="container" style="max-width: 880px;">
+      <div class="section-header">
+        <div class="section-tag">FAQ</div>
+        <h2 class="section-title" data-i18n="faq_title">よくあるご質問（FAQ）</h2>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="glass-card faq-item active" style="padding: 24px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q1">1. どのような決済方法に対応していますか？</h4>
+            <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
+          </div>
+          <div class="faq-answer"
+            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
+            data-i18n="faq_a1">主要な暗号資産（USDT / USDC）によるオンライン決済に対応しております。TRON ネットワークはサポートしておりません。</div>
+        </div>
+
+        <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q2">2. なぜ世界中の多数の DNS
+              プロバイダーと互換性があるのですか？</h4>
+            <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
+          </div>
+          <div class="faq-answer"
+            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
+            data-i18n="faq_a2">Hermes は各クラウド事業者の固有 API を統一データモデルへ抽象化する産業グレードのドライバー層を搭載しています。一度ポリシーを定義すれば、Cloudflare や
+            AWS Route53 等へ自動反映され、単一ベンダー依存を回避できます。</div>
+        </div>
+
+        <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q3">3.
+              「あなたの製品がそのまま検知マトリクスに」とはどういう意味ですか？</h4>
+            <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
+          </div>
+          <div class="faq-answer"
+            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
+            data-i18n="faq_a3">従来のデータセンター設置プローブは高額な上、実際の一般ユーザー回線の実態を反映できません。Hermes Rust SDK
+            をクライアントアプリに組み込むことで、ユーザー端末が低負荷で分散検知に参加し、通信汚染や警告画面をミリ秒で感知してシームレスに回避します。</div>
+        </div>
+
+        <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
+          <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q4">4. ソースコード購入後、社内で無制限にデプロイ可能ですか？
+            </h4>
+            <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
+          </div>
+          <div class="faq-answer"
+            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
+            data-i18n="faq_a4">はい。10,000 USDT（定価 29,999
+            USDT）の商用ソースライセンスをご購入いただくことで、全コンポーネントのソースコードを恒久的に利用でき、ドメイン数やアクセスの制限なくホワイトラベル運用が可能です。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 11. FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <img src="../assets/images/logo.png" alt="Hermes DNS Platform" style="height: 34px; border-radius: 6px;">
+            <span class="footer-brand-name">HERMES</span>
+          </div>
+          <p data-i18n="footer_desc">Hermes は世界中のエンタープライズ向けに、最高水準のプライベート権威 DNS、301/302 転送、短縮ドメイン、SSL 自動化、Rust SDK
+            検知マトリクス、AI 自律運用を提供します。</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_tech">コア技術基盤</h4>
+          <ul>
+            <li><a href="#authoritative-core" data-i18n="footer_link_core">CoreDNS / BIND 9 デュアルコア権威</a></li>
+            <li><a href="#cloud-native" data-i18n="footer_link_cloud">Kubernetes & クラウド基盤</a></li>
+            <li><a href="#domain-matrix" data-i18n="footer_link_matrix">301/302 リダイレクト & プロキシ</a></li>
+            <li><a href="#ai-ecosystem" data-i18n="footer_link_ai">AI MCPプロトコル & ChatOps Bot</a></li>
+            <li><a href="#rust-sdk" data-i18n="footer_link_rust">Rust SDK テレメトリ防衛網</a></li>
+            <li><a href="#ssl-pipeline" data-i18n="footer_link_ssl">商用 / 無料 SSL 自動化パイプライン</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_comm">商用購入 (USDT/USDC)</h4>
+          <ul>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="源码授权购买咨询 (特惠 10000 USDT)"
+                data-i18n="footer_link_buy_source">完全ソースコード買い取り (特価 10,000 U)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="私有交付程序授权套装 (699 U起)"
+                data-i18n="footer_link_buy_deploy">プログラム商用ライセンス導入 (699 U〜)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="企业 7x12 维保支持 (1199 USDT/年)"
+                data-i18n="footer_link_buy_support">エンタープライズ 7x12 保守 (UTC+2)</a></li>
+            <li><a href="#pricing" data-i18n="footer_link_calc">コスト見積もりシミュレーター</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col_contact">ビジネス・技術相談</h4>
+          <ul>
+            <li><span class="footer-tg-label" data-i18n="footer_tg_label">Telegram 公式窓口：</span> <a
+                href="https://t.me/hermes_dns_official" target="_blank" rel="noopener"
+                class="footer-tg-link">@hermes_dns_official</a></li>
+            <li class="footer-settlement-note" data-i18n="footer_settlement_note">決済方針：主要暗号資産 (USDT / USDC)
+              による決済に対応。TRON ネットワークは非対応です。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 Hermes DNS Management Platform. All Rights Reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <span data-i18n="footer_motto">完全自律 · ゼロダウンタイム · AI主導</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Commercial inquiry directly routed to Telegram @hermes_dns_official -->
+
+  <!-- Scripts -->
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/pricing.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
