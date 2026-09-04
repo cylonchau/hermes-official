@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" data-lang="es" class="lang-non-zh">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Early Client Adaptive System: Zero-Flicker Theme & Language Initialization -->
   <script>
-    (function () {
+    (function() {
       try {
         // 1. Theme adaptation
         var savedTheme = localStorage.getItem('hermes_theme');
@@ -56,16 +55,14 @@
           document.documentElement.classList.remove('lang-zh');
           document.documentElement.classList.add('lang-non-zh');
         }
-      } catch (e) { }
+      } catch(e) {}
     })();
   </script>
   <title data-i18n="site_title">Hermes - DNS Autoritativo Privado Empresarial y Motor de Tráfico Multi-Nube</title>
-
+  
   <!-- SEO Comprehensive Meta Tags -->
-  <meta name="description"
-    content="Hermes es una plataforma DNS autoritativa privada empresarial con motor dual CoreDNS/BIND 9, conmutación multi-cloud sin interrupciones, automatización SSL, telemetría Rust SDK y orquestación con AI Agent.">
-  <meta name="keywords"
-    content="权威DNS, 智能DNS, CoreDNS, BIND9, HTTPDNS, DoH, DoT, 多云DNS切换, 多供应商线路, 千线BGP, 域名托管, SSL自动续费, 商业证书签发, 免费泛域名SSL, Rust SDK, 浏览器红框检测, 防红检测, 被墙逃生, AI Agent, MCP, RAG, EVM USDT">
+  <meta name="description" content="Hermes es una plataforma DNS autoritativa privada empresarial con motor dual CoreDNS/BIND 9, conmutación multi-cloud sin interrupciones, automatización SSL, telemetría Rust SDK y orquestación con AI Agent.">
+  <meta name="keywords" content="权威DNS, 智能DNS, CoreDNS, BIND9, HTTPDNS, DoH, DoT, 多云DNS切换, 多供应商线路, 千线BGP, 域名托管, SSL自动续费, 商业证书签发, 免费泛域名SSL, Rust SDK, 浏览器红框检测, 防红检测, 被墙逃生, AI Agent, MCP, RAG, EVM USDT">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://hermes.161616.top/es/">
 
@@ -85,8 +82,7 @@
   <meta property="og:locale" content="es_ES">
   <meta property="og:type" content="software">
   <meta property="og:title" content="Hermes - DNS Autoritativo Privado Empresarial y Motor de Tráfico Multi-Nube">
-  <meta property="og:description"
-    content="Hermes es una plataforma DNS autoritativa privada empresarial con motor dual CoreDNS/BIND 9, conmutación multi-cloud sin interrupciones, automatización SSL, telemetría Rust SDK y orquestación con AI Agent.">
+  <meta property="og:description" content="Hermes es una plataforma DNS autoritativa privada empresarial con motor dual CoreDNS/BIND 9, conmutación multi-cloud sin interrupciones, automatización SSL, telemetría Rust SDK y orquestación con AI Agent.">
   <meta property="og:url" content="https://hermes.161616.top/es/">
   <meta property="og:site_name" content="Hermes Platform">
   <meta property="og:image" content="https://hermes.161616.top/assets/images/logo.png">
@@ -94,8 +90,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hermes - DNS Autoritativo Privado Empresarial y Motor de Tráfico Multi-Nube">
-  <meta name="twitter:description"
-    content="Hermes es una plataforma DNS autoritativa privada empresarial con motor dual CoreDNS/BIND 9, conmutación multi-cloud sin interrupciones, automatización SSL, telemetría Rust SDK y orquestación con AI Agent.">
+  <meta name="twitter:description" content="Hermes es una plataforma DNS autoritativa privada empresarial con motor dual CoreDNS/BIND 9, conmutación multi-cloud sin interrupciones, automatización SSL, telemetría Rust SDK y orquestación con AI Agent.">
   <meta name="twitter:image" content="https://hermes.161616.top/assets/images/logo.png">
 
   <!-- Structured Data JSON-LD (Schema.org) for SEO -->
@@ -132,10 +127,9 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
   <link rel="stylesheet" href="../assets/css/animations.css">
-
+  
   <link rel="icon" type="image/png" href="../assets/images/logo.png">
 </head>
-
 <body>
 
   <!-- ================= 1. HEADER / NAVBAR WITH I18N ================= -->
@@ -199,7 +193,7 @@
   <!-- ================= 2. HERO SECTION ================= -->
   <section class="hero-section" id="hero">
     <div class="container hero-grid">
-
+      
       <div class="hero-content">
         <div class="hero-tag">
           <span class="status-dot"></span>
@@ -211,39 +205,27 @@
           <span class="text-gradient" data-i18n="hero_title_2">Sin bloqueos de dominios ni monopolio cloud</span>
         </h1>
 
-        <p class="hero-desc" data-i18n="hero_desc">Hermes fusiona el motor dual CoreDNS / BIND 9 con arquitectura
-          Cloud-Native hiperconvergente. Integra redirecciones 301/302, URLs cortas, proxy de ocultación, HTTPDNS,
-          automatización SSL comercial EV/OV + gratuito, telemetría Rust SDK y orquestación con AI Agent.</p>
+        <p class="hero-desc" data-i18n="hero_desc">Hermes fusiona el motor dual CoreDNS / BIND 9 con arquitectura Cloud-Native hiperconvergente. Integra redirecciones 301/302, URLs cortas, proxy de ocultación, HTTPDNS, automatización SSL comercial EV/OV + gratuito, telemetría Rust SDK y orquestación con AI Agent.</p>
 
         <div class="hero-highlights">
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_coredns">Doble núcleo CoreDNS / BIND 9</span>
           </div>
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_matrix">301/302 · URLs cortas · Proxy</span>
           </div>
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_rust">Tu producto es tu matriz de detección</span>
           </div>
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_ai">AI Agent (MCP / CLI / Skill / RAG)</span>
           </div>
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_chatops">Bot ChatOps de Telegram</span>
           </div>
         </div>
@@ -251,10 +233,7 @@
         <div class="hero-actions">
           <button class="btn btn-primary btn-lg btn-trigger-inquiry" data-plan="首屏商业购买意向">
             <span data-i18n="hero_btn_buy">Comprar Código / Despliegue Privado (USDT)</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </button>
           <a href="#domain-matrix" class="btn btn-secondary btn-lg">
             <span data-i18n="nav_domain_matrix">Dominios y Proxy</span>
@@ -264,185 +243,155 @@
         <div class="hero-metrics">
           <div class="metric-item">
             <div class="metric-num"><span class="text-gradient-cyan">&lt; 0.6</span> ms</div>
-            <div class="metric-label" data-i18n="metric_latency">Respuesta ultrarrápida CoreDNS + eBPF <0.15ms< /div>
-            </div>
-            <div class="metric-item">
-              <div class="metric-num"><span class="text-gradient">100%</span> <span data-i18n="metric_seamless">Sin
-                  interrupción</span></div>
-              <div class="metric-label" data-i18n="metric_switch">Conmutación en caliente entre proveedores sin pérdida
-              </div>
-            </div>
-            <div class="metric-item">
-              <div class="metric-num"><span class="text-gradient-gold">0</span> <span
-                  data-i18n="metric_limits">Límites</span></div>
-              <div class="metric-label" data-i18n="metric_zero">Sin límites en dominios ni cuotas de SSL gratuito</div>
-            </div>
+            <div class="metric-label" data-i18n="metric_latency">Respuesta ultrarrápida CoreDNS + eBPF <0.15ms</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-num"><span class="text-gradient">100%</span> <span data-i18n="metric_seamless">Sin interrupción</span></div>
+            <div class="metric-label" data-i18n="metric_switch">Conmutación en caliente entre proveedores sin pérdida</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-num"><span class="text-gradient-gold">0</span> <span data-i18n="metric_limits">Límites</span></div>
+            <div class="metric-label" data-i18n="metric_zero">Sin límites en dominios ni cuotas de SSL gratuito</div>
           </div>
         </div>
-
-        <!-- Hero Right Dashboard (Header Overlap & i18n fixed) -->
-        <div class="hero-visual">
-          <div class="dashboard-mock float-anim">
-            <div class="window-header">
-              <div class="window-dots">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="window-title" data-i18n="console_win_title">Consola Hermes · Multi-Cloud Mesh</div>
-              <span class="status-pill"><span class="status-dot"></span> <span data-i18n="console_win_status">● Activo (
-                  <1ms)< /span></span>
-            </div>
-
-            <div class="window-body">
-              <!-- Console Topbar with Zone breadcrumb and filter -->
-              <div class="console-topbar">
-                <div class="console-breadcrumb">
-                  <span style="font-size: 0.95rem;">🌐</span>
-                  <span data-i18n="console_zone_name">enterprise-mesh.io (Zona Nativa)</span>
-                  <span class="zone-badge">Native Mesh</span>
-                </div>
-                <div class="console-search-box">
-                  <span>🔍</span>
-                  <span data-i18n="console_search_hint">Buscar registros, políticas, nodos...</span>
-                </div>
-              </div>
-
-              <!-- Console Metrics Cards (4 compact cards) -->
-              <div class="console-metrics-row">
-                <div class="console-metric-item">
-                  <div class="metric-lbl" data-i18n="console_stat_qps">QPS: 1.28M/s</div>
-                  <div class="metric-val" style="color: #38bdf8;">1,280,450 <span
-                      style="font-size: 0.65rem; color: #34d399; font-weight: normal;">L1: 99.8%</span></div>
-                </div>
-                <div class="console-metric-item">
-                  <div class="metric-lbl" data-i18n="console_stat_sync">Multi-Cloud: 4/4</div>
-                  <div class="metric-val" style="color: #818cf8;">4 / 4 <span
-                      style="font-size: 0.65rem; color: #34d399; font-weight: normal;">0-Delay</span></div>
-                </div>
-                <div class="console-metric-item">
-                  <div class="metric-lbl" data-i18n="console_stat_defense">Defensa: Activa</div>
-                  <div class="metric-val" style="color: #34d399;">Active <span
-                      style="font-size: 0.65rem; color: #38bdf8; font-weight: normal;">0-Drop</span></div>
-                </div>
-                <div class="console-metric-item">
-                  <div class="metric-lbl" data-i18n="console_stat_ssl">SSL: Auto-Renovado</div>
-                  <div class="metric-val" style="color: #fbbf24;">Valid <span
-                      style="font-size: 0.65rem; color: #a78bfa; font-weight: normal;">Auto-Renew</span></div>
-                </div>
-              </div>
-
-              <!-- Authentic Live DNS Records Data Table (真实的 DNS 生产级解析记录管理表) -->
-              <div class="console-records-table-wrapper">
-                <table class="console-records-table">
-                  <thead>
-                    <tr>
-                      <th style="width: 16%;" data-i18n="console_th_host">HOST</th>
-                      <th style="width: 12%;" data-i18n="console_th_type">TIPO</th>
-                      <th style="width: 34%;" data-i18n="console_th_line">RUTA & IP</th>
-                      <th style="width: 20%;" data-i18n="console_th_sync">SYNC</th>
-                      <th style="width: 18%;" data-i18n="console_th_status">ESTADO</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><strong style="color: #ffffff;">api</strong></td>
-                      <td><span class="rec-type-badge rec-a">A</span></td>
-                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
-                          data-i18n="console_r1_line">BGP Multi-Operador · 104.21.72.18</span></td>
-                      <td>
-                        <span class="sync-tag sync-cf">CF</span>
-                        <span class="sync-tag sync-ali">Ali</span>
-                        <span class="sync-tag sync-mesh">CoreDNS</span>
-                      </td>
-                      <td><span class="rec-status-ok" data-i18n="console_r1_status">● OK (<0.5ms)< /span>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td><strong style="color: #ffffff;">gateway</strong></td>
-                      <td><span class="rec-type-badge rec-cname">CNAME</span></td>
-                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
-                          data-i18n="console_r2_line">Aceleración global · edge.hermes.net</span></td>
-                      <td>
-                        <span class="sync-tag sync-aws">AWS</span>
-                        <span class="sync-tag sync-mesh">BIND 9</span>
-                      </td>
-                      <td><span class="rec-status-ok" data-i18n="console_r2_status">● Auto-recuperación</span></td>
-                    </tr>
-
-                    <tr>
-                      <td><strong style="color: #ffffff;">auth.sec</strong></td>
-                      <td><span class="rec-type-badge rec-a">A</span></td>
-                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
-                          data-i18n="console_r3_line">Depuración de tráfico · 119.29.29.29</span></td>
-                      <td>
-                        <span class="sync-tag sync-pod">DNSPod</span>
-                        <span class="sync-tag sync-mesh">Shield</span>
-                      </td>
-                      <td><span class="rec-status-shield" data-i18n="console_r3_status">🛡️ Protegido</span></td>
-                    </tr>
-
-                    <tr>
-                      <td><strong style="color: #ffffff;">_k8s.tls</strong></td>
-                      <td><span class="rec-type-badge rec-txt">TXT</span></td>
-                      <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
-                          data-i18n="console_r4_line">Sincronización K8s Ingress Secret</span></td>
-                      <td>
-                        <span class="sync-tag sync-k8s">K8s</span>
-                        <span class="sync-tag sync-mesh">ACME</span>
-                      </td>
-                      <td><span class="rec-status-ssl" data-i18n="console_r4_status">🔐 SSL OK</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <!-- Real-time Cluster Telemetry Status Bar -->
-              <div class="console-footer-bar">
-                <div class="console-footer-line1">
-                  <span class="status-dot-sm" style="background:#38bdf8; box-shadow:0 0 6px #38bdf8;"></span>
-                  <span data-i18n="console_footer_sync">⚡ Activo-Activo: Pekín / Shanghái / HK / Silicon Valley</span>
-                </div>
-                <div class="console-footer-line2">
-                  <span class="status-dot-sm" style="background:#10b981; box-shadow:0 0 6px #10b981;"></span>
-                  <span data-i18n="console_footer_engine">✓ Doble núcleo CoreDNS + BIND 9 listo | Caché L1 en
-                    0.4ms</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Hero Right Dashboard (Header Overlap & i18n fixed) -->
+      <div class="hero-visual">
+        <div class="dashboard-mock float-anim">
+          <div class="window-header">
+            <div class="window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title" data-i18n="console_win_title">Consola Hermes · Multi-Cloud Mesh</div>
+            <span class="status-pill"><span class="status-dot"></span> <span data-i18n="console_win_status">● Activo (<1ms)</span></span>
+          </div>
+
+          <div class="window-body">
+            <!-- Console Topbar with Zone breadcrumb and filter -->
+            <div class="console-topbar">
+              <div class="console-breadcrumb">
+                <span style="font-size: 0.95rem;">🌐</span>
+                <span data-i18n="console_zone_name">enterprise-mesh.io (Zona Nativa)</span>
+                <span class="zone-badge">Native Mesh</span>
+              </div>
+              <div class="console-search-box">
+                <span>🔍</span>
+                <span data-i18n="console_search_hint">Buscar registros, políticas, nodos...</span>
+              </div>
+            </div>
+
+            <!-- Console Metrics Cards (4 compact cards) -->
+            <div class="console-metrics-row">
+              <div class="console-metric-item">
+                <div class="metric-lbl" data-i18n="console_stat_qps">QPS: 1.28M/s</div>
+                <div class="metric-val" style="color: #38bdf8;">1,280,450 <span style="font-size: 0.65rem; color: #34d399; font-weight: normal;">L1: 99.8%</span></div>
+              </div>
+              <div class="console-metric-item">
+                <div class="metric-lbl" data-i18n="console_stat_sync">Multi-Cloud: 4/4</div>
+                <div class="metric-val" style="color: #818cf8;">4 / 4 <span style="font-size: 0.65rem; color: #34d399; font-weight: normal;">0-Delay</span></div>
+              </div>
+              <div class="console-metric-item">
+                <div class="metric-lbl" data-i18n="console_stat_defense">Defensa: Activa</div>
+                <div class="metric-val" style="color: #34d399;">Active <span style="font-size: 0.65rem; color: #38bdf8; font-weight: normal;">0-Drop</span></div>
+              </div>
+              <div class="console-metric-item">
+                <div class="metric-lbl" data-i18n="console_stat_ssl">SSL: Auto-Renovado</div>
+                <div class="metric-val" style="color: #fbbf24;">Valid <span style="font-size: 0.65rem; color: #a78bfa; font-weight: normal;">Auto-Renew</span></div>
+              </div>
+            </div>
+
+            <!-- Authentic Live DNS Records Data Table (真实的 DNS 生产级解析记录管理表) -->
+            <div class="console-records-table-wrapper">
+              <table class="console-records-table">
+                <thead>
+                  <tr>
+                    <th style="width: 16%;" data-i18n="console_th_host">HOST</th>
+                    <th style="width: 12%;" data-i18n="console_th_type">TIPO</th>
+                    <th style="width: 34%;" data-i18n="console_th_line">RUTA & IP</th>
+                    <th style="width: 20%;" data-i18n="console_th_sync">SYNC</th>
+                    <th style="width: 18%;" data-i18n="console_th_status">ESTADO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong style="color: #ffffff;">api</strong></td>
+                    <td><span class="rec-type-badge rec-a">A</span></td>
+                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;" data-i18n="console_r1_line">BGP Multi-Operador · 104.21.72.18</span></td>
+                    <td>
+                      <span class="sync-tag sync-cf">CF</span>
+                      <span class="sync-tag sync-ali">Ali</span>
+                      <span class="sync-tag sync-mesh">CoreDNS</span>
+                    </td>
+                    <td><span class="rec-status-ok" data-i18n="console_r1_status">● OK (<0.5ms)</span></td>
+                  </tr>
+
+                  <tr>
+                    <td><strong style="color: #ffffff;">gateway</strong></td>
+                    <td><span class="rec-type-badge rec-cname">CNAME</span></td>
+                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;" data-i18n="console_r2_line">Aceleración global · edge.hermes.net</span></td>
+                    <td>
+                      <span class="sync-tag sync-aws">AWS</span>
+                      <span class="sync-tag sync-mesh">BIND 9</span>
+                    </td>
+                    <td><span class="rec-status-ok" data-i18n="console_r2_status">● Auto-recuperación</span></td>
+                  </tr>
+
+                  <tr>
+                    <td><strong style="color: #ffffff;">auth.sec</strong></td>
+                    <td><span class="rec-type-badge rec-a">A</span></td>
+                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;" data-i18n="console_r3_line">Depuración de tráfico · 119.29.29.29</span></td>
+                    <td>
+                      <span class="sync-tag sync-pod">DNSPod</span>
+                      <span class="sync-tag sync-mesh">Shield</span>
+                    </td>
+                    <td><span class="rec-status-shield" data-i18n="console_r3_status">🛡️ Protegido</span></td>
+                  </tr>
+
+                  <tr>
+                    <td><strong style="color: #ffffff;">_k8s.tls</strong></td>
+                    <td><span class="rec-type-badge rec-txt">TXT</span></td>
+                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;" data-i18n="console_r4_line">Sincronización K8s Ingress Secret</span></td>
+                    <td>
+                      <span class="sync-tag sync-k8s">K8s</span>
+                      <span class="sync-tag sync-mesh">ACME</span>
+                    </td>
+                    <td><span class="rec-status-ssl" data-i18n="console_r4_status">🔐 SSL OK</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Real-time Cluster Telemetry Status Bar -->
+            <div class="console-footer-bar">
+              <div class="console-footer-line1">
+                <span class="status-dot-sm" style="background:#38bdf8; box-shadow:0 0 6px #38bdf8;"></span>
+                <span data-i18n="console_footer_sync">⚡ Activo-Activo: Pekín / Shanghái / HK / Silicon Valley</span>
+              </div>
+              <div class="console-footer-line2">
+                <span class="status-dot-sm" style="background:#10b981; box-shadow:0 0 6px #10b981;"></span>
+                <span data-i18n="console_footer_engine">✓ Doble núcleo CoreDNS + BIND 9 listo | Caché L1 en 0.4ms</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- ================= 3. GLOBAL PROVIDER SHOWCASE ================= -->
   <section class="section-alt" style="padding: 44px 0; border-bottom: 1px solid var(--border-subtle);">
     <div class="container" style="text-align: center;">
-      <div
-        style="font-size: 0.86rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;"
-        data-i18n="provider_title">Compatibilidad Nativa con Proveedores de Nube y DNS Globales</div>
-      <p style="font-size: 0.94rem; color: var(--text-secondary); max-width: 820px; margin: 0 auto 24px auto;"
-        data-i18n="provider_desc">Sin refactorizar lógica: controle decenas de plataformas DNS autoritativas globales
-        con sincronización en milisegundos y conmutación por error sin interrupciones.</p>
+      <div style="font-size: 0.86rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;" data-i18n="provider_title">Compatibilidad Nativa con Proveedores de Nube y DNS Globales</div>
+      <p style="font-size: 0.94rem; color: var(--text-secondary); max-width: 820px; margin: 0 auto 24px auto;" data-i18n="provider_desc">Sin refactorizar lógica: controle decenas de plataformas DNS autoritativas globales con sincronización en milisegundos y conmutación por error sin interrupciones.</p>
 
       <div class="provider-wall">
-        <span class="provider-chip"
-          style="border-color: #ef4444; background: rgba(239, 68, 68, 0.1); color: #f87171; font-weight: 700;"><span
-            class="chip-dot" style="background:#ef4444;"></span>Huawei Cloud (<span data-i18n="prov_huawei">Huawei Cloud
-            DNS</span>)</span>
-        <span class="provider-chip"
-          style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); color: #60a5fa; font-weight: 700;"><span
-            class="chip-dot" style="background:#3b82f6;"></span>Volcengine (<span data-i18n="prov_volc">Volcengine
-            DNS</span>)</span>
-        <span class="provider-chip"
-          style="border-color: #38bdf8; background: rgba(56, 189, 248, 0.1); color: #38bdf8; font-weight: 700;"><span
-            class="chip-dot" style="background:#38bdf8;"></span>Aliyun DNS (<span data-i18n="prov_aliyun">Alibaba
-            Cloud</span>)</span>
-        <span class="provider-chip"
-          style="border-color: #06b6d4; background: rgba(6, 182, 212, 0.1); color: #22d3ee; font-weight: 700;"><span
-            class="chip-dot" style="background:#06b6d4;"></span>DNSPod (<span data-i18n="prov_tencent">Tencent Cloud
-            DNS</span>)</span>
+        <span class="provider-chip" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.1); color: #f87171; font-weight: 700;"><span class="chip-dot" style="background:#ef4444;"></span>Huawei Cloud (<span data-i18n="prov_huawei">Huawei Cloud DNS</span>)</span>
+        <span class="provider-chip" style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); color: #60a5fa; font-weight: 700;"><span class="chip-dot" style="background:#3b82f6;"></span>Volcengine (<span data-i18n="prov_volc">Volcengine DNS</span>)</span>
+        <span class="provider-chip" style="border-color: #38bdf8; background: rgba(56, 189, 248, 0.1); color: #38bdf8; font-weight: 700;"><span class="chip-dot" style="background:#38bdf8;"></span>Aliyun DNS (<span data-i18n="prov_aliyun">Alibaba Cloud</span>)</span>
+        <span class="provider-chip" style="border-color: #06b6d4; background: rgba(6, 182, 212, 0.1); color: #22d3ee; font-weight: 700;"><span class="chip-dot" style="background:#06b6d4;"></span>DNSPod (<span data-i18n="prov_tencent">Tencent Cloud DNS</span>)</span>
         <span class="provider-chip"><span class="chip-dot"></span>Cloudflare</span>
         <span class="provider-chip"><span class="chip-dot"></span>AWS Route53</span>
         <span class="provider-chip"><span class="chip-dot"></span>Google Cloud DNS</span>
@@ -472,27 +421,20 @@
     </div>
   </section>
 
-  <!-- ================= 3.5 CLOUD-NATIVE INFRASTRUCTURE (独立云原生架构模块) ================= -->
-  <section class="section section-alt" id="cloud-native"
-    style="padding: 68px 0; border-bottom: 1px solid var(--border-subtle);">
+    <!-- ================= 3.5 CLOUD-NATIVE INFRASTRUCTURE (独立云原生架构模块) ================= -->
+  <section class="section section-alt" id="cloud-native" style="padding: 68px 0; border-bottom: 1px solid var(--border-subtle);">
     <div class="container">
       <div class="section-header">
         <div class="section-tag cyan" data-i18n="cloud_tag">Infraestructura Cloud-Native</div>
-        <h2 class="section-title" data-i18n="cloud_title">Arquitectura Cloud-Native: Integración Nativa con Kubernetes
-        </h2>
-        <p class="section-desc" data-i18n="cloud_desc">Supera los límites de los DNS tradicionales. Integración nativa
-          con Kubernetes, Ingress, gráficos Helm y escalado automático sin estado.</p>
+        <h2 class="section-title" data-i18n="cloud_title">Arquitectura Cloud-Native: Integración Nativa con Kubernetes</h2>
+        <p class="section-desc" data-i18n="cloud_desc">Supera los límites de los DNS tradicionales. Integración nativa con Kubernetes, Ingress, gráficos Helm y escalado automático sin estado.</p>
       </div>
 
       <div class="grid grid-4">
         <div class="glass-card shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">K8s
-            Native</div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c1_t">Integración nativa con Kubernetes
-            (K8s)</h3>
-          <p class="card-desc" data-i18n="cloud_c1_d">Integración profunda con clústeres K8s e Ingress, detectando
-            cambios en pods en segundos y sincronizando registros.</p>
+          <div class="ai-badge" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">K8s Native</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c1_t">Integración nativa con Kubernetes (K8s)</h3>
+          <p class="card-desc" data-i18n="cloud_c1_d">Integración profunda con clústeres K8s e Ingress, detectando cambios en pods en segundos y sincronizando registros.</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_k8s_native">Integración nativa con K8s</span>
             <span class="tag-pill" data-i18n="tag_ingress_link">Vinculación con Ingress</span>
@@ -501,12 +443,9 @@
         </div>
 
         <div class="glass-card shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
-            Orchestration</div>
+          <div class="ai-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">Orchestration</div>
           <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c2_t">Orquestación con Docker y Helm</h3>
-          <p class="card-desc" data-i18n="cloud_c2_d">Gráficos Helm 3 listos para producción y manifiestos Docker
-            Compose estandarizados para implementar clústeres de alta disponibilidad con un solo comando.</p>
+          <p class="card-desc" data-i18n="cloud_c2_d">Gráficos Helm 3 listos para producción y manifiestos Docker Compose estandarizados para implementar clústeres de alta disponibilidad con un solo comando.</p>
           <div class="card-tags">
             <span class="tag-pill">Helm 3 Charts</span>
             <span class="tag-pill">Docker Compose</span>
@@ -515,13 +454,9 @@
         </div>
 
         <div class="glass-card shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">
-            Elastic Scale</div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c3_t">Escalado automático de
-            microservicios sin estado</h3>
-          <p class="card-desc" data-i18n="cloud_c3_d">Cálculo y almacenamiento desacoplados. Los nodos DNS sin estado se
-            escalan horizontalmente en segundos mediante HPA ante picos de QPS.</p>
+          <div class="ai-badge" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">Elastic Scale</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c3_t">Escalado automático de microservicios sin estado</h3>
+          <p class="card-desc" data-i18n="cloud_c3_d">Cálculo y almacenamiento desacoplados. Los nodos DNS sin estado se escalan horizontalmente en segundos mediante HPA ante picos de QPS.</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_stateless_engine">Motor DNS sin estado</span>
             <span class="tag-pill" data-i18n="tag_k8s_hpa">Escalado elástico K8s HPA</span>
@@ -530,13 +465,9 @@
         </div>
 
         <div class="glass-card cyan shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">
-            Service Mesh</div>
-          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c4_t">Integración con Service Mesh y
-            pasarelas</h3>
-          <p class="card-desc" data-i18n="cloud_c4_d">Integración perfecta con Envoy, Istio Service Mesh y pasarelas
-            API. Permite despliegues canary, enrutamiento multiclúster y observabilidad completa.</p>
+          <div class="ai-badge" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">Service Mesh</div>
+          <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c4_t">Integración con Service Mesh y pasarelas</h3>
+          <p class="card-desc" data-i18n="cloud_c4_d">Integración perfecta con Envoy, Istio Service Mesh y pasarelas API. Permite despliegues canary, enrutamiento multiclúster y observabilidad completa.</p>
           <div class="card-tags">
             <span class="tag-pill">Envoy / Istio</span>
             <span class="tag-pill" data-i18n="tag_canary_rollout">Lanzamiento Canary</span>
@@ -552,25 +483,17 @@
     <div class="container">
       <div class="section-header">
         <div class="section-tag cyan">Cloud-Native Architecture</div>
-        <h2 class="section-title" data-i18n="auth_title">CoreDNS y BIND 9: Doble núcleo autoritativo y defensa DNS
-          integrada</h2>
-        <p class="section-desc" data-i18n="auth_desc">Plugin CoreDNS de alto rendimiento y sincronización BIND 9.
-          Procesa decenas de millones de QPS con soporte multi-base de datos y defensa DNS.</p>
+        <h2 class="section-title" data-i18n="auth_title">CoreDNS y BIND 9: Doble núcleo autoritativo y defensa DNS integrada</h2>
+        <p class="section-desc" data-i18n="auth_desc">Plugin CoreDNS de alto rendimiento y sincronización BIND 9. Procesa decenas de millones de QPS con soporte multi-base de datos y defensa DNS.</p>
       </div>
 
       <div class="grid grid-3">
         <div class="glass-card">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-              <line x1="6" y1="6" x2="6.01" y2="6"></line>
-              <line x1="6" y1="18" x2="6.01" y2="18"></line>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
           </div>
           <h3 class="card-title" data-i18n="auth_c1_t">Núcleo Dual CoreDNS / BIND 9</h3>
-          <p class="card-desc" data-i18n="auth_c1_d">Plugin propietario CoreDNS y sincronización BIND 9. Capacidad para
-            decenas de millones de QPS con almacenamiento distribuido en MySQL, PostgreSQL y SQLite.</p>
+          <p class="card-desc" data-i18n="auth_c1_d">Plugin propietario CoreDNS y sincronización BIND 9. Capacidad para decenas de millones de QPS con almacenamiento distribuido en MySQL, PostgreSQL y SQLite.</p>
           <div class="card-tags">
             <span class="tag-pill">CoreDNS Plugin</span>
             <span class="tag-pill">BIND 9 Zone Sync</span>
@@ -580,13 +503,10 @@
 
         <div class="glass-card cyan">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="auth_c2_t">Defensa DNS nativa y limitación de tasa</h3>
-          <p class="card-desc" data-i18n="auth_c2_d">Seguridad DNS a nivel de software: limitación de QPS, filtrado de
-            amplificación, mitigación de inundaciones recursivas, ACLs y GeoIP.</p>
+          <p class="card-desc" data-i18n="auth_c2_d">Seguridad DNS a nivel de software: limitación de QPS, filtrado de amplificación, mitigación de inundaciones recursivas, ACLs y GeoIP.</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_qps_rate_limit">Límite de tasa QPS</span>
             <span class="tag-pill" data-i18n="tag_dns_amplification">Filtro de ataque de amplificación DNS</span>
@@ -597,18 +517,15 @@
 
         <div class="glass-card">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           </div>
           <h3 class="card-title" data-i18n="auth_c3_t">Aceleración eBPF Cloud-Native y Activo-Activo Multirregión</h3>
-          <p class="card-desc" data-i18n="auth_c3_d">eBPF omite la pila del kernel de Linux logrando respuestas en caché
-            L1 <0.15ms. Sincronización Multi-Master y Anycast global con 99.999% SLA.</p>
-              <div class="card-tags">
-                <span class="tag-pill" data-i18n="tag_k8s_docker">Orquestación K8s / Docker</span>
-                <span class="tag-pill" data-i18n="tag_sub_half_ms">Latencia < 0.5 ms</span>
-                    <span class="tag-pill" data-i18n="tag_multi_master">Multi-Master Activo-Activo</span>
-              </div>
+          <p class="card-desc" data-i18n="auth_c3_d">eBPF omite la pila del kernel de Linux logrando respuestas en caché L1 <0.15ms. Sincronización Multi-Master y Anycast global con 99.999% SLA.</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_k8s_docker">Orquestación K8s / Docker</span>
+            <span class="tag-pill" data-i18n="tag_sub_half_ms">Latencia < 0.5 ms</span>
+            <span class="tag-pill" data-i18n="tag_multi_master">Multi-Master Activo-Activo</span>
+          </div>
         </div>
       </div>
     </div>
@@ -618,24 +535,17 @@
   <section class="section" id="ai-ecosystem">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag"
-          style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">AI &amp;
-          ChatOps Ecosystem</div>
+        <div class="section-tag" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">AI &amp; ChatOps Ecosystem</div>
         <h2 class="section-title" data-i18n="ai_title">AI y ChatOps: Telegram, MS Teams, Slack y flujos multicanal</h2>
-        <p class="section-desc" data-i18n="ai_desc">Diseñado para DevOps moderno. Soporte para Telegram Bot, Microsoft
-          Teams, Slack para comandos interactivos y aprobaciones móviles con MCP.</p>
+        <p class="section-desc" data-i18n="ai_desc">Diseñado para DevOps moderno. Soporte para Telegram Bot, Microsoft Teams, Slack para comandos interactivos y aprobaciones móviles con MCP.</p>
       </div>
 
       <div class="grid grid-3">
         <!-- Card 0: ChatOps Bot (Prominent) -->
         <div class="glass-card shine-effect chatops-highlight-card">
-          <div class="ai-badge"
-            style="background: rgba(56, 189, 248, 0.2); border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">ChatOps
-            Bot</div>
-          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c0_t">Bot ChatOps (Telegram / Teams / Slack)
-          </h3>
-          <p class="card-desc" data-i18n="ai_c0_d">Integración con Telegram, MS Teams y Slack. Comandos interactivos
-            (/status, /switch, /ssl) y flujos de aprobación doble móvil.</p>
+          <div class="ai-badge" style="background: rgba(56, 189, 248, 0.2); border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">ChatOps Bot</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c0_t">Bot ChatOps (Telegram / Teams / Slack)</h3>
+          <p class="card-desc" data-i18n="ai_c0_d">Integración con Telegram, MS Teams y Slack. Comandos interactivos (/status, /switch, /ssl) y flujos de aprobación doble móvil.</p>
           <div class="card-tags">
             <span class="tag-pill">Telegram Bot</span>
             <span class="tag-pill">Microsoft Teams</span>
@@ -646,8 +556,7 @@
         <div class="glass-card shine-effect">
           <div class="ai-badge">Protocol</div>
           <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c1_t">Protocolo MCP Server</h3>
-          <p class="card-desc" data-i18n="ai_c1_d">Cumplimiento total con Model Context Protocol (MCP). Los asistentes
-            de IA pueden consultar el estado, modificar registros y ejecutar conmutaciones directamente.</p>
+          <p class="card-desc" data-i18n="ai_c1_d">Cumplimiento total con Model Context Protocol (MCP). Los asistentes de IA pueden consultar el estado, modificar registros y ejecutar conmutaciones directamente.</p>
           <div class="card-tags">
             <span class="tag-pill">Model Context Protocol</span>
             <span class="tag-pill" data-i18n="tag_llm_direct">Conectividad directa con LLM</span>
@@ -655,12 +564,9 @@
         </div>
 
         <div class="glass-card cyan shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.35); color: #38bdf8;">DevOps
-            CLI</div>
+          <div class="ai-badge" style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.35); color: #38bdf8;">DevOps CLI</div>
           <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c2_t">Herramientas Hermes CLI</h3>
-          <p class="card-desc" data-i18n="ai_c2_d">Suite moderna de línea de comandos para Linux, macOS y Windows.
-            Salidas en tubería JSON, generación de URLs cortas e integración continua CI/CD.</p>
+          <p class="card-desc" data-i18n="ai_c2_d">Suite moderna de línea de comandos para Linux, macOS y Windows. Salidas en tubería JSON, generación de URLs cortas e integración continua CI/CD.</p>
           <div class="card-tags">
             <span class="tag-pill">hermes-cli</span>
             <span class="tag-pill" data-i18n="tag_cicd_orchestration">Automatización CI/CD</span>
@@ -669,10 +575,8 @@
 
         <div class="glass-card shine-effect">
           <div class="ai-badge">Agent Ready</div>
-          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c3_t">Paquete de Habilidades Agent SKILL
-          </h3>
-          <p class="card-desc" data-i18n="ai_c3_d">Habilidades estandarizadas listas para usar. Ante bloqueos de red o
-            alertas de certificados, el agente ejecuta planes de contingencia de forma autónoma.</p>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c3_t">Paquete de Habilidades Agent SKILL</h3>
+          <p class="card-desc" data-i18n="ai_c3_d">Habilidades estandarizadas listas para usar. Ante bloqueos de red o alertas de certificados, el agente ejecuta planes de contingencia de forma autónoma.</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_skill_spec">Especificación SKILL</span>
             <span class="tag-pill" data-i18n="tag_autonomous_loop">Resolución autónoma de incidentes</span>
@@ -680,13 +584,9 @@
         </div>
 
         <div class="glass-card cyan shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
-            Knowledge Base</div>
-          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c4_t">Motor RAG de Diagnóstico Inteligente
-          </h3>
-          <p class="card-desc" data-i18n="ai_c4_d">Base de conocimientos RAG integrada para resolución de fallos DNS y
-            evasión de filtros, permitiendo diagnosticar causas raíz en segundos.</p>
+          <div class="ai-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">Knowledge Base</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c4_t">Motor RAG de Diagnóstico Inteligente</h3>
+          <p class="card-desc" data-i18n="ai_c4_d">Base de conocimientos RAG integrada para resolución de fallos DNS y evasión de filtros, permitiendo diagnosticar causas raíz en segundos.</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_rag_graph">Base de conocimientos RAG</span>
             <span class="tag-pill" data-i18n="tag_root_cause_sec">Causa raíz en segundos</span>
@@ -701,26 +601,18 @@
     <div class="container">
       <div class="section-header">
         <div class="section-tag cyan" data-i18n="matrix_tag">Traffic & Asset Gateway</div>
-        <h2 class="section-title" data-i18n="matrix_title">Control Total de Tráfico: Redirecciones 301/302 · Proxy ·
-          URLs Cortas</h2>
-        <p class="section-desc" data-i18n="matrix_desc">Mucho más que DNS. Hermes proporciona la infraestructura
-          completa desde registro de dominios y ocultamiento proxy de origen hasta división precisa de tráfico.</p>
+        <h2 class="section-title" data-i18n="matrix_title">Control Total de Tráfico: Redirecciones 301/302 · Proxy · URLs Cortas</h2>
+        <p class="section-desc" data-i18n="matrix_desc">Mucho más que DNS. Hermes proporciona la infraestructura completa desde registro de dominios y ocultamiento proxy de origen hasta división precisa de tráfico.</p>
       </div>
 
       <div class="grid grid-3">
         <!-- 1. 301/302 Redirection -->
         <div class="glass-card shine-effect">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="17 1 21 5 17 9"></polyline>
-              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
-              <polyline points="7 23 3 19 7 15"></polyline>
-              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c1_t">Redirección Perimetral Inteligente 301 / 302</h3>
-          <p class="card-desc" data-i18n="matrix_c1_d">Motor de salto permanente 301 y temporal 302 en submilisegundos,
-            preservando todos los parámetros URL Query, HTTPS forzado y redirección masiva wildcard.</p>
+          <p class="card-desc" data-i18n="matrix_c1_d">Motor de salto permanente 301 y temporal 302 en submilisegundos, preservando todos los parámetros URL Query, HTTPS forzado y redirección masiva wildcard.</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_301_perm">Redirección 301 permanente</span>
             <span class="tag-pill" data-i18n="tag_302_temp">Redirección 302 temporal</span>
@@ -731,14 +623,10 @@
         <!-- 2. Short Domain Engine -->
         <div class="glass-card cyan shine-effect">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c2_t">Sistema de Dominios Cortos Privado de Alto Rendimiento</h3>
-          <p class="card-desc" data-i18n="matrix_c2_d">Clúster de enlaces cortos antibloqueo autohospedado, capaz de
-            gestionar millones de peticiones concurrentes, analítica de clics y autodestrucción por caducidad.</p>
+          <p class="card-desc" data-i18n="matrix_c2_d">Clúster de enlaces cortos antibloqueo autohospedado, capaz de gestionar millones de peticiones concurrentes, analítica de clics y autodestrucción por caducidad.</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_self_shortlink">Enlaces cortos antibloqueo</span>
             <span class="tag-pill" data-i18n="tag_anti_red_relay">Reenvío antibloqueo</span>
@@ -749,14 +637,10 @@
         <!-- 3. Proxy Domain & Cloaking Gateway -->
         <div class="glass-card shine-effect">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c3_t">Dominio Proxy y Pasarela de Ocultamiento de Origen</h3>
-          <p class="card-desc" data-i18n="matrix_c3_d">Montaje masivo de dominios proxy con proxy inverso automatizado y
-            camuflaje de tráfico, impidiendo la exposición de la IP real de origen ante ataques DDoS.</p>
+          <p class="card-desc" data-i18n="matrix_c3_d">Montaje masivo de dominios proxy con proxy inverso automatizado y camuflaje de tráfico, impidiendo la exposición de la IP real de origen ante ataques DDoS.</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_origin_ip_hidden">Ocultación de IP de origen</span>
             <span class="tag-pill" data-i18n="tag_dynamic_reverse_proxy">Proxy inverso dinámico</span>
@@ -767,16 +651,10 @@
         <!-- 4. Domain Registrar Gateway -->
         <div class="glass-card shine-effect">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-              </path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c4_t">Pasarela de Registradores de Dominios (Registrar Gateway)</h3>
-          <p class="card-desc" data-i18n="matrix_c4_d">Conexión directa con registradores de primer nivel, registro
-            masivo, renovación automatizada, monitorización drop-catch y privacidad WHOIS.</p>
+          <p class="card-desc" data-i18n="matrix_c4_d">Conexión directa con registradores de primer nivel, registro masivo, renovación automatizada, monitorización drop-catch y privacidad WHOIS.</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_top_registrar">Conexión directa con registradores Tier-1</span>
             <span class="tag-pill" data-i18n="tag_bulk_reg_renew">Registro masivo y renovación</span>
@@ -787,13 +665,10 @@
         <!-- 5. HTTPDNS & DoH/DoT Tunnel -->
         <div class="glass-card cyan shine-effect" style="grid-column: span 2;">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c5_t">HTTPDNS y Canales Cifrados DoH / DoT</h3>
-          <p class="card-desc" data-i18n="matrix_c5_d">Canal dedicado cifrado por HTTPS para apps móviles y clientes,
-            erradicando el secuestro de LocalDNS, la contaminación de caché y la latencia entre operadoras.</p>
+          <p class="card-desc" data-i18n="matrix_c5_d">Canal dedicado cifrado por HTTPS para apps móviles y clientes, erradicando el secuestro de LocalDNS, la contaminación de caché y la latencia entre operadoras.</p>
           <div class="card-tags">
             <span class="tag-pill">HTTPDNS JSON API</span>
             <span class="tag-pill">RFC 8484 DNS-over-HTTPS</span>
@@ -811,9 +686,7 @@
       <div class="section-header">
         <div class="section-tag emerald" data-i18n="rust_tag">Crowdsourced Telemetry Shield</div>
         <h2 class="section-title" data-i18n="rust_title">Rust SDK: Tu producto es tu matriz de detección</h2>
-        <p class="section-desc" data-i18n="rust_desc">¡Olvídate de los costosos servidores de sondeo sintético! Nuestro
-          Rust SDK ultraligero convierte cada dispositivo cliente activo en un nodo de radar en tiempo real en todo el
-          mundo.</p>
+        <p class="section-desc" data-i18n="rust_desc">¡Olvídate de los costosos servidores de sondeo sintético! Nuestro Rust SDK ultraligero convierte cada dispositivo cliente activo en un nodo de radar en tiempo real en todo el mundo.</p>
       </div>
 
       <div class="grid grid-2" style="align-items: center;">
@@ -827,41 +700,30 @@
             <div class="radar-sweep"></div>
           </div>
 
-          <div
-            style="margin-top: 14px; font-size: 0.84rem; color: var(--text-muted); display: flex; justify-content: space-between;"
-            id="probe-quick-info">
-            <span data-i18n="rust_click_hint">Haz clic en los nodos para inspeccionar la telemetría enviada por clientes
-              reales en todo el mundo.</span>
+          <div style="margin-top: 14px; font-size: 0.84rem; color: var(--text-muted); display: flex; justify-content: space-between;" id="probe-quick-info">
+            <span data-i18n="rust_click_hint">Haz clic en los nodos para inspeccionar la telemetría enviada por clientes reales en todo el mundo.</span>
           </div>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 18px;">
           <div id="probe-status-banner">
-            <div
-              style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; border-radius: 8px; padding: 12px 16px; color: #a7f3d0; font-size: 0.92rem;"
-              data-i18n="rust_banner_normal">✓ [Matriz de clientes reales operativa] Millones de dispositivos reportan
-              latencias óptimas. Sin bloqueos ni pantallas rojas de advertencia.</div>
+            <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; border-radius: 8px; padding: 12px 16px; color: #a7f3d0; font-size: 0.92rem;" data-i18n="rust_banner_normal">✓ [Matriz de clientes reales operativa] Millones de dispositivos reportan latencias óptimas. Sin bloqueos ni pantallas rojas de advertencia.</div>
           </div>
 
           <div class="glass-card" style="padding: 22px;">
-            <h4 style="font-size: 1.08rem; margin-bottom: 12px; color: var(--text-white);" data-i18n="rust_box_title">
-              Ventajas clave de 'Tu Producto como Matriz'</h4>
-            <ul
-              style="display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: var(--text-secondary);">
+            <h4 style="font-size: 1.08rem; margin-bottom: 12px; color: var(--text-white);" data-i18n="rust_box_title">Ventajas clave de 'Tu Producto como Matriz'</h4>
+            <ul style="display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: var(--text-secondary);">
               <li style="display: flex; gap: 8px;">
                 <span style="color: #38bdf8;">01.</span>
-                <span data-i18n="rust_mech1">Cero coste en sondas, 100% red real: Monitoreo pasivo distribuido
-                  utilizando el tráfico de clientes reales.</span>
+                <span data-i18n="rust_mech1">Cero coste en sondas, 100% red real: Monitoreo pasivo distribuido utilizando el tráfico de clientes reales.</span>
               </li>
               <li style="display: flex; gap: 8px;">
                 <span style="color: #38bdf8;">02.</span>
-                <span data-i18n="rust_mech2">Alerta temprana de bloqueo en navegador: Detección agregada en milisegundos
-                  que activa evasión automática.</span>
+                <span data-i18n="rust_mech2">Alerta temprana de bloqueo en navegador: Detección agregada en milisegundos que activa evasión automática.</span>
               </li>
               <li style="display: flex; gap: 8px;">
                 <span style="color: #38bdf8;">03.</span>
-                <span data-i18n="rust_mech3">Autorrecuperación transparente en el cliente: Activación silenciosa de
-                  HTTPDNS / 302 cifrados sin cortes.</span>
+                <span data-i18n="rust_mech3">Autorrecuperación transparente en el cliente: Activación silenciosa de HTTPDNS / 302 cifrados sin cortes.</span>
               </li>
             </ul>
           </div>
@@ -870,19 +732,15 @@
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
             <div class="telemetry-stat-card">
               <div style="font-size: 1.25rem; font-weight: 800; color: #38bdf8;">1,200,000+</div>
-              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
-                data-i18n="rust_metric_active_nodes">Nodos de Radar Activos</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;" data-i18n="rust_metric_active_nodes">Nodos de Radar Activos</div>
             </div>
             <div class="telemetry-stat-card">
               <div style="font-size: 1.25rem; font-weight: 800; color: #34d399;">&lt; 400ms</div>
-              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
-                data-i18n="rust_metric_detection_time">Agregación de Detección</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;" data-i18n="rust_metric_detection_time">Agregación de Detección</div>
             </div>
             <div class="telemetry-stat-card">
-              <div style="font-size: 1.25rem; font-weight: 800; color: #c084fc;" data-i18n="rust_metric_probe_cost_val">
-                0 USDT</div>
-              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
-                data-i18n="rust_metric_probe_cost">Coste de Sondas Dedicadas</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: #c084fc;" data-i18n="rust_metric_probe_cost_val">0 USDT</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;" data-i18n="rust_metric_probe_cost">Coste de Sondas Dedicadas</div>
             </div>
           </div>
         </div>
@@ -895,44 +753,33 @@
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Zero-Touch SSL Matrix</div>
-        <h2 class="section-title" data-i18n="ssl_title">Automatización de SSL Empresarial EV/OV/DV y Wildcard Gratuito
-        </h2>
-        <p class="section-desc" data-i18n="ssl_desc">Rompe la dependencia de un solo proveedor. Automatización de ciclo
-          de vida completo para certificados comerciales y ACME gratuitos con soporte de IP pública y renovación
-          automática.</p>
+        <h2 class="section-title" data-i18n="ssl_title">Automatización de SSL Empresarial EV/OV/DV y Wildcard Gratuito</h2>
+        <p class="section-desc" data-i18n="ssl_desc">Rompe la dependencia de un solo proveedor. Automatización de ciclo de vida completo para certificados comerciales y ACME gratuitos con soporte de IP pública y renovación automática.</p>
       </div>
 
       <div class="ssl-flow-container">
         <div class="ssl-step-card">
           <div class="ssl-step-num">STEP 01</div>
           <h4 style="margin-bottom: 8px;" data-i18n="ssl_s1_t">Emisión de CA Comercial y ACME</h4>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s1_d">Emisión
-            automatizada Let's Encrypt / ZeroSSL / GTS y validación DNS transparente para DigiCert / Sectigo /
-            GlobalSign.</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s1_d">Emisión automatizada Let's Encrypt / ZeroSSL / GTS y validación DNS transparente para DigiCert / Sectigo / GlobalSign.</p>
         </div>
 
         <div class="ssl-step-card">
           <div class="ssl-step-num">STEP 02</div>
           <h4 style="margin-bottom: 8px;" data-i18n="ssl_s2_t">Certificados para IP Pública y Wildcard</h4>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s2_d">Más allá
-            de *.example.com: emisión nativa de SSL directamente para direcciones IP públicas de servidores sin límites
-            de dominios.</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s2_d">Más allá de *.example.com: emisión nativa de SSL directamente para direcciones IP públicas de servidores sin límites de dominios.</p>
         </div>
 
         <div class="ssl-step-card">
           <div class="ssl-step-num">STEP 03</div>
           <h4 style="margin-bottom: 8px;" data-i18n="ssl_s3_t">Auditoría programada y renovación silenciosa</h4>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s3_d">El motor
-            de tareas audita la validez diariamente y renueva automáticamente 30 días antes del vencimiento para evitar
-            caídas.</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s3_d">El motor de tareas audita la validez diariamente y renueva automáticamente 30 días antes del vencimiento para evitar caídas.</p>
         </div>
 
         <div class="ssl-step-card">
           <div class="ssl-step-num">STEP 04</div>
           <h4 style="margin-bottom: 8px;" data-i18n="ssl_s4_t">Distribución multinodo y recarga sin interrupciones</h4>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s4_d">El agente
-            SSL recarga de forma segura Nginx / HAProxy; K8s Controller sincroniza secretos Ingress y la API publica en
-            CDN y ALB.</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s4_d">El agente SSL recarga de forma segura Nginx / HAProxy; K8s Controller sincroniza secretos Ingress y la API publica en CDN y ALB.</p>
         </div>
       </div>
     </div>
@@ -942,13 +789,9 @@
   <section class="section section-alt" id="comparison">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag"
-          style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.35); color: #818cf8;"
-          data-i18n="comp_tag">Competitive Matrix</div>
+        <div class="section-tag" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.35); color: #818cf8;" data-i18n="comp_tag">Competitive Matrix</div>
         <h2 class="section-title" data-i18n="comp_title">Comparativa Exhaustiva: ¿Por qué elegir Hermes?</h2>
-        <p class="section-desc" data-i18n="comp_desc">Deje atrás scripts básicos de monitorización y el bloqueo de
-          proveedores en nubes públicas. Hermes está diseñado para alta resiliencia y soberanía total sobre su
-          infraestructura DNS.</p>
+        <p class="section-desc" data-i18n="comp_desc">Deje atrás scripts básicos de monitorización y el bloqueo de proveedores en nubes públicas. Hermes está diseñado para alta resiliencia y soberanía total sobre su infraestructura DNS.</p>
       </div>
 
       <!-- Comparison Matrix Table Card -->
@@ -973,19 +816,13 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span data-i18n="comp_r1_hermes">Núcleo dual CoreDNS (Go) + BIND 9, caché L1 <0.5ms, despliegue
-                      privado para 10M+ QPS</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span data-i18n="comp_r1_hermes">Núcleo dual CoreDNS (Go) + BIND 9, caché L1 <0.5ms, despliegue privado para 10M+ QPS</span>
                 </div>
               </td>
-              <td><span class="comp-text-val" data-i18n="comp_r1_da">❌ Sin servidor DNS; solo recordatorios de
-                  expiración de SSL/dominios</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r1_ch">❌ Sin motor autoritativo propio; mero proxy PHP
-                  hacia APIs externas</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r1_cloud">⚠️ Nube cerrada y propietaria; sin código
-                  privado, dependencia total</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r1_da">❌ Sin servidor DNS; solo recordatorios de expiración de SSL/dominios</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r1_ch">❌ Sin motor autoritativo propio; mero proxy PHP hacia APIs externas</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r1_cloud">⚠️ Nube cerrada y propietaria; sin código privado, dependencia total</span></td>
             </tr>
 
             <tr>
@@ -994,19 +831,13 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span data-i18n="comp_r2_hermes">Límite de peticiones QPS, limpieza de amplificación DNS, bloqueo de
-                    inundaciones y ACL IP</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span data-i18n="comp_r2_hermes">Límite de peticiones QPS, limpieza de amplificación DNS, bloqueo de inundaciones y ACL IP</span>
                 </div>
               </td>
-              <td><span class="comp-text-val" data-i18n="comp_r2_da">❌ Sin protección de red ni depuración de
-                  tráfico</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r2_ch">❌ Sin defensa; se satura ante picos de
-                  tráfico</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r2_cloud">⚠️ Plan gratuito limitado; mitigación avanzada
-                  requiere suscripciones elevadas</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r2_da">❌ Sin protección de red ni depuración de tráfico</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r2_ch">❌ Sin defensa; se satura ante picos de tráfico</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r2_cloud">⚠️ Plan gratuito limitado; mitigación avanzada requiere suscripciones elevadas</span></td>
             </tr>
 
             <tr>
@@ -1015,19 +846,13 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span data-i18n="comp_r3_hermes">Redirecciones 301/302 submilisegundo, enlaces cortos, ocultamiento
-                    proxy y registradores</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span data-i18n="comp_r3_hermes">Redirecciones 301/302 submilisegundo, enlaces cortos, ocultamiento proxy y registradores</span>
                 </div>
               </td>
-              <td><span class="comp-text-val" data-i18n="comp_r3_da">❌ Sin gestión de tráfico ni pasarelas de
-                  redirección</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r3_ch">❌ Solo operaciones CRUD básicas de registros
-                  DNS</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r3_cloud">⚠️ Requiere configuración fragmentada de CDN,
-                  WAF y Serverless Workers</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_da">❌ Sin gestión de tráfico ni pasarelas de redirección</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_ch">❌ Solo operaciones CRUD básicas de registros DNS</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_cloud">⚠️ Requiere configuración fragmentada de CDN, WAF y Serverless Workers</span></td>
             </tr>
 
             <tr>
@@ -1036,19 +861,13 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span data-i18n="comp_r4_hermes">SDK Rust exclusivo ('Su producto es su matriz de radar') para evasión
-                    instantánea</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span data-i18n="comp_r4_hermes">SDK Rust exclusivo ('Su producto es su matriz de radar') para evasión instantánea</span>
                 </div>
               </td>
-              <td><span class="comp-text-val" data-i18n="comp_r4_da">❌ Solo sondeo periódico básico desde un único
-                  servidor</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r4_ch">❌ Solo peticiones periódicas simples desde el
-                  servidor</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r4_cloud">❌ Sondas solo en CPD; no detecta bloqueos en
-                  ISPs residenciales/móviles reales</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r4_da">❌ Solo sondeo periódico básico desde un único servidor</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r4_ch">❌ Solo peticiones periódicas simples desde el servidor</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r4_cloud">❌ Sondas solo en CPD; no detecta bloqueos en ISPs residenciales/móviles reales</span></td>
             </tr>
 
             <tr>
@@ -1057,19 +876,13 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span data-i18n="comp_r5_hermes">Protocolo MCP estándar + flujo móvil de doble aprobación en Telegram
-                    / Teams / Slack</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span data-i18n="comp_r5_hermes">Protocolo MCP estándar + flujo móvil de doble aprobación en Telegram / Teams / Slack</span>
                 </div>
               </td>
-              <td><span class="comp-text-val" data-i18n="comp_r5_da">❌ Solo alertas básicas por correo o webhook</span>
-              </td>
-              <td><span class="comp-text-val" data-i18n="comp_r5_ch">❌ Sin protocolos de IA ni flujos de aprobación en
-                  chat</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r5_cloud">⚠️ Consola web engorrosa y compleja matriz de
-                  permisos IAM</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r5_da">❌ Solo alertas básicas por correo o webhook</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r5_ch">❌ Sin protocolos de IA ni flujos de aprobación en chat</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r5_cloud">⚠️ Consola web engorrosa y compleja matriz de permisos IAM</span></td>
             </tr>
 
             <tr>
@@ -1078,18 +891,13 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span data-i18n="comp_r6_hermes">Sincronización nativa de K8s Ingress, TLS Secrets, Helm y escalado
-                    HPA sin estado</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span data-i18n="comp_r6_hermes">Sincronización nativa de K8s Ingress, TLS Secrets, Helm y escalado HPA sin estado</span>
                 </div>
               </td>
               <td><span class="comp-text-val" data-i18n="comp_r6_da">❌ Script aislado en Python / Docker</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r6_ch">❌ Arquitectura monolítica tradicional LAMP /
-                  LNMP</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r6_cloud">⚠️ Requiere desarrollo o mantenimiento complejo
-                  de plugins External-DNS</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r6_ch">❌ Arquitectura monolítica tradicional LAMP / LNMP</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r6_cloud">⚠️ Requiere desarrollo o mantenimiento complejo de plugins External-DNS</span></td>
             </tr>
 
             <tr>
@@ -1098,19 +906,13 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span data-i18n="comp_r7_hermes">Compra completa de código por 10,000 U o versión actual 699 U
-                    (paquete con 1 año de soporte y parches 1,999 U), control 100%</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span data-i18n="comp_r7_hermes">Compra completa de código por 10,000 U o versión actual 699 U (paquete con 1 año de soporte y parches 1,999 U), control 100%</span>
                 </div>
               </td>
-              <td><span class="comp-text-val" data-i18n="comp_r7_da">Proyecto de código abierto personal sin SLA
-                  corporativo</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r7_ch">Scripts de bajo coste sin soporte técnico ni
-                  evolución de arquitectura</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r7_cloud">❌ Facturación recurrente por consulta, riesgo
-                  permanente de cierre de cuenta</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r7_da">Proyecto de código abierto personal sin SLA corporativo</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r7_ch">Scripts de bajo coste sin soporte técnico ni evolución de arquitectura</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r7_cloud">❌ Facturación recurrente por consulta, riesgo permanente de cierre de cuenta</span></td>
             </tr>
           </tbody>
         </table>
@@ -1122,29 +924,23 @@
   <section class="section" id="pricing">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag"
-          style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;"
-          data-i18n="pricing_tag">Liquidación Nativa en Criptomonedas · USDT / USDC</div>
-        <h2 class="section-title" data-i18n="pricing_title">Planes Comerciales: Compra de Código Fuente y Entrega
-          Privada</h2>
-        <p class="section-desc" data-i18n="pricing_desc">Elimine las tarifas continuas en la nube. Elija entre compra
-          total de código fuente o implementación de paquete binario con expertos técnicos.</p>
+        <div class="section-tag" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;" data-i18n="pricing_tag">Liquidación Nativa en Criptomonedas · USDT / USDC</div>
+        <h2 class="section-title" data-i18n="pricing_title">Planes Comerciales: Compra de Código Fuente y Entrega Privada</h2>
+        <p class="section-desc" data-i18n="pricing_desc">Elimine las tarifas continuas en la nube. Elija entre compra total de código fuente o implementación de paquete binario con expertos técnicos.</p>
 
         <!-- Prominent Payment Policy Banner (USDT/USDC, NO TRON) -->
-        <div class="payment-notice-box" data-i18n="pricing_payment_warning">⚡ Política de pago: Se aceptan pagos en
-          criptomonedas populares (USDT / USDC). NO se admite la red TRON.</div>
+        <div class="payment-notice-box" data-i18n="pricing_payment_warning">⚡ Política de pago: Se aceptan pagos en criptomonedas populares (USDT / USDC). NO se admite la red TRON.</div>
       </div>
 
       <div class="pricing-grid">
-
+        
         <!-- Tier 1: Source License (Regular 29,999 USDT -> Promo 10,000 USDT) -->
         <div class="pricing-card shine-effect">
           <div class="card-badge-strip" data-i18n="plan_source_badge">Oferta Limitada · Ahorra 19,999 U</div>
-
+          
           <div class="pricing-header">
             <h3 class="plan-name" data-i18n="plan_source_name">Compra de Código Fuente Completo</h3>
-            <p class="plan-desc" data-i18n="plan_source_desc">Ideal para equipos de ingeniería propios que buscan
-              autonomía total, control Cloud-Native y redistribución comercial con marca blanca.</p>
+            <p class="plan-desc" data-i18n="plan_source_desc">Ideal para equipos de ingeniería propios que buscan autonomía total, control Cloud-Native y redistribución comercial con marca blanca.</p>
             <div class="plan-price-box">
               <div class="price-original" data-i18n="plan_source_orig">Precio normal 29,999 USDT</div>
               <div class="price-row-main">
@@ -1158,46 +954,28 @@
 
           <div class="plan-features-list">
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_source_f1">Código backend completo en Go (Operador K8s, módulo eBPF, 301/302,
-                enlaces cortos, proxy, registrador, plugin CoreDNS)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_source_f1">Código backend completo en Go (Operador K8s, módulo eBPF, 301/302, enlaces cortos, proxy, registrador, plugin CoreDNS)</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_source_f2">Consola de administración empresarial completa en Vue3 (TypeScript y
-                control de acceso RBAC granular)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_source_f2">Consola de administración empresarial completa en Vue3 (TypeScript y control de acceso RBAC granular)</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_source_f3">Código fuente del SDK embebido en Rust ('Tu producto es tu matriz de
-                detección')</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_source_f3">Código fuente del SDK embebido en Rust ('Tu producto es tu matriz de detección')</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_source_f4">Código fuente de Telegram Mini App (TMA) y suite de protocolo AI MCP
-                Server</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_source_f4">Código fuente de Telegram Mini App (TMA) y suite de protocolo AI MCP Server</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_source_f5">Sin límite en número de dominios, sin tope de QPS, propiedad permanente y
-                autohospedada</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_source_f5">Sin límite en número de dominios, sin tope de QPS, propiedad permanente y autohospedada</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_source_f6">Permiso total para marca blanca (White-label) y reventa comercial
-                privada</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_source_f6">Permiso total para marca blanca (White-label) y reventa comercial privada</span>
             </div>
           </div>
 
@@ -1208,77 +986,50 @@
 
         <!-- Tier 2: Private Cloud Turnkey & Program License Suite -->
         <div class="pricing-card featured shine-effect">
-          <div class="card-badge-strip" data-i18n="plan_deploy_badge">Licencia Comercial Binaria · Sin Código Fuente
-          </div>
-
+          <div class="card-badge-strip" data-i18n="plan_deploy_badge">Licencia Comercial Binaria · Sin Código Fuente</div>
+          
           <div class="pricing-header">
             <h3 class="plan-name" data-i18n="plan_deploy_name">Despliegue Privado · Licencia Comercial</h3>
-            <p class="plan-desc" data-i18n="plan_deploy_desc">Para empresas sin desarrollo propio. Licencia versión
-              actual 699 U (sin soporte ni actualizaciones) o paquete promocional 1,999 U (incluye 1 año de costos de
-              mantenimiento y actualizaciones, sin código).</p>
+            <p class="plan-desc" data-i18n="plan_deploy_desc">Para empresas sin desarrollo propio. Licencia versión actual 699 U (sin soporte ni actualizaciones) o paquete promocional 1,999 U (incluye 1 año de costos de mantenimiento y actualizaciones, sin código).</p>
             <div class="plan-price-box">
               <div class="price-original" data-i18n="plan_deploy_orig">Precio oficial 1,699 USDT</div>
               <div class="price-row-main">
                 <span class="price-currency">USDT</span>
                 <span class="price-amount" data-i18n="plan_deploy_price">699</span>
-                <span class="promo-tag" data-i18n="plan_deploy_tag">Versión actual 699 U · Paquete con soporte 1,999
-                  U</span>
+                <span class="promo-tag" data-i18n="plan_deploy_tag">Versión actual 699 U · Paquete con soporte 1,999 U</span>
               </div>
-              <span class="price-unit" data-i18n="plan_deploy_unit">USDT (Solo versión actual, sin soporte ni
-                actualizaciones; o 1,999 U con 1 año de soporte y actualizaciones)</span>
+              <span class="price-unit" data-i18n="plan_deploy_unit">USDT (Solo versión actual, sin soporte ni actualizaciones; o 1,999 U con 1 año de soporte y actualizaciones)</span>
             </div>
           </div>
 
           <div class="plan-features-list">
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_deploy_f1">Licencia comercial: Versión actual 699 U (solo esta versión, sin soporte
-                ni actualizaciones) o Paquete promocional 1,999 U (incluye 1 año de costos de mantenimiento y
-                actualizaciones de seguridad, sin código)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_deploy_f1">Licencia comercial: Versión actual 699 U (solo esta versión, sin soporte ni actualizaciones) o Paquete promocional 1,999 U (incluye 1 año de costos de mantenimiento y actualizaciones de seguridad, sin código)</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_deploy_f2">Topología de Edge proxy y nodos autoritativos (Soporta nodos ilimitados,
-                sin tarifas de licencia por nodo)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_deploy_f2">Topología de Edge proxy y nodos autoritativos (Soporta nodos ilimitados, sin tarifas de licencia por nodo)</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_deploy_f3">Servicio de despliegue: Nodo individual 99 U / Clúster de alta
-                disponibilidad 150 U</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_deploy_f3">Servicio de despliegue: Nodo individual 99 U / Clúster de alta disponibilidad 150 U</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_deploy_f4">Despliegue del pipeline SSL automatizado (CA comercial + Wildcard
-                gratuito/IP pública con autoemisión y recarga en caliente)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_deploy_f4">Despliegue del pipeline SSL automatizado (CA comercial + Wildcard gratuito/IP pública con autoemisión y recarga en caliente)</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_deploy_f5">Migración sin tiempo de inactividad de dominios (Cloudflare, AWS, DNSPod)
-                y optimización 301/302</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_deploy_f5">Migración sin tiempo de inactividad de dominios (Cloudflare, AWS, DNSPod) y optimización 301/302</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_deploy_f6">Integración completa de AI MCP Server y flujos en Telegram / MS Teams /
-                Slack</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_deploy_f6">Integración completa de AI MCP Server y flujos en Telegram / MS Teams / Slack</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_deploy_f7">Incluye 30 días de acompañamiento técnico con expertos (mantenimiento
-                posterior a 150 U/mes)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_deploy_f7">Incluye 30 días de acompañamiento técnico con expertos (mantenimiento posterior a 150 U/mes)</span>
             </div>
           </div>
 
@@ -1289,13 +1040,10 @@
 
         <!-- Tier 3: Enterprise SLA (Promo 1,199 USDT/yr) -->
         <div class="pricing-card shine-effect">
-          <div class="card-badge-strip"
-            style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);"
-            data-i18n="plan_support_badge">Oferta Limitada</div>
+          <div class="card-badge-strip" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);" data-i18n="plan_support_badge">Oferta Limitada</div>
           <div class="pricing-header">
             <h3 class="plan-name" data-i18n="plan_support_name">Soporte de expertos empresarial 7x12</h3>
-            <p class="plan-desc" data-i18n="plan_support_desc">Soporte técnico online de expertos 7×12 (zona horaria
-              UTC+2) para producción: actualizaciones, reglas DNS y resolución de incidencias.</p>
+            <p class="plan-desc" data-i18n="plan_support_desc">Soporte técnico online de expertos 7×12 (zona horaria UTC+2) para producción: actualizaciones, reglas DNS y resolución de incidencias.</p>
             <div class="plan-price-box">
               <div class="price-original" data-i18n="plan_support_orig">Precio normal 2,000 USDT</div>
               <div class="price-row-main">
@@ -1309,39 +1057,24 @@
 
           <div class="plan-features-list">
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_support_f1">Soporte técnico online de expertos 7×12 (zona horaria UTC+2) y
-                protección de actualizaciones LTS</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_support_f1">Soporte técnico online de expertos 7×12 (zona horaria UTC+2) y protección de actualizaciones LTS</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_support_f2">Asistencia de conmutación de emergencia en menos de 10 minutos ante
-                bloqueos de red</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_support_f2">Asistencia de conmutación de emergencia en menos de 10 minutos ante bloqueos de red</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_support_f3">Actualizaciones de versiones LTS a largo plazo y parches calientes para
-                vulnerabilidades críticas</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_support_f3">Actualizaciones de versiones LTS a largo plazo y parches calientes para vulnerabilidades críticas</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_support_f4">Incorporación continua de nuevos adaptadores DNS de proveedores y
-                habilidades de AI Agent</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_support_f4">Incorporación continua de nuevos adaptadores DNS de proveedores y habilidades de AI Agent</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_support_f5">Guía remota 1v1 de expertos técnicos y resolución rápida de
-                incidencias</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_support_f5">Guía remota 1v1 de expertos técnicos y resolución rápida de incidencias</span>
             </div>
           </div>
 
@@ -1356,18 +1089,15 @@
       <div class="calc-card">
         <div class="calc-grid">
           <div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 8px;" data-i18n="calc_title">Configurador de Solución y
-              Calculadora de ROI (USDT / USDC)</h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 22px;" data-i18n="calc_desc">
-              Calcula tu presupuesto de inversión según el volumen de dominios y la escala de nodos multiactivos:</p>
+            <h3 style="font-size: 1.35rem; margin-bottom: 8px;" data-i18n="calc_title">Configurador de Solución y Calculadora de ROI (USDT / USDC)</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 22px;" data-i18n="calc_desc">Calcula tu presupuesto de inversión según el volumen de dominios y la escala de nodos multiactivos:</p>
 
             <div class="calc-slider-group">
               <div class="slider-label-row">
                 <span data-i18n="calc_domain_label">Volumen de dominios gestionados:</span>
                 <span id="calc-domain-value" style="color: var(--accent-cyan); font-family: monospace;">200</span>
               </div>
-              <input type="range" min="20" max="5000" step="20" value="200" class="slider-input"
-                id="calc-domain-slider">
+              <input type="range" min="20" max="5000" step="20" value="200" class="slider-input" id="calc-domain-slider">
             </div>
 
             <div class="calc-slider-group">
@@ -1381,13 +1111,11 @@
             <div style="display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px;">
               <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
                 <input type="checkbox" id="calc-include-source" checked>
-                <span data-i18n="calc_check_source">Mejorar a compra total de código fuente (10,000 U, incluye código
-                  fuente)</span>
+                <span data-i18n="calc_check_source">Mejorar a compra total de código fuente (10,000 U, incluye código fuente)</span>
               </label>
               <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
                 <input type="checkbox" id="calc-include-deploy" checked>
-                <span data-i18n="calc_check_deploy">Licencia: Versión actual 699 U (o paquete con soporte 1,999 U) +
-                  Despliegue 99 U (Clúster 150 U, con Pipeline SSL)</span>
+                <span data-i18n="calc_check_deploy">Licencia: Versión actual 699 U (o paquete con soporte 1,999 U) + Despliegue 99 U (Clúster 150 U, con Pipeline SSL)</span>
               </label>
               <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
                 <input type="checkbox" id="calc-include-support">
@@ -1397,15 +1125,12 @@
           </div>
 
           <div class="calc-budget-box">
-            <div style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 6px;"
-              data-i18n="calc_budget_label">Presupuesto total estimado de inversión (USDT / USDC)</div>
+            <div style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 6px;" data-i18n="calc_budget_label">Presupuesto total estimado de inversión (USDT / USDC)</div>
             <div style="display: flex; align-items: baseline; justify-content: center; gap: 6px; margin-bottom: 14px;">
               <span style="font-size: 1.3rem; font-weight: 700;">USDT</span>
-              <span style="font-size: 3rem; font-weight: 800; color: var(--text-white); line-height: 1;"
-                id="calc-total-price">10,999</span>
+              <span style="font-size: 3rem; font-weight: 800; color: var(--text-white); line-height: 1;" id="calc-total-price">10,999</span>
             </div>
-            <div style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;"
-              id="calc-plan-summary"></div>
+            <div style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;" id="calc-plan-summary"></div>
             <button class="btn btn-primary btn-lg" id="btn-apply-calculator" style="width: 100%;">
               <span data-i18n="calc_submit_btn">Enviar consulta con esta configuración</span>
             </button>
@@ -1427,56 +1152,34 @@
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <div class="glass-card faq-item active" style="padding: 24px; cursor: pointer;">
           <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
-            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q1">1. ¿Qué métodos de pago se
-              aceptan?</h4>
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q1">1. ¿Qué métodos de pago se aceptan?</h4>
             <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
           </div>
-          <div class="faq-answer"
-            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
-            data-i18n="faq_a1">Aceptamos pagos en línea mediante criptomonedas populares (USDT / USDC). NO se admite la
-            red TRON.</div>
+          <div class="faq-answer" style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;" data-i18n="faq_a1">Aceptamos pagos en línea mediante criptomonedas populares (USDT / USDC). NO se admite la red TRON.</div>
         </div>
 
         <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
           <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
-            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q2">2. ¿Cómo logra Hermes
-              compatibilidad nativa con decenas de proveedores DNS?</h4>
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q2">2. ¿Cómo logra Hermes compatibilidad nativa con decenas de proveedores DNS?</h4>
             <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
           </div>
-          <div class="faq-answer"
-            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
-            data-i18n="faq_a2">Hermes incorpora una capa de adaptadores de grado industrial que estandariza las dispares
-            APIs de cada nube en un modelo de datos uniforme. Defines tus políticas de enrutamiento una sola vez y el
-            sistema las sincroniza automáticamente con Cloudflare, AWS Route53 y otros proveedores sin bloqueo de
-            proveedor.</div>
+          <div class="faq-answer" style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;" data-i18n="faq_a2">Hermes incorpora una capa de adaptadores de grado industrial que estandariza las dispares APIs de cada nube en un modelo de datos uniforme. Defines tus políticas de enrutamiento una sola vez y el sistema las sincroniza automáticamente con Cloudflare, AWS Route53 y otros proveedores sin bloqueo de proveedor.</div>
         </div>
 
         <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
           <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
-            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q3">3. ¿Qué significa 'Tu producto
-              es tu matriz de detección'?</h4>
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q3">3. ¿Qué significa 'Tu producto es tu matriz de detección'?</h4>
             <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
           </div>
-          <div class="faq-answer"
-            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
-            data-i18n="faq_a3">La monitorización tradicional con sondas en centros de datos es costosa y no refleja las
-            condiciones reales de navegación de los usuarios residenciales o móviles. El SDK de Rust de Hermes se
-            integra en tus aplicaciones cliente, muestreando la red con mínimo consumo para detectar y sortear bloqueos
-            o pantallas rojas al milisegundo.</div>
+          <div class="faq-answer" style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;" data-i18n="faq_a3">La monitorización tradicional con sondas en centros de datos es costosa y no refleja las condiciones reales de navegación de los usuarios residenciales o móviles. El SDK de Rust de Hermes se integra en tus aplicaciones cliente, muestreando la red con mínimo consumo para detectar y sortear bloqueos o pantallas rojas al milisegundo.</div>
         </div>
 
         <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
           <div class="faq-question" style="display: flex; justify-content: space-between; align-items: center;">
-            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q4">4. ¿Podemos desplegar el código
-              internamente sin límites tras la compra?</h4>
+            <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q4">4. ¿Podemos desplegar el código internamente sin límites tras la compra?</h4>
             <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
           </div>
-          <div class="faq-answer"
-            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
-            data-i18n="faq_a4">Sí. Al adquirir la licencia comercial por 10,000 USDT (precio normal 29,999 USDT),
-            recibes acceso completo al código fuente de todos los módulos con derechos perpetuos, sin límites de
-            dominios ni de tráfico, incluyendo autorización para comercializarlo bajo tu propia marca (White-label).
-          </div>
+          <div class="faq-answer" style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;" data-i18n="faq_a4">Sí. Al adquirir la licencia comercial por 10,000 USDT (precio normal 29,999 USDT), recibes acceso completo al código fuente de todos los módulos con derechos perpetuos, sin límites de dominios ni de tráfico, incluyendo autorización para comercializarlo bajo tu propia marca (White-label).</div>
         </div>
       </div>
     </div>
@@ -1491,9 +1194,7 @@
             <img src="../assets/images/logo.png" alt="Hermes DNS Platform" style="height: 34px; border-radius: 6px;">
             <span class="footer-brand-name">HERMES</span>
           </div>
-          <p data-i18n="footer_desc">Hermes se dedica a proporcionar a empresas de todo el mundo la solución DNS
-            autoritativa privada más avanzada, redirecciones 301/302, pasarelas proxy, automatización SSL, matriz de
-            detección Rust SDK y operaciones autónomas con AI Agent.</p>
+          <p data-i18n="footer_desc">Hermes se dedica a proporcionar a empresas de todo el mundo la solución DNS autoritativa privada más avanzada, redirecciones 301/302, pasarelas proxy, automatización SSL, matriz de detección Rust SDK y operaciones autónomas con AI Agent.</p>
         </div>
 
         <div class="footer-col">
@@ -1511,12 +1212,9 @@
         <div class="footer-col">
           <h4 data-i18n="footer_col_comm">Adquisición Comercial (USDT/USDC)</h4>
           <ul>
-            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="源码授权购买咨询 (特惠 10000 USDT)"
-                data-i18n="footer_link_buy_source">Compra completa de código fuente (10,000 U)</a></li>
-            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="私有交付程序授权套装 (699 U起)"
-                data-i18n="footer_link_buy_deploy">Licencia de software y despliegue (desde 699 U)</a></li>
-            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="企业 7x12 维保支持 (1199 USDT/年)"
-                data-i18n="footer_link_buy_support">Soporte experto 7x12 (UTC+2)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="源码授权购买咨询 (特惠 10000 USDT)" data-i18n="footer_link_buy_source">Compra completa de código fuente (10,000 U)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="私有交付程序授权套装 (699 U起)" data-i18n="footer_link_buy_deploy">Licencia de software y despliegue (desde 699 U)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="企业 7x12 维保支持 (1199 USDT/年)" data-i18n="footer_link_buy_support">Soporte experto 7x12 (UTC+2)</a></li>
             <li><a href="#pricing" data-i18n="footer_link_calc">Calculadora interactiva de costos</a></li>
           </ul>
         </div>
@@ -1524,11 +1222,8 @@
         <div class="footer-col">
           <h4 data-i18n="footer_col_contact">Contacto Comercial y Soporte</h4>
           <ul>
-            <li><span class="footer-tg-label" data-i18n="footer_tg_label">Canal oficial de Telegram: </span> <a
-                href="https://t.me/hermes_dns_official" target="_blank" rel="noopener"
-                class="footer-tg-link">@hermes_dns_official</a></li>
-            <li class="footer-settlement-note" data-i18n="footer_settlement_note">Política de pago: Se aceptan pagos en
-              criptomonedas (USDT / USDC). NO se admite TRON.</li>
+            <li><span class="footer-tg-label" data-i18n="footer_tg_label">Canal oficial de Telegram: </span> <a href="https://t.me/hermes_dns_official" target="_blank" rel="noopener" class="footer-tg-link">@hermes_dns_official</a></li>
+            <li class="footer-settlement-note" data-i18n="footer_settlement_note">Política de pago: Se aceptan pagos en criptomonedas (USDT / USDC). NO se admite TRON.</li>
           </ul>
         </div>
       </div>
@@ -1549,5 +1244,4 @@
   <script src="../assets/js/pricing.js"></script>
   <script src="../assets/js/main.js"></script>
 </body>
-
 </html>

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-lang="zh" class="lang-zh">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Early Client Adaptive System: Zero-Flicker Theme & Language Initialization -->
   <script>
-    (function () {
+    (function() {
       try {
         // 1. Theme adaptation
         var savedTheme = localStorage.getItem('hermes_theme');
@@ -56,16 +55,14 @@
           document.documentElement.classList.remove('lang-zh');
           document.documentElement.classList.add('lang-non-zh');
         }
-      } catch (e) { }
+      } catch(e) {}
     })();
   </script>
   <title data-i18n="site_title">Hermes - 企业级私有权威DNS与多云高防流量调度系统</title>
-
+  
   <!-- SEO Comprehensive Meta Tags -->
-  <meta name="description"
-    content="Hermes 是专为企业打造的高性能私有权威DNS（CoreDNS/BIND9双内核）、HTTPDNS、多云DNS一键无感热切、全自动商业与免费SSL闭环、Rust SDK防红自愈及AI Agent自动化调度平台。">
-  <meta name="keywords"
-    content="权威DNS, 智能DNS, CoreDNS, BIND9, HTTPDNS, DoH, DoT, 多云DNS切换, 多供应商线路, 千线BGP, 域名托管, SSL自动续费, 商业证书签发, 免费泛域名SSL, Rust SDK, 浏览器红框检测, 防红检测, 被墙逃生, AI Agent, MCP, RAG, EVM USDT">
+  <meta name="description" content="Hermes 是专为企业打造的高性能私有权威DNS（CoreDNS/BIND9双内核）、HTTPDNS、多云DNS一键无感热切、全自动商业与免费SSL闭环、Rust SDK防红自愈及AI Agent自动化调度平台。">
+  <meta name="keywords" content="权威DNS, 智能DNS, CoreDNS, BIND9, HTTPDNS, DoH, DoT, 多云DNS切换, 多供应商线路, 千线BGP, 域名托管, SSL自动续费, 商业证书签发, 免费泛域名SSL, Rust SDK, 浏览器红框检测, 防红检测, 被墙逃生, AI Agent, MCP, RAG, EVM USDT">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://hermes.161616.top/zh/">
 
@@ -85,8 +82,7 @@
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="software">
   <meta property="og:title" content="Hermes - 企业级私有权威DNS与多云高防流量调度系统">
-  <meta property="og:description"
-    content="Hermes 是专为企业打造的高性能私有权威DNS（CoreDNS/BIND9双内核）、HTTPDNS、多云DNS一键无感热切、全自动商业与免费SSL闭环、Rust SDK防红自愈及AI Agent自动化调度平台。">
+  <meta property="og:description" content="Hermes 是专为企业打造的高性能私有权威DNS（CoreDNS/BIND9双内核）、HTTPDNS、多云DNS一键无感热切、全自动商业与免费SSL闭环、Rust SDK防红自愈及AI Agent自动化调度平台。">
   <meta property="og:url" content="https://hermes.161616.top/zh/">
   <meta property="og:site_name" content="Hermes Platform">
   <meta property="og:image" content="https://hermes.161616.top/assets/images/logo.png">
@@ -94,8 +90,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hermes - 企业级私有权威DNS与多云高防流量调度系统">
-  <meta name="twitter:description"
-    content="Hermes 是专为企业打造的高性能私有权威DNS（CoreDNS/BIND9双内核）、HTTPDNS、多云DNS一键无感热切、全自动商业与免费SSL闭环、Rust SDK防红自愈及AI Agent自动化调度平台。">
+  <meta name="twitter:description" content="Hermes 是专为企业打造的高性能私有权威DNS（CoreDNS/BIND9双内核）、HTTPDNS、多云DNS一键无感热切、全自动商业与免费SSL闭环、Rust SDK防红自愈及AI Agent自动化调度平台。">
   <meta name="twitter:image" content="https://hermes.161616.top/assets/images/logo.png">
 
   <!-- Structured Data JSON-LD (Schema.org) for SEO -->
@@ -132,10 +127,9 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
   <link rel="stylesheet" href="../assets/css/animations.css">
-
+  
   <link rel="icon" type="image/png" href="../assets/images/logo.png">
 </head>
-
 <body>
 
   <!-- ================= 1. HEADER / NAVBAR WITH I18N ================= -->
@@ -199,7 +193,7 @@
   <!-- ================= 2. HERO SECTION ================= -->
   <section class="hero-section" id="hero">
     <div class="container hero-grid">
-
+      
       <div class="hero-content">
         <div class="hero-tag">
           <span class="status-dot"></span>
@@ -211,39 +205,27 @@
           <span class="text-gradient" data-i18n="hero_title_2">终结域名封堵与云厂商锁定</span>
         </h1>
 
-        <p class="hero-desc" data-i18n="hero_desc">Hermes 深度融合 CoreDNS / BIND 9 双内核与 100% 云原生高可用架构。集成 301/302
-          边缘重定向、高性能短域名系统、代理域名隐匿网关、域名注册中心、HTTPDNS、商业 EV/OV + 免费 SSL 自动闭环、端侧 Rust SDK 防红自愈与 AI Agent (MCP/CLI/Skill/RAG)
-          自动化调度。</p>
+        <p class="hero-desc" data-i18n="hero_desc">Hermes 深度融合 CoreDNS / BIND 9 双内核与 100% 云原生高可用架构。集成 301/302 边缘重定向、高性能短域名系统、代理域名隐匿网关、域名注册中心、HTTPDNS、商业 EV/OV + 免费 SSL 自动闭环、端侧 Rust SDK 防红自愈与 AI Agent (MCP/CLI/Skill/RAG) 自动化调度。</p>
 
         <div class="hero-highlights">
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_coredns">CoreDNS / BIND 9 双内核权威与自研安全防御</span>
           </div>
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_matrix">301/302 · 短链 · 代理域名 · 注册中心</span>
           </div>
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_rust">你的产品即你的检测矩阵</span>
           </div>
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_ai">AI Agent (MCP / CLI / Skill / RAG)</span>
           </div>
           <div class="highlight-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
             <span data-i18n="badge_chatops">Telegram ChatOps 运维协同</span>
           </div>
         </div>
@@ -251,10 +233,7 @@
         <div class="hero-actions">
           <button class="btn btn-primary btn-lg btn-trigger-inquiry" data-plan="首屏商业购买意向">
             <span data-i18n="hero_btn_buy">商业购买 / 私有交付 (USDT)</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </button>
           <a href="#domain-matrix" class="btn btn-secondary btn-lg">
             <span data-i18n="nav_domain_matrix">域名与网关</span>
@@ -267,13 +246,11 @@
             <div class="metric-label" data-i18n="metric_latency">CoreDNS 权威极速解析响应</div>
           </div>
           <div class="metric-item">
-            <div class="metric-num"><span class="text-gradient">100%</span> <span data-i18n="metric_seamless">无感</span>
-            </div>
+            <div class="metric-num"><span class="text-gradient">100%</span> <span data-i18n="metric_seamless">无感</span></div>
             <div class="metric-label" data-i18n="metric_switch">多供应商毫秒级零丢包热倒换</div>
           </div>
           <div class="metric-item">
-            <div class="metric-num"><span class="text-gradient-gold">0</span> <span data-i18n="metric_limits">限制</span>
-            </div>
+            <div class="metric-num"><span class="text-gradient-gold">0</span> <span data-i18n="metric_limits">限制</span></div>
             <div class="metric-label" data-i18n="metric_zero">域名资产托管与免费 SSL 额度限制</div>
           </div>
         </div>
@@ -287,8 +264,7 @@
               <span></span><span></span><span></span>
             </div>
             <div class="window-title" data-i18n="console_win_title">Hermes 权威控制台 · Multi-Cloud Mesh</div>
-            <span class="status-pill"><span class="status-dot"></span> <span data-i18n="console_win_status">● 集群就绪 (
-                <1ms)< /span></span>
+            <span class="status-pill"><span class="status-dot"></span> <span data-i18n="console_win_status">● 集群就绪 (<1ms)</span></span>
           </div>
 
           <div class="window-body">
@@ -309,23 +285,19 @@
             <div class="console-metrics-row">
               <div class="console-metric-item">
                 <div class="metric-lbl" data-i18n="console_stat_qps">权威 QPS: 1.28M/s</div>
-                <div class="metric-val" style="color: #38bdf8;">1,280,450 <span
-                    style="font-size: 0.65rem; color: #34d399; font-weight: normal;">L1: 99.8%</span></div>
+                <div class="metric-val" style="color: #38bdf8;">1,280,450 <span style="font-size: 0.65rem; color: #34d399; font-weight: normal;">L1: 99.8%</span></div>
               </div>
               <div class="console-metric-item">
                 <div class="metric-lbl" data-i18n="console_stat_sync">多云联邦: 4/4 就绪</div>
-                <div class="metric-val" style="color: #818cf8;">4 / 4 <span
-                    style="font-size: 0.65rem; color: #34d399; font-weight: normal;">0-Delay</span></div>
+                <div class="metric-val" style="color: #818cf8;">4 / 4 <span style="font-size: 0.65rem; color: #34d399; font-weight: normal;">0-Delay</span></div>
               </div>
               <div class="console-metric-item">
                 <div class="metric-lbl" data-i18n="console_stat_defense">DNS 防御: 频控清洗</div>
-                <div class="metric-val" style="color: #34d399;">Active <span
-                    style="font-size: 0.65rem; color: #38bdf8; font-weight: normal;">0-Drop</span></div>
+                <div class="metric-val" style="color: #34d399;">Active <span style="font-size: 0.65rem; color: #38bdf8; font-weight: normal;">0-Drop</span></div>
               </div>
               <div class="console-metric-item">
                 <div class="metric-lbl" data-i18n="console_stat_ssl">SSL 证书: 自动续签</div>
-                <div class="metric-val" style="color: #fbbf24;">Valid <span
-                    style="font-size: 0.65rem; color: #a78bfa; font-weight: normal;">Auto-Renew</span></div>
+                <div class="metric-val" style="color: #fbbf24;">Valid <span style="font-size: 0.65rem; color: #a78bfa; font-weight: normal;">Auto-Renew</span></div>
               </div>
             </div>
 
@@ -345,22 +317,19 @@
                   <tr>
                     <td><strong style="color: #ffffff;">api</strong></td>
                     <td><span class="rec-type-badge rec-a">A</span></td>
-                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
-                        data-i18n="console_r1_line">电信/联通/移动 BGP · 104.21.72.18</span></td>
+                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;" data-i18n="console_r1_line">电信/联通/移动 BGP · 104.21.72.18</span></td>
                     <td>
                       <span class="sync-tag sync-cf">CF</span>
                       <span class="sync-tag sync-ali">Ali</span>
                       <span class="sync-tag sync-mesh">CoreDNS</span>
                     </td>
-                    <td><span class="rec-status-ok" data-i18n="console_r1_status">● 正常 (<0.5ms)< /span>
-                    </td>
+                    <td><span class="rec-status-ok" data-i18n="console_r1_status">● 正常 (<0.5ms)</span></td>
                   </tr>
 
                   <tr>
                     <td><strong style="color: #ffffff;">gateway</strong></td>
                     <td><span class="rec-type-badge rec-cname">CNAME</span></td>
-                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
-                        data-i18n="console_r2_line">海外与亚太加速 · edge.hermes.net</span></td>
+                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;" data-i18n="console_r2_line">海外与亚太加速 · edge.hermes.net</span></td>
                     <td>
                       <span class="sync-tag sync-aws">AWS</span>
                       <span class="sync-tag sync-mesh">BIND 9</span>
@@ -371,8 +340,7 @@
                   <tr>
                     <td><strong style="color: #ffffff;">auth.sec</strong></td>
                     <td><span class="rec-type-badge rec-a">A</span></td>
-                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
-                        data-i18n="console_r3_line">高防频控清洗池 · 119.29.29.29</span></td>
+                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;" data-i18n="console_r3_line">高防频控清洗池 · 119.29.29.29</span></td>
                     <td>
                       <span class="sync-tag sync-pod">DNSPod</span>
                       <span class="sync-tag sync-mesh">Shield</span>
@@ -383,8 +351,7 @@
                   <tr>
                     <td><strong style="color: #ffffff;">_k8s.tls</strong></td>
                     <td><span class="rec-type-badge rec-txt">TXT</span></td>
-                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;"
-                        data-i18n="console_r4_line">K8s Ingress Secret 自动联动</span></td>
+                    <td><span style="font-family: 'JetBrains Mono', monospace; color: #e2e8f0;" data-i18n="console_r4_line">K8s Ingress Secret 自动联动</span></td>
                     <td>
                       <span class="sync-tag sync-k8s">K8s</span>
                       <span class="sync-tag sync-mesh">ACME</span>
@@ -417,29 +384,14 @@
   <!-- ================= 3. GLOBAL PROVIDER SHOWCASE ================= -->
   <section class="section-alt" style="padding: 44px 0; border-bottom: 1px solid var(--border-subtle);">
     <div class="container" style="text-align: center;">
-      <div
-        style="font-size: 0.86rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;"
-        data-i18n="provider_title">原生深度适配全球主流云厂商与权威 DNS 平台</div>
-      <p style="font-size: 0.94rem; color: var(--text-secondary); max-width: 820px; margin: 0 auto 24px auto;"
-        data-i18n="provider_desc">无须重构解析逻辑，单套架构通调全球数十家权威 DNS 平台，毫秒级跨云同步与无缝容灾</p>
+      <div style="font-size: 0.86rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px;" data-i18n="provider_title">原生深度适配全球主流云厂商与权威 DNS 平台</div>
+      <p style="font-size: 0.94rem; color: var(--text-secondary); max-width: 820px; margin: 0 auto 24px auto;" data-i18n="provider_desc">无须重构解析逻辑，单套架构通调全球数十家权威 DNS 平台，毫秒级跨云同步与无缝容灾</p>
 
       <div class="provider-wall">
-        <span class="provider-chip"
-          style="border-color: #ef4444; background: rgba(239, 68, 68, 0.1); color: #f87171; font-weight: 700;"><span
-            class="chip-dot" style="background:#ef4444;"></span>Huawei Cloud (<span data-i18n="prov_huawei">华为云
-            DNS</span>)</span>
-        <span class="provider-chip"
-          style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); color: #60a5fa; font-weight: 700;"><span
-            class="chip-dot" style="background:#3b82f6;"></span>Volcengine (<span data-i18n="prov_volc">火山引擎
-            DNS</span>)</span>
-        <span class="provider-chip"
-          style="border-color: #38bdf8; background: rgba(56, 189, 248, 0.1); color: #38bdf8; font-weight: 700;"><span
-            class="chip-dot" style="background:#38bdf8;"></span>Aliyun DNS (<span
-            data-i18n="prov_aliyun">阿里云</span>)</span>
-        <span class="provider-chip"
-          style="border-color: #06b6d4; background: rgba(6, 182, 212, 0.1); color: #22d3ee; font-weight: 700;"><span
-            class="chip-dot" style="background:#06b6d4;"></span>DNSPod (<span data-i18n="prov_tencent">腾讯云
-            DNS</span>)</span>
+        <span class="provider-chip" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.1); color: #f87171; font-weight: 700;"><span class="chip-dot" style="background:#ef4444;"></span>Huawei Cloud (<span data-i18n="prov_huawei">华为云 DNS</span>)</span>
+        <span class="provider-chip" style="border-color: #3b82f6; background: rgba(59, 130, 246, 0.1); color: #60a5fa; font-weight: 700;"><span class="chip-dot" style="background:#3b82f6;"></span>Volcengine (<span data-i18n="prov_volc">火山引擎 DNS</span>)</span>
+        <span class="provider-chip" style="border-color: #38bdf8; background: rgba(56, 189, 248, 0.1); color: #38bdf8; font-weight: 700;"><span class="chip-dot" style="background:#38bdf8;"></span>Aliyun DNS (<span data-i18n="prov_aliyun">阿里云</span>)</span>
+        <span class="provider-chip" style="border-color: #06b6d4; background: rgba(6, 182, 212, 0.1); color: #22d3ee; font-weight: 700;"><span class="chip-dot" style="background:#06b6d4;"></span>DNSPod (<span data-i18n="prov_tencent">腾讯云 DNS</span>)</span>
         <span class="provider-chip"><span class="chip-dot"></span>Cloudflare</span>
         <span class="provider-chip"><span class="chip-dot"></span>AWS Route53</span>
         <span class="provider-chip"><span class="chip-dot"></span>Google Cloud DNS</span>
@@ -469,25 +421,20 @@
     </div>
   </section>
 
-  <!-- ================= 3.5 CLOUD-NATIVE INFRASTRUCTURE (独立云原生架构模块) ================= -->
-  <section class="section section-alt" id="cloud-native"
-    style="padding: 68px 0; border-bottom: 1px solid var(--border-subtle);">
+    <!-- ================= 3.5 CLOUD-NATIVE INFRASTRUCTURE (独立云原生架构模块) ================= -->
+  <section class="section section-alt" id="cloud-native" style="padding: 68px 0; border-bottom: 1px solid var(--border-subtle);">
     <div class="container">
       <div class="section-header">
         <div class="section-tag cyan" data-i18n="cloud_tag">Cloud-Native Infrastructure</div>
         <h2 class="section-title" data-i18n="cloud_title">独立云原生架构：Kubernetes 原生纳管与容器编排</h2>
-        <p class="section-desc" data-i18n="cloud_desc">打破传统单体 DNS 维护困境。Hermes 天生拥抱现代云原生技术栈，提供 Kubernetes 原生集成、Ingress
-          联动、Helm 生产级编排与微服务无状态弹性伸缩。</p>
+        <p class="section-desc" data-i18n="cloud_desc">打破传统单体 DNS 维护困境。Hermes 天生拥抱现代云原生技术栈，提供 Kubernetes 原生集成、Ingress 联动、Helm 生产级编排与微服务无状态弹性伸缩。</p>
       </div>
 
       <div class="grid grid-4">
         <div class="glass-card shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">K8s
-            Native</div>
+          <div class="ai-badge" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;">K8s Native</div>
           <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c1_t">Kubernetes (K8s) 原生集成</h3>
-          <p class="card-desc" data-i18n="cloud_c1_d">深度集成 K8s 集群与 Ingress 自动化联动，秒级感知 Pod 与服务生命周期变化，自动同步更新私有权威解析与 TLS
-            Secret。</p>
+          <p class="card-desc" data-i18n="cloud_c1_d">深度集成 K8s 集群与 Ingress 自动化联动，秒级感知 Pod 与服务生命周期变化，自动同步更新私有权威解析与 TLS Secret。</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_k8s_native">K8s 原生集成</span>
             <span class="tag-pill" data-i18n="tag_ingress_link">Ingress 联动</span>
@@ -496,12 +443,9 @@
         </div>
 
         <div class="glass-card shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
-            Orchestration</div>
+          <div class="ai-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">Orchestration</div>
           <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c2_t">Docker & Helm 生产级编排</h3>
-          <p class="card-desc" data-i18n="cloud_c2_d">官方提供生产级 Helm Charts 与标准化 Docker Compose
-            拓扑配置，单条指令即可完成全栈高可用集群的快速容器化拉起。</p>
+          <p class="card-desc" data-i18n="cloud_c2_d">官方提供生产级 Helm Charts 与标准化 Docker Compose 拓扑配置，单条指令即可完成全栈高可用集群的快速容器化拉起。</p>
           <div class="card-tags">
             <span class="tag-pill">Helm 3 Charts</span>
             <span class="tag-pill">Docker Compose</span>
@@ -510,12 +454,9 @@
         </div>
 
         <div class="glass-card shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">
-            Elastic Scale</div>
+          <div class="ai-badge" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">Elastic Scale</div>
           <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c3_t">微服务无状态水平弹性伸缩</h3>
-          <p class="card-desc" data-i18n="cloud_c3_d">计算与存储分离设计，权威解析节点纯无状态部署。支持基于 CPU / QPS 流量压力的 Kubernetes HPA
-            秒级横向弹性扩容。</p>
+          <p class="card-desc" data-i18n="cloud_c3_d">计算与存储分离设计，权威解析节点纯无状态部署。支持基于 CPU / QPS 流量压力的 Kubernetes HPA 秒级横向弹性扩容。</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_stateless_engine">无状态解析引擎</span>
             <span class="tag-pill" data-i18n="tag_k8s_hpa">K8s HPA 弹性</span>
@@ -524,12 +465,9 @@
         </div>
 
         <div class="glass-card cyan shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">
-            Service Mesh</div>
+          <div class="ai-badge" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">Service Mesh</div>
           <h3 style="font-size: 1.15rem; margin-bottom: 8px;" data-i18n="cloud_c4_t">网关与服务网格流量协同</h3>
-          <p class="card-desc" data-i18n="cloud_c4_d">无缝桥接 Envoy、Istio Service Mesh 及企业 API
-            网关，支持动态金丝雀切流、跨云原生多集群流量统一调度与全链路可观测性。</p>
+          <p class="card-desc" data-i18n="cloud_c4_d">无缝桥接 Envoy、Istio Service Mesh 及企业 API 网关，支持动态金丝雀切流、跨云原生多集群流量统一调度与全链路可观测性。</p>
           <div class="card-tags">
             <span class="tag-pill">Envoy / Istio</span>
             <span class="tag-pill" data-i18n="tag_canary_rollout">金丝雀灰度</span>
@@ -546,23 +484,16 @@
       <div class="section-header">
         <div class="section-tag cyan">Cloud-Native Architecture</div>
         <h2 class="section-title" data-i18n="auth_title">CoreDNS / BIND 9 双内核权威解析与自研安全防护</h2>
-        <p class="section-desc" data-i18n="auth_desc">高性能自研 CoreDNS 插件与 BIND 9 区域协议同步。支持数千万级 QPS 解析吞吐与
-          MySQL/PostgreSQL/SQLite 多数据库接入，内置完备 DNS 防御能力。</p>
+        <p class="section-desc" data-i18n="auth_desc">高性能自研 CoreDNS 插件与 BIND 9 区域协议同步。支持数千万级 QPS 解析吞吐与 MySQL/PostgreSQL/SQLite 多数据库接入，内置完备 DNS 防御能力。</p>
       </div>
 
       <div class="grid grid-3">
         <div class="glass-card">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-              <line x1="6" y1="6" x2="6.01" y2="6"></line>
-              <line x1="6" y1="18" x2="6.01" y2="18"></line>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
           </div>
           <h3 class="card-title" data-i18n="auth_c1_t">CoreDNS / BIND 9 双内核权威</h3>
-          <p class="card-desc" data-i18n="auth_c1_d">自研 CoreDNS 插件与 BIND 9 区域协议同步。支持数千万级 QPS 解析吞吐，支持 MySQL、PostgreSQL 与
-            SQLite 分布式存储。</p>
+          <p class="card-desc" data-i18n="auth_c1_d">自研 CoreDNS 插件与 BIND 9 区域协议同步。支持数千万级 QPS 解析吞吐，支持 MySQL、PostgreSQL 与 SQLite 分布式存储。</p>
           <div class="card-tags">
             <span class="tag-pill">CoreDNS Plugin</span>
             <span class="tag-pill">BIND 9 Zone Sync</span>
@@ -572,13 +503,10 @@
 
         <div class="glass-card cyan">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="auth_c2_t">自研 DNS 安全防御与频控限流</h3>
-          <p class="card-desc" data-i18n="auth_c2_d">软件层内置完备 DNS 安全防御：QPS 频控防刷、DNS 反射放大攻击过滤、递归洪泛阻断、黑白名单鉴权、防劫持与 GeoIP
-            精准解析，保障权威高可用。</p>
+          <p class="card-desc" data-i18n="auth_c2_d">软件层内置完备 DNS 安全防御：QPS 频控防刷、DNS 反射放大攻击过滤、递归洪泛阻断、黑白名单鉴权、防劫持与 GeoIP 精准解析，保障权威高可用。</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_qps_rate_limit">QPS 频控限流</span>
             <span class="tag-pill" data-i18n="tag_dns_amplification">DNS 放大攻击过滤</span>
@@ -589,19 +517,15 @@
 
         <div class="glass-card">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           </div>
           <h3 class="card-title" data-i18n="auth_c3_t">云原生高可用与跨区多活</h3>
-          <p class="card-desc" data-i18n="auth_c3_d">无状态微服务与容器化弹性伸缩设计，L1 内存热存 <0.5ms 响应。Multi-Master 跨区域多活同步与 Anycast
-              全球组网，99.999% SLA。</p>
-              <div class="card-tags">
-                <span class="tag-pill" data-i18n="tag_k8s_docker">K8s / Docker 编排</span>
-                <span class="tag-pill" data-i18n="tag_sub_half_ms">
-                  < 0.5ms 响应</span>
-                    <span class="tag-pill" data-i18n="tag_multi_master">Multi-Master 多活</span>
-              </div>
+          <p class="card-desc" data-i18n="auth_c3_d">无状态微服务与容器化弹性伸缩设计，L1 内存热存 <0.5ms 响应。Multi-Master 跨区域多活同步与 Anycast 全球组网，99.999% SLA。</p>
+          <div class="card-tags">
+            <span class="tag-pill" data-i18n="tag_k8s_docker">K8s / Docker 编排</span>
+            <span class="tag-pill" data-i18n="tag_sub_half_ms">< 0.5ms 响应</span>
+            <span class="tag-pill" data-i18n="tag_multi_master">Multi-Master 多活</span>
+          </div>
         </div>
       </div>
     </div>
@@ -611,24 +535,17 @@
   <section class="section" id="ai-ecosystem">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag"
-          style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">AI &amp;
-          ChatOps Ecosystem</div>
+        <div class="section-tag" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c084fc;">AI &amp; ChatOps Ecosystem</div>
         <h2 class="section-title" data-i18n="ai_title">全面拥抱 AI 与 ChatOps：Telegram Bot、MS Teams、Slack 与多通道协同</h2>
-        <p class="section-desc" data-i18n="ai_desc">专为现代智能运维打造。不仅支持 Telegram Bot、Microsoft Teams、Slack
-          等多通道交互式指令运维与移动端审批流，更支持标准 MCP 协议，让 Cursor、Claude Desktop 等大模型直连系统进行自治排障与秒级切流。</p>
+        <p class="section-desc" data-i18n="ai_desc">专为现代智能运维打造。不仅支持 Telegram Bot、Microsoft Teams、Slack 等多通道交互式指令运维与移动端审批流，更支持标准 MCP 协议，让 Cursor、Claude Desktop 等大模型直连系统进行自治排障与秒级切流。</p>
       </div>
 
       <div class="grid grid-3">
         <!-- Card 0: ChatOps Bot (Prominent) -->
         <div class="glass-card shine-effect chatops-highlight-card">
-          <div class="ai-badge"
-            style="background: rgba(56, 189, 248, 0.2); border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">ChatOps
-            Bot</div>
-          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c0_t">ChatOps 智能机器人 (Telegram / Teams /
-            Slack)</h3>
-          <p class="card-desc" data-i18n="ai_c0_d">支持接入 Telegram、Microsoft Teams、Slack 与企业群聊。支持交互式 /status 巡检、/switch
-            应急多云切流与 /ssl 续期；内置双人复核审批流，移动端一键确认关键操作。</p>
+          <div class="ai-badge" style="background: rgba(56, 189, 248, 0.2); border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">ChatOps Bot</div>
+          <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c0_t">ChatOps 智能机器人 (Telegram / Teams / Slack)</h3>
+          <p class="card-desc" data-i18n="ai_c0_d">支持接入 Telegram、Microsoft Teams、Slack 与企业群聊。支持交互式 /status 巡检、/switch 应急多云切流与 /ssl 续期；内置双人复核审批流，移动端一键确认关键操作。</p>
           <div class="card-tags">
             <span class="tag-pill">Telegram Bot</span>
             <span class="tag-pill">Microsoft Teams</span>
@@ -639,8 +556,7 @@
         <div class="glass-card shine-effect">
           <div class="ai-badge">Protocol</div>
           <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c1_t">MCP Server 协议</h3>
-          <p class="card-desc" data-i18n="ai_c1_d">遵循标准 Model Context Protocol (MCP)。AI 助手（Cursor / Claude /
-            Windsurf）可通过统一协议直接调用 DNS 查询、变更与切流。</p>
+          <p class="card-desc" data-i18n="ai_c1_d">遵循标准 Model Context Protocol (MCP)。AI 助手（Cursor / Claude / Windsurf）可通过统一协议直接调用 DNS 查询、变更与切流。</p>
           <div class="card-tags">
             <span class="tag-pill">Model Context Protocol</span>
             <span class="tag-pill" data-i18n="tag_llm_direct">大模型直连</span>
@@ -648,12 +564,9 @@
         </div>
 
         <div class="glass-card cyan shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.35); color: #38bdf8;">DevOps
-            CLI</div>
+          <div class="ai-badge" style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.35); color: #38bdf8;">DevOps CLI</div>
           <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c2_t">Hermes CLI 工具链</h3>
-          <p class="card-desc" data-i18n="ai_c2_d">跨平台现代化命令行套件，支持 Linux/macOS/Windows。提供 JSON 管道输出、短链生成、重定向规则注入与 CI/CD
-            自动化集成。</p>
+          <p class="card-desc" data-i18n="ai_c2_d">跨平台现代化命令行套件，支持 Linux/macOS/Windows。提供 JSON 管道输出、短链生成、重定向规则注入与 CI/CD 自动化集成。</p>
           <div class="card-tags">
             <span class="tag-pill">hermes-cli</span>
             <span class="tag-pill" data-i18n="tag_cicd_orchestration">CI/CD 编排</span>
@@ -671,9 +584,7 @@
         </div>
 
         <div class="glass-card cyan shine-effect">
-          <div class="ai-badge"
-            style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">
-            Knowledge Base</div>
+          <div class="ai-badge" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;">Knowledge Base</div>
           <h3 style="font-size: 1.18rem; margin-bottom: 8px;" data-i18n="ai_c4_t">智能运维 RAG 引擎</h3>
           <p class="card-desc" data-i18n="ai_c4_d">内置域名故障排查检索增强生成 (RAG) 知识库。汇聚十年网络攻防、浏览器红框拦截与运营商封锁规避经验，秒级输出排障建议。</p>
           <div class="card-tags">
@@ -698,16 +609,10 @@
         <!-- 1. 301/302 Redirection -->
         <div class="glass-card shine-effect">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="17 1 21 5 17 9"></polyline>
-              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
-              <polyline points="7 23 3 19 7 15"></polyline>
-              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c1_t">301 / 302 智能边缘重定向</h3>
-          <p class="card-desc" data-i18n="matrix_c1_d">毫秒级 301 永久跳转与 302 临时重定向引擎，支持保留全量 URL 查询参数、HTTPS 自动规约与泛域名批量重定向。
-          </p>
+          <p class="card-desc" data-i18n="matrix_c1_d">毫秒级 301 永久跳转与 302 临时重定向引擎，支持保留全量 URL 查询参数、HTTPS 自动规约与泛域名批量重定向。</p>
           <div class="card-tags">
             <span class="tag-pill" data-i18n="tag_301_perm">301 永久跳转</span>
             <span class="tag-pill" data-i18n="tag_302_temp">302 动态临时</span>
@@ -718,10 +623,7 @@
         <!-- 2. Short Domain Engine -->
         <div class="glass-card cyan shine-effect">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c2_t">高性能私有短域名系统</h3>
           <p class="card-desc" data-i18n="matrix_c2_d">企业自建防封短链集群，支持百万级高并发解析跳转、防红中转、点击行为大数据追踪与到期自毁策略。</p>
@@ -735,10 +637,7 @@
         <!-- 3. Proxy Domain & Cloaking Gateway -->
         <div class="glass-card shine-effect">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c3_t">代理域名与源站隐匿网关</h3>
           <p class="card-desc" data-i18n="matrix_c3_d">一键批量挂载代理域名，全自动处理反向代理绑盘与流量伪装，彻底隔绝暴露源站真实 IP，抗攻击能力倍增。</p>
@@ -752,12 +651,7 @@
         <!-- 4. Domain Registrar Gateway -->
         <div class="glass-card shine-effect">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-              </path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c4_t">域名注册中心 (Registrar Gateway)</h3>
           <p class="card-desc" data-i18n="matrix_c4_d">原生打通顶级注册局通道，支持海量域名批量注册、到期续费、自动抢注监控、WHOIS 隐私防护与全生命周期看板。</p>
@@ -771,9 +665,7 @@
         <!-- 5. HTTPDNS & DoH/DoT Tunnel -->
         <div class="glass-card cyan shine-effect" style="grid-column: span 2;">
           <div class="card-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
           <h3 class="card-title" data-i18n="matrix_c5_t">HTTPDNS & DoH / DoT 零劫持</h3>
           <p class="card-desc" data-i18n="matrix_c5_d">移动端与客户端专属通道，通过 HTTPS 加密传输直连权威服务器，彻底杜绝 LocalDNS 劫持、缓存污染与跨网延迟。</p>
@@ -794,8 +686,7 @@
       <div class="section-header">
         <div class="section-tag emerald" data-i18n="rust_tag">Crowdsourced Telemetry Shield</div>
         <h2 class="section-title" data-i18n="rust_title">Rust SDK：你的产品即你的检测矩阵</h2>
-        <p class="section-desc" data-i18n="rust_desc">告别高昂的外部探针服务器！轻量嵌入的高性能 Rust
-          SDK，让每一个正在使用你产品的真实客户端终端，都成为部署在全球各地的实时探测雷达节点。</p>
+        <p class="section-desc" data-i18n="rust_desc">告别高昂的外部探针服务器！轻量嵌入的高性能 Rust SDK，让每一个正在使用你产品的真实客户端终端，都成为部署在全球各地的实时探测雷达节点。</p>
       </div>
 
       <div class="grid grid-2" style="align-items: center;">
@@ -809,25 +700,19 @@
             <div class="radar-sweep"></div>
           </div>
 
-          <div
-            style="margin-top: 14px; font-size: 0.84rem; color: var(--text-muted); display: flex; justify-content: space-between;"
-            id="probe-quick-info">
+          <div style="margin-top: 14px; font-size: 0.84rem; color: var(--text-muted); display: flex; justify-content: space-between;" id="probe-quick-info">
             <span data-i18n="rust_click_hint">点击探针节点查看状态，感知全球真实终端众包上报。</span>
           </div>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 18px;">
           <div id="probe-status-banner">
-            <div
-              style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; border-radius: 8px; padding: 12px 16px; color: #a7f3d0; font-size: 0.92rem;"
-              data-i18n="rust_banner_normal">✓ [真实用户探测矩阵正常] 华东、华南、华北、海外百万终端上报状态正常，未发现被墙或浏览器红框拦截。</div>
+            <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid #10b981; border-radius: 8px; padding: 12px 16px; color: #a7f3d0; font-size: 0.92rem;" data-i18n="rust_banner_normal">✓ [真实用户探测矩阵正常] 华东、华南、华北、海外百万终端上报状态正常，未发现被墙或浏览器红框拦截。</div>
           </div>
 
           <div class="glass-card" style="padding: 22px;">
-            <h4 style="font-size: 1.08rem; margin-bottom: 12px; color: var(--text-white);" data-i18n="rust_box_title">
-              “产品即矩阵”核心技术优势</h4>
-            <ul
-              style="display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: var(--text-secondary);">
+            <h4 style="font-size: 1.08rem; margin-bottom: 12px; color: var(--text-white);" data-i18n="rust_box_title">“产品即矩阵”核心技术优势</h4>
+            <ul style="display: flex; flex-direction: column; gap: 10px; font-size: 0.92rem; color: var(--text-secondary);">
               <li style="display: flex; gap: 8px;">
                 <span style="color: #38bdf8;">01.</span>
                 <span data-i18n="rust_mech1">零探针成本，100% 真实网络：直接利用终端活跃流量进行分布式被动探测，覆盖全国每一个地市县级真实宽带网络。</span>
@@ -838,8 +723,7 @@
               </li>
               <li style="display: flex; gap: 8px;">
                 <span style="color: #38bdf8;">03.</span>
-                <span data-i18n="rust_mech3">毫秒级端侧无感自愈逃生：遭遇污染或封锁时，Rust SDK 静默激活备用加密 HTTPDNS / 302 备用域名池，业务全程 0
-                  报错。</span>
+                <span data-i18n="rust_mech3">毫秒级端侧无感自愈逃生：遭遇污染或封锁时，Rust SDK 静默激活备用加密 HTTPDNS / 302 备用域名池，业务全程 0 报错。</span>
               </li>
             </ul>
           </div>
@@ -848,19 +732,15 @@
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
             <div class="telemetry-stat-card">
               <div style="font-size: 1.25rem; font-weight: 800; color: #38bdf8;">1,200,000+</div>
-              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
-                data-i18n="rust_metric_active_nodes">活跃终端雷达节点</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;" data-i18n="rust_metric_active_nodes">活跃终端雷达节点</div>
             </div>
             <div class="telemetry-stat-card">
               <div style="font-size: 1.25rem; font-weight: 800; color: #34d399;">&lt; 400ms</div>
-              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
-                data-i18n="rust_metric_detection_time">红框阻断聚合感知</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;" data-i18n="rust_metric_detection_time">红框阻断聚合感知</div>
             </div>
             <div class="telemetry-stat-card">
-              <div style="font-size: 1.25rem; font-weight: 800; color: #c084fc;" data-i18n="rust_metric_probe_cost_val">
-                0 USDT</div>
-              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;"
-                data-i18n="rust_metric_probe_cost">专用探针集群成本</div>
+              <div style="font-size: 1.25rem; font-weight: 800; color: #c084fc;" data-i18n="rust_metric_probe_cost_val">0 USDT</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;" data-i18n="rust_metric_probe_cost">专用探针集群成本</div>
             </div>
           </div>
         </div>
@@ -874,37 +754,32 @@
       <div class="section-header">
         <div class="section-tag">Zero-Touch SSL Matrix</div>
         <h2 class="section-title" data-i18n="ssl_title">商业级 EV/OV/DV + 免费泛域名 SSL 全生命周期闭环</h2>
-        <p class="section-desc" data-i18n="ssl_desc">打破单一来源限制。全面支持商业级大厂证书与免费泛域名 ACME 证书的一键签发、公网 IP 证书质询、自动到期续费与全拓扑分发。
-        </p>
+        <p class="section-desc" data-i18n="ssl_desc">打破单一来源限制。全面支持商业级大厂证书与免费泛域名 ACME 证书的一键签发、公网 IP 证书质询、自动到期续费与全拓扑分发。</p>
       </div>
 
       <div class="ssl-flow-container">
         <div class="ssl-step-card">
           <div class="ssl-step-num">STEP 01</div>
           <h4 style="margin-bottom: 8px;" data-i18n="ssl_s1_t">商业 CA 与 ACME 签发</h4>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s1_d">支持 Let's
-            Encrypt / ZeroSSL / GTS 免费泛域名自动签发，并支持 DigiCert / Sectigo / GlobalSign 商业证书无感解析质询与导入。</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s1_d">支持 Let's Encrypt / ZeroSSL / GTS 免费泛域名自动签发，并支持 DigiCert / Sectigo / GlobalSign 商业证书无感解析质询与导入。</p>
         </div>
 
         <div class="ssl-step-card">
           <div class="ssl-step-num">STEP 02</div>
           <h4 style="margin-bottom: 8px;" data-i18n="ssl_s2_t">公网 IP 证书与泛域名</h4>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s2_d">不仅支持
-            *.example.com 泛域名，更独家支持直接为服务器公网 IP 自动化签发合规 SSL，无域名限制，无证书张数限制。</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s2_d">不仅支持 *.example.com 泛域名，更独家支持直接为服务器公网 IP 自动化签发合规 SSL，无域名限制，无证书张数限制。</p>
         </div>
 
         <div class="ssl-step-card">
           <div class="ssl-step-num">STEP 03</div>
           <h4 style="margin-bottom: 8px;" data-i18n="ssl_s3_t">定时巡检与到期续费</h4>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s3_d">后台 Task
-            Engine 每天全自动巡检证书链与有效期，到期前 30 天自动触发静默续期，彻底杜绝企业级证书过期瘫痪事故。</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s3_d">后台 Task Engine 每天全自动巡检证书链与有效期，到期前 30 天自动触发静默续期，彻底杜绝企业级证书过期瘫痪事故。</p>
         </div>
 
         <div class="ssl-step-card">
           <div class="ssl-step-num">STEP 04</div>
           <h4 style="margin-bottom: 8px;" data-i18n="ssl_s4_t">多节点推送与热重载</h4>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s4_d">SSL Agent
-            自动更新 Nginx / HAProxy 并安全 Reload；K8s Controller 自动同步 Ingress Secret；云 API 自动推送至各大云厂商 CDN/ALB。</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;" data-i18n="ssl_s4_d">SSL Agent 自动更新 Nginx / HAProxy 并安全 Reload；K8s Controller 自动同步 Ingress Secret；云 API 自动推送至各大云厂商 CDN/ALB。</p>
         </div>
       </div>
     </div>
@@ -914,9 +789,7 @@
   <section class="section section-alt" id="comparison">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag"
-          style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.35); color: #818cf8;"
-          data-i18n="comp_tag">Competitive Matrix</div>
+        <div class="section-tag" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.35); color: #818cf8;" data-i18n="comp_tag">Competitive Matrix</div>
         <h2 class="section-title" data-i18n="comp_title">竞品全景横向对比：为什么选择 Hermes？</h2>
         <p class="section-desc" data-i18n="comp_desc">告别功能单一的开源监控脚本与架构臃肿的传统公有云。Hermes 专为高抗阻、大规模企业级域名与全栈流量调度而生。</p>
       </div>
@@ -943,9 +816,7 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span data-i18n="comp_r1_hermes">自研 CoreDNS (Go) + BIND 9 双内核，<0.5ms 内存缓存，私有化千万级 QPS</span>
                 </div>
               </td>
@@ -960,9 +831,7 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span data-i18n="comp_r2_hermes">原生内置 QPS 频控防刷、反射放大攻击清洗、递归洪泛拦截与 IP 黑白名单</span>
                 </div>
               </td>
@@ -977,16 +846,13 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span data-i18n="comp_r3_hermes">集成亚毫秒 301/302 重定向、防封短域名、代理隐匿源站网关与注册局通道</span>
                 </div>
               </td>
               <td><span class="comp-text-val" data-i18n="comp_r3_da">❌ 无流量治理与跳转网关</span></td>
               <td><span class="comp-text-val" data-i18n="comp_r3_ch">❌ 仅支持基础 DNS 记录增删改查</span></td>
-              <td><span class="comp-text-val" data-i18n="comp_r3_cloud">⚠️ 需搭配额外 CDN / WAF / Serverless
-                  Worker，配置极其分散</span></td>
+              <td><span class="comp-text-val" data-i18n="comp_r3_cloud">⚠️ 需搭配额外 CDN / WAF / Serverless Worker，配置极其分散</span></td>
             </tr>
 
             <tr>
@@ -995,9 +861,7 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span data-i18n="comp_r4_hermes">独家嵌入式 Rust SDK，“你的产品即检测矩阵”，毫秒级红框感知与端侧无感切流</span>
                 </div>
               </td>
@@ -1012,9 +876,7 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span data-i18n="comp_r5_hermes">标准 MCP 协议直连大模型 + Telegram / MS Teams / Slack 移动端双人审批流</span>
                 </div>
               </td>
@@ -1029,9 +891,7 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   <span data-i18n="comp_r6_hermes">深度协同 K8s Ingress、TLS Secret 自动同步、Helm 编排与 HPA 水平弹性扩容</span>
                 </div>
               </td>
@@ -1046,11 +906,8 @@
               </td>
               <td class="highlight-cell">
                 <div class="feat-status feat-status-win">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span data-i18n="comp_r7_hermes">10,000 U 买断全套核心源码，或商业程序当前版本 699 U / 含维护套餐 1,999 U（含1年维护与更新），资产 100%
-                    自主掌控</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span data-i18n="comp_r7_hermes">10,000 U 买断全套核心源码，或商业程序当前版本 699 U / 含维护套餐 1,999 U（含1年维护与更新），资产 100% 自主掌控</span>
                 </div>
               </td>
               <td><span class="comp-text-val" data-i18n="comp_r7_da">个人开源项目，缺乏企业级交付保障与工业级 SLA</span></td>
@@ -1067,23 +924,20 @@
   <section class="section" id="pricing">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag"
-          style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;"
-          data-i18n="pricing_tag">主流虚拟币原生结算 · 支持 USDT / USDC</div>
+        <div class="section-tag" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #34d399;" data-i18n="pricing_tag">主流虚拟币原生结算 · 支持 USDT / USDC</div>
         <h2 class="section-title" data-i18n="pricing_title">商业化购买方案：源码买断与私有交付</h2>
         <p class="section-desc" data-i18n="pricing_desc">告别公有云按域名、按解析量持续扣费。支持全套源码买断与资深技术专家 1v1 远程专属交钥匙交付。</p>
 
         <!-- Prominent Payment Policy Banner (USDT/USDC, NO TRON) -->
-        <div class="payment-notice-box" data-i18n="pricing_payment_warning">⚡ 结算政策：支持主流虚拟币 (USDT / USDC) 支付，不支持 TRON 网络。
-        </div>
+        <div class="payment-notice-box" data-i18n="pricing_payment_warning">⚡ 结算政策：支持主流虚拟币 (USDT / USDC) 支付，不支持 TRON 网络。</div>
       </div>
 
       <div class="pricing-grid">
-
+        
         <!-- Tier 1: Source License (Regular 29,999 USDT -> Promo 10,000 USDT) -->
         <div class="pricing-card shine-effect">
           <div class="card-badge-strip" data-i18n="plan_source_badge">限时优惠 · 直降 19,999 U</div>
-
+          
           <div class="pricing-header">
             <h3 class="plan-name" data-i18n="plan_source_name">全套源码商业买断</h3>
             <p class="plan-desc" data-i18n="plan_source_desc">适合具备自研技术团队、追求 100% 自主可控并进行白标商业化二次开发的企业。</p>
@@ -1100,39 +954,27 @@
 
           <div class="plan-features-list">
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_source_f1">全套 Go 后端核心源码（含云原生容器化支持、301/302 重定向、短链、代理网关、注册中心、CoreDNS 插件）</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_source_f2">Vue3 企业级管理控制台全量源码（TypeScript & 细粒度权限控制）</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_source_f3">高性能 Rust 嵌入式 SDK 源码（“你的产品即检测矩阵”众包探测体系）</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_source_f4">Telegram Mini App (TMA) 源码与 AI MCP Server 协议套件</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_source_f5">无域名托管数量限制，无解析并发上限，永久享有自主运营权</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_source_f6">允许品牌白标（White-label）与私有商业化售卖</span>
             </div>
           </div>
@@ -1145,11 +987,10 @@
         <!-- Tier 2: Private Cloud Turnkey & Program License Suite -->
         <div class="pricing-card featured shine-effect">
           <div class="card-badge-strip" data-i18n="plan_deploy_badge">商业授权套装 · 无源码交付</div>
-
+          
           <div class="pricing-header">
             <h3 class="plan-name" data-i18n="plan_deploy_name">私有云交付部署 · 商业程序授权</h3>
-            <p class="plan-desc" data-i18n="plan_deploy_desc">适合无源码二次开发需求的企业。提供当前版本商业程序授权（699 U，不含维保与更新），或选购 1,999 U
-              商业特惠套餐（包含 1 年技术维护费用及版本更新，无源码）。</p>
+            <p class="plan-desc" data-i18n="plan_deploy_desc">适合无源码二次开发需求的企业。提供当前版本商业程序授权（699 U，不含维保与更新），或选购 1,999 U 商业特惠套餐（包含 1 年技术维护费用及版本更新，无源码）。</p>
             <div class="plan-price-box">
               <div class="price-original" data-i18n="plan_deploy_orig">单购总价 1,699 USDT</div>
               <div class="price-row-main">
@@ -1163,46 +1004,31 @@
 
           <div class="plan-features-list">
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span data-i18n="plan_deploy_f1">商业程序授权：当前版本 699 U（仅限当前版本，无维护与更新）或 商业特惠 1,999 U（包含 1
-                年维护费用及功能/安全更新，无源码）</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span data-i18n="plan_deploy_f1">商业程序授权：当前版本 699 U（仅限当前版本，无维护与更新）或 商业特惠 1,999 U（包含 1 年维护费用及功能/安全更新，无源码）</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_deploy_f2">规划 Edge 反代与权威节点（程序支持无限节点拓扑扩展，不加收额外节点费）</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_deploy_f3">交付部署服务：基础单机交付 99 U / 高可用集群部署 150 U</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_deploy_f4">全自动 SSL 证书流水线部署（商业 CA + 免费泛域名/公网 IP 证书自动签发与 Nginx/K8s/Edge 自动续期热推）</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_deploy_f5">存量域名资产零停机平滑迁移（Cloudflare / 阿里云 / DNSPod 等）与 301/302 / 短链代理调优</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_deploy_f6">AI MCP Server 与 Telegram Bot / MS Teams / Slack 审批流完整跑通</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_deploy_f7">包含交付后 30 天技术专家全程在线运行护航（后续专家维保特惠 150 U/月，故障处理与平滑更新）</span>
             </div>
           </div>
@@ -1214,13 +1040,10 @@
 
         <!-- Tier 3: Enterprise SLA (Promo 1,199 USDT/yr) -->
         <div class="pricing-card shine-effect">
-          <div class="card-badge-strip"
-            style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);"
-            data-i18n="plan_support_badge">限时优惠</div>
+          <div class="card-badge-strip" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);" data-i18n="plan_support_badge">限时优惠</div>
           <div class="pricing-header">
             <h3 class="plan-name" data-i18n="plan_support_name">企业 7x12 专家维保支持</h3>
-            <p class="plan-desc" data-i18n="plan_support_desc">针对生产环境提供技术专家 7×12 小时在线支持 (UTC+2 时区)、版本迭代、DNS
-              防护规则库更新与故障排障指导。</p>
+            <p class="plan-desc" data-i18n="plan_support_desc">针对生产环境提供技术专家 7×12 小时在线支持 (UTC+2 时区)、版本迭代、DNS 防护规则库更新与故障排障指导。</p>
             <div class="plan-price-box">
               <div class="price-original" data-i18n="plan_support_orig">原价 2,000 USDT</div>
               <div class="price-row-main">
@@ -1234,33 +1057,23 @@
 
           <div class="plan-features-list">
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_support_f1">7×12 小时技术专家在线支持 (UTC+2 时区) 与版本持续升级护航</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_support_f2">重大网络封锁 / 遭遇被墙 10 分钟应急逃生切流支援</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_support_f3">享受长期版本升级 (LTS) 支持与高危安全漏洞热补丁修补</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_support_f4">新增全球云厂商 DNS 适配驱动与 AI Agent 技能库持续升级</span>
             </div>
             <div class="feature-point">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span data-i18n="plan_support_f5">技术专家 1v1 远程指导与故障秒级协助排障</span>
             </div>
           </div>
@@ -1277,16 +1090,14 @@
         <div class="calc-grid">
           <div>
             <h3 style="font-size: 1.35rem; margin-bottom: 8px;" data-i18n="calc_title">动态方案选型与投资测算 (USDT / USDC)</h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 22px;" data-i18n="calc_desc">
-              根据企业实际域名托管量与节点多活规模，实时计算组合投资预算：</p>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 22px;" data-i18n="calc_desc">根据企业实际域名托管量与节点多活规模，实时计算组合投资预算：</p>
 
             <div class="calc-slider-group">
               <div class="slider-label-row">
                 <span data-i18n="calc_domain_label">管理域名资产规模：</span>
                 <span id="calc-domain-value" style="color: var(--accent-cyan); font-family: monospace;">200</span>
               </div>
-              <input type="range" min="20" max="5000" step="20" value="200" class="slider-input"
-                id="calc-domain-slider">
+              <input type="range" min="20" max="5000" step="20" value="200" class="slider-input" id="calc-domain-slider">
             </div>
 
             <div class="calc-slider-group">
@@ -1304,8 +1115,7 @@
               </label>
               <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
                 <input type="checkbox" id="calc-include-deploy" checked>
-                <span data-i18n="calc_check_deploy">商业程序授权：当前版本 699 U (或含维护套餐 1,999 U) + 基础部署 99 U (或集群 150 U，含 SSL
-                  证书流水线部署)</span>
+                <span data-i18n="calc_check_deploy">商业程序授权：当前版本 699 U (或含维护套餐 1,999 U) + 基础部署 99 U (或集群 150 U，含 SSL 证书流水线部署)</span>
               </label>
               <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; cursor: pointer;">
                 <input type="checkbox" id="calc-include-support">
@@ -1315,15 +1125,12 @@
           </div>
 
           <div class="calc-budget-box">
-            <div style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 6px;"
-              data-i18n="calc_budget_label">预计整体投资预算 (USDT / USDC)</div>
+            <div style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 6px;" data-i18n="calc_budget_label">预计整体投资预算 (USDT / USDC)</div>
             <div style="display: flex; align-items: baseline; justify-content: center; gap: 6px; margin-bottom: 14px;">
               <span style="font-size: 1.3rem; font-weight: 700;">USDT</span>
-              <span style="font-size: 3rem; font-weight: 800; color: var(--text-white); line-height: 1;"
-                id="calc-total-price">10,999</span>
+              <span style="font-size: 3rem; font-weight: 800; color: var(--text-white); line-height: 1;" id="calc-total-price">10,999</span>
             </div>
-            <div style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;"
-              id="calc-plan-summary"></div>
+            <div style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;" id="calc-plan-summary"></div>
             <button class="btn btn-primary btn-lg" id="btn-apply-calculator" style="width: 100%;">
               <span data-i18n="calc_submit_btn">以此配置提交商业采购咨询</span>
             </button>
@@ -1348,9 +1155,7 @@
             <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q1">1. 支持哪些支付结算方式？</h4>
             <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
           </div>
-          <div class="faq-answer"
-            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
-            data-i18n="faq_a1">我们支持主流虚拟币（USDT / USDC）在线快捷结算，不支持 TRON 网络。</div>
+          <div class="faq-answer" style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;" data-i18n="faq_a1">我们支持主流虚拟币（USDT / USDC）在线快捷结算，不支持 TRON 网络。</div>
         </div>
 
         <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
@@ -1358,10 +1163,7 @@
             <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q2">2. 为什么能兼容全球数十家主流 DNS 提供商？</h4>
             <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
           </div>
-          <div class="faq-answer"
-            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
-            data-i18n="faq_a2">Hermes 底层封装了工业级统一适配驱动层，将各云厂商纷繁复杂的 API 彻底抽象为一致的数据结构。用户只需一次定义解析策略，系统便可自动向 Cloudflare、AWS
-            Route53、阿里云、腾讯云等平台分发下发，天然消除供应商单点故障。</div>
+          <div class="faq-answer" style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;" data-i18n="faq_a2">Hermes 底层封装了工业级统一适配驱动层，将各云厂商纷繁复杂的 API 彻底抽象为一致的数据结构。用户只需一次定义解析策略，系统便可自动向 Cloudflare、AWS Route53、阿里云、腾讯云等平台分发下发，天然消除供应商单点故障。</div>
         </div>
 
         <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
@@ -1369,10 +1171,7 @@
             <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q3">3. 什么是“你的产品即你的检测矩阵”？</h4>
             <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
           </div>
-          <div class="faq-answer"
-            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
-            data-i18n="faq_a3">传统运维依赖企业花大价钱购买机房探针，但机房 IP 无法反映真实家庭宽带和移动端体验。Hermes Rust SDK
-            嵌入在您的真实客户端（APP/PC/网页）中，每一台终端在正常使用时自驱参与低开销去中心化健康采样，一旦有运营商开始劫持或浏览器弹红框，矩阵毫秒级感知，真正做到 100% 贴近真实用户的无感逃生。</div>
+          <div class="faq-answer" style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;" data-i18n="faq_a3">传统运维依赖企业花大价钱购买机房探针，但机房 IP 无法反映真实家庭宽带和移动端体验。Hermes Rust SDK 嵌入在您的真实客户端（APP/PC/网页）中，每一台终端在正常使用时自驱参与低开销去中心化健康采样，一旦有运营商开始劫持或浏览器弹红框，矩阵毫秒级感知，真正做到 100% 贴近真实用户的无感逃生。</div>
         </div>
 
         <div class="glass-card faq-item" style="padding: 24px; cursor: pointer;">
@@ -1380,10 +1179,7 @@
             <h4 style="font-size: 1.05rem; color: var(--text-white);" data-i18n="faq_q4">4. 购买源码后是否可以在内部无限次部署使用？</h4>
             <span style="color: var(--primary-light); font-size: 1.4rem;">+</span>
           </div>
-          <div class="faq-answer"
-            style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;"
-            data-i18n="faq_a4">是的。购买 10,000 USDT（原价 29,999 USDT）商业源码授权后，您将获得包含后端、前端、CoreDNS 插件、Agent 及 Rust SDK
-            全套源代码，享有终身自主使用权，无域名数量与并发限制，支持白标定制。</div>
+          <div class="faq-answer" style="margin-top: 14px; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;" data-i18n="faq_a4">是的。购买 10,000 USDT（原价 29,999 USDT）商业源码授权后，您将获得包含后端、前端、CoreDNS 插件、Agent 及 Rust SDK 全套源代码，享有终身自主使用权，无域名数量与并发限制，支持白标定制。</div>
         </div>
       </div>
     </div>
@@ -1398,8 +1194,7 @@
             <img src="../assets/images/logo.png" alt="Hermes DNS Platform" style="height: 34px; border-radius: 6px;">
             <span class="footer-brand-name">HERMES</span>
           </div>
-          <p data-i18n="footer_desc">Hermes 致力于为全球企业提供最高等级的私有权威 DNS 解析、301/302 重定向、短链代理网关、商业/免费 SSL 闭环、Rust SDK 防阻断逃生与
-            AI Agent 智能运维能力。</p>
+          <p data-i18n="footer_desc">Hermes 致力于为全球企业提供最高等级的私有权威 DNS 解析、301/302 重定向、短链代理网关、商业/免费 SSL 闭环、Rust SDK 防阻断逃生与 AI Agent 智能运维能力。</p>
         </div>
 
         <div class="footer-col">
@@ -1417,12 +1212,9 @@
         <div class="footer-col">
           <h4 data-i18n="footer_col_comm">商业购买 (USDT/USDC)</h4>
           <ul>
-            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="源码授权购买咨询 (特惠 10000 USDT)"
-                data-i18n="footer_link_buy_source">全套源码商业买断 (特惠 10,000 U)</a></li>
-            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="私有交付程序授权套装 (699 U起)"
-                data-i18n="footer_link_buy_deploy">程序商业授权部署 (699 U起)</a></li>
-            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="企业 7x12 维保支持 (1199 USDT/年)"
-                data-i18n="footer_link_buy_support">企业 7x12 专家维保 (UTC+2)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="源码授权购买咨询 (特惠 10000 USDT)" data-i18n="footer_link_buy_source">全套源码商业买断 (特惠 10,000 U)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="私有交付程序授权套装 (699 U起)" data-i18n="footer_link_buy_deploy">程序商业授权部署 (699 U起)</a></li>
+            <li><a href="#pricing" class="btn-trigger-inquiry" data-plan="企业 7x12 维保支持 (1199 USDT/年)" data-i18n="footer_link_buy_support">企业 7x12 专家维保 (UTC+2)</a></li>
             <li><a href="#pricing" data-i18n="footer_link_calc">方案成本动态计算器</a></li>
           </ul>
         </div>
@@ -1430,11 +1222,8 @@
         <div class="footer-col">
           <h4 data-i18n="footer_col_contact">商务与技术支持</h4>
           <ul>
-            <li><span class="footer-tg-label" data-i18n="footer_tg_label">Telegram 官方专线：</span> <a
-                href="https://t.me/hermes_dns_official" target="_blank" rel="noopener"
-                class="footer-tg-link">@hermes_dns_official</a></li>
-            <li class="footer-settlement-note" data-i18n="footer_settlement_note">结算政策：支持主流虚拟币 (USDT / USDC) 支付，不支持 TRON
-              网络。</li>
+            <li><span class="footer-tg-label" data-i18n="footer_tg_label">Telegram 官方专线：</span> <a href="https://t.me/hermes_dns_official" target="_blank" rel="noopener" class="footer-tg-link">@hermes_dns_official</a></li>
+            <li class="footer-settlement-note" data-i18n="footer_settlement_note">结算政策：支持主流虚拟币 (USDT / USDC) 支付，不支持 TRON 网络。</li>
           </ul>
         </div>
       </div>
@@ -1455,5 +1244,4 @@
   <script src="../assets/js/pricing.js"></script>
   <script src="../assets/js/main.js"></script>
 </body>
-
 </html>
